@@ -93,6 +93,35 @@
         </h2>
       </div>
     </div>
+
+    <!--FOOTER-->
     <footer class="footer">© 2022 Rustam Nikonchuk</footer>
+
+    <!--POPUP FORM-->
+    <div class="popup popup__visible">
+      <div class="popup__box">
+        <button
+          class="popup__toggle-image"
+          src="./image/close.svg"
+          aria-label="close"
+        ></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form class="popup__form" name="form" method="post" action="#">
+          <input
+            type="text"
+            class="popup__input popup__input_firstname"
+            name="firstname"
+            placeholder="Жак-Ив Кусто"
+          />
+          <input
+            type="text"
+            class="popup__input popup__input_profession"
+            name="profession"
+            placeholder="Исследователь океана"
+          />
+          <button type="submit" class="popup__submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

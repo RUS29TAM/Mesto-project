@@ -11,4 +11,6 @@
     "profile"
     "elements"
     "footer";
+  display: flex;
+  flex-direction: column;
 }

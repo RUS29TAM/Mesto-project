@@ -1,0 +1,11 @@
+.popup__toggle-image {
+  background-image: url(../../../image/close.svg);
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  width: 32px;
+  height: 32px;
+  border-style: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+}
