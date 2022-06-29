@@ -1,6 +1,7 @@
 /*STYLESHEET*/
 @import url(../Mesto/vendor/normalize.css);
 @import url(../blocks/page/page.css);
+@import url(../vendor/fonts.css);
 
 /*GRID - AREAS - HEADER*/
 @import url(../blocks/header/header.css);

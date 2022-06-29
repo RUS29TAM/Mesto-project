@@ -4,6 +4,6 @@
 
     /*border-radius: 50%;*/
     display: flex;
-    align-items: center;
-
+  flex-direction: column;
+  
 }
