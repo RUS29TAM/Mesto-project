@@ -17,7 +17,7 @@
 
 Одностраничный сайт о путешествии по России
 
-* [сылка на проект в GitHub Pages] (https://)
+* [сылка на проект в GitHub Pages](https://)
 
 Дизайн и разметка на основе:
 * [макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
