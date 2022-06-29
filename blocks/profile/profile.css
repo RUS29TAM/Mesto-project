@@ -1,6 +1,5 @@
 .profile {
   grid-area: profile;
-  background: lightcoral;
   /*padding: 40px auto 50px;*/
   width: 100%;
   max-width: 880px;
@@ -9,6 +8,7 @@
   align-items: center;
   justify-content:flex-start;
   position: relative;
-  border: dotted 1px white;
   margin: 40px auto 50px;
+  /*border: dotted 1px white;
+  background: lightcoral;*/
 }

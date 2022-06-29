@@ -1,15 +1,15 @@
 .footer {
-  background: rgb(34, 34, 34);
   /*padding: 66px 762px 60px 200px;*/
+  background: rgb(0, 0, 0);
   padding: 66px 0 60px;
   margin: 0 auto;
   max-width: 880px;
   width: 100%;
-  border: dotted 1px rgb(255, 255, 255);
   font-family: "Inter", "Arial", sans-serif;
   font-weight: normal;
   font-size: 18px;
   line-height: 1.22;
   color:#545454;
-  ;
+  /*border: dotted 1px rgb(255, 255, 255);*/
+  
 }
