@@ -1,12 +1,14 @@
 .profile {
   grid-area: profile;
   background: lightcoral;
-  padding: 40px auto 50px;
+  /*padding: 40px auto 50px;*/
   width: 100%;
   max-width: 880px;
-  margin: 0 auto;
+  max-height: 120px;
   display: flex;
   align-items: center;
   justify-content:flex-start;
-position: relative;
+  position: relative;
+  border: dotted 1px white;
+  margin: 40px auto 50px;
 }

@@ -1,0 +1,8 @@
+.elements__foto {
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    max-width: 282px;
+}
