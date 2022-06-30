@@ -15,5 +15,12 @@
     background-color: rgba(22, 22, 22, 0.5);
     position: absolute;
     position: fixed;
+    transition: 0.5s;
+    
+}
+
+.popup__visible:target {
+    opacity: 1;
+    visibility: visible;
     
 }

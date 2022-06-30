@@ -10,7 +10,7 @@
     <title>Mesto</title>
   </head>
   <body class="page">
-    <!--HEADER-->
+    <!--________________________________________________________________________________HEADER-->
     <header class="header">
       <img
         src="./image/logo__mesto.svg"
@@ -19,7 +19,7 @@
       />
     </header>
 
-    <!--PROFILE-->
+    <!--________________________________________________________________________________PROFILE-->
     <div class="profile">
       <div class="profile__info-avatar">
         <img
@@ -30,14 +30,17 @@
       </div>
       <div class="profile__info">
         <h1 class="profile__title">
-          Жак-Ив Кусто<button class="profile__edit-button"></button>
+          Жак-Ив Кусто
+          <a href="#popup">
+            <button type="button" class="profile__edit-button"></button
+          ></a>
         </h1>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
       <button class="profile__add-button"></button>
     </div>
 
-    <!--ELEMENTS-->
+    <!--________________________________________________________________________________ELEMENTS-->
     <div class="elements">
       <div class="elements__element">
         <img
@@ -57,7 +60,8 @@
           alt="Гора Эльбрус"
         />
         <h2 class="elements__title">
-          Гора Эльбрус <button class="elements__like elements__like_active"></button>
+          Гора Эльбрус
+          <button class="elements__like elements__like_active"></button>
         </h2>
       </div>
       <div class="elements__element">
@@ -73,7 +77,8 @@
           alt="Гора Эльбрус"
         />
         <h2 class="elements__title">
-          Гора Эльбрус <button class="elements__like elements__like_active"></button>
+          Гора Эльбрус
+          <button class="elements__like elements__like_active"></button>
         </h2>
       </div>
       <div class="elements__element">
@@ -95,19 +100,21 @@
       </div>
     </div>
 
-    <!--FOOTER-->
+    <!--________________________________________________________________________________FOOTER-->
     <footer class="footer">
       <p class="footer__copyright">© 2022 Rustam Nikonchuk</p>
     </footer>
 
-    <!--POPUP FORM-->
-    <div class="popup popup__visible">
+    <!--________________________________________________________________________________POPUP FORM-->
+    <div id="popup" class="popup popup__visible">
       <div class="popup__box">
-        <button
-          class="popup__toggle-image"
-          src="./image/close.svg"
-          aria-label="close"
-        ></button>
+        <a href="#">
+          <button
+            class="popup__toggle-image"
+            src="./image/close.svg"
+            aria-label="close"
+          ></button
+        ></a>
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="form" method="post" action="#">
           <input
@@ -128,3 +135,22 @@
     </div>
   </body>
 </html>
+<!-----------------------------------------------------------------
+
+
+    <div class="pop-up" id="pop-up">
+      <div class="pop-up__body">
+        <div class="pop-up__content">
+          <a href="#" class="pop-up__close">CLOSE</a>
+          <div class="pop-up__title">Модальное окно</div>
+          <div class="pop-up__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+            ab, laboriosam cupiditate nihil ratione eius neque harum quidem
+            tempora earum inventore nam? Quae, excepturi repellat? Repellat
+            nihil maxime eos deserunt.
+          </div>
+        </div>
+      </div>
+    </div>
+
+   --------------------------------------------------------------->
