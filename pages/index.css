@@ -38,10 +38,11 @@
 @import url(../blocks/popup/__submit/popup__submit.css);
 
 
-* {
+
+/* {
   outline: 1px dotted rgb(0, 255, 42);
   }
-*/
+
   .page {
     outline: 1px dotted rgb(0, 255, 42);
   }

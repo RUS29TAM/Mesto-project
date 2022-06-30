@@ -1,10 +1,44 @@
 .elements__like {
-  width: 5px;
   background: url(../../../image/like.svg);
   background-repeat: no-repeat;
   background-position: center;
   width: 22px;
   border-style: none;
-  background-color: white;
+  /*background-color: white;*/
   box-sizing: border-box;
+  border: none;
+  outline: none;
 }
+
+.elements__like:hover {
+  opacity: 0.5;
+  
+}
+
+.elements__like:active {
+  background: rgb(0, 0, 0);
+  background: url(../../../image/like-black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 22px;
+  border-style: none;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  opacity: 1;
+}
+
+/*
+.elements__like:focus {
+  background: rgb(0, 0, 0);
+  background: url(../../../image/like-black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 22px;
+  border-style: none;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  opacity: 1;
+}
+
