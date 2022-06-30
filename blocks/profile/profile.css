@@ -1,14 +1,17 @@
 .profile {
   grid-area: profile;
-  /*padding: 40px auto 50px;*/
-  width: 100%;
-  max-width: 880px;
-  max-height: 120px;
+  padding: 0;
+  max-width: 100%;
+  width: 880px;
+  /*max-height: 120px;*/
   display: flex;
   align-items: center;
   justify-content:flex-start;
   position: relative;
-  margin: 40px auto 50px;
   /*border: dotted 1px white;
   background: lightcoral;*/
+  /*padding: 45px 0 40px;*/
+  padding: 40px 0 50px;
+  margin: 45px auto 0;
+  
 }

@@ -3,13 +3,11 @@
   background: rgb(0, 0, 0);
   padding: 66px 0 60px;
   margin: 0 auto;
-  max-width: 880px;
-  width: 100%;
-  font-family: "Inter", "Arial", sans-serif;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 1.22;
-  color:#545454;
-  /*border: dotted 1px rgb(255, 255, 255);*/
+  /*max-width: 880px;*/
+  max-width: 100%;
+  width: 880px;
+  display: flex;
+  justify-content:space-between;
+  
   
 }

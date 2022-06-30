@@ -6,5 +6,9 @@
     color: black;
     border-radius: 10px;
     /*border: dotted 1px springgreen;*/
+   max-width: 100%;
+   max-width: 300px;
+
+
     
 }

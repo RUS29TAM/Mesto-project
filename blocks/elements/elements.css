@@ -1,20 +1,35 @@
 .elements {
     grid-area:elements;
-    width: 100%;
-    max-width: 880px;
+    max-width: 100%;
+    /*max-width: 880px;*/
     /*max-height: 744px;*/
     margin: 0 auto 66px;
     display: grid;
     grid-template-columns: repeat(3, 282px);
+    /*grid-template-columns: repeat(3, 1fr);*/
     grid-template-rows: repeat(2);
-    /*grid-auto-flow: column;*/
     gap: 20px 17px;
-    /*display: flex;
-    background: rgb(58, 57, 57);
-    align-items:center;
-    justify-content:space-between;
+    justify-content: center;
+    /*grid-auto-flow: column;*/
     position: relative;
-    border: dotted 1px rgb(102, 126, 15);
-    */
+
+    padding: 45px 0 40px;
+    margin: 45px 0 0;
+    justify-items: center;
+    
+}
+
+@media screen and (max-width: 918px) {
+    .elements {
+        grid-template-columns: repeat(2, minmax(min-content, max-content));
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .elements {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
 }

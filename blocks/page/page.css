@@ -1,6 +1,6 @@
 .page {
   position: relative;
-  width: 100%;
+  max-width: 100%;
   background: black;
   color: white;
   display: grid;
@@ -13,4 +13,7 @@
     "footer";
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center
+  /*max-width: 1280px;*/
 }
