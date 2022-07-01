@@ -9,3 +9,13 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
 }
+
+@media screen and (max-width: 767px) {
+  .popup__toggle-image {
+    background-image: url(../../../image/clise-s.svg);
+    width: 20px;
+    height: 20px;
+    top: -30px;
+    right: 0;
+  }
+}

@@ -1,8 +1,4 @@
 .elements__title {
-  display: flex;
-  justify-content: space-around;
-  max-width: 246px;
-  width: 100%;
   font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -10,4 +6,6 @@
   line-height: 29px;
   overflow: hidden;
   white-space: nowrap;
+  margin: 0;
+  padding: 0;
 }
