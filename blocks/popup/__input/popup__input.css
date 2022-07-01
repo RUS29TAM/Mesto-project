@@ -1,6 +1,7 @@
 .popup__input {
   border-style: none;
   border: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: 1px solid #bcbcc4;
   background-color: transparent;
@@ -24,6 +25,5 @@
     margin-left: 22px;
     margin-right: 22px;
     max-width: 238px;
-
   }
 }

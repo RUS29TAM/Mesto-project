@@ -37,28 +37,3 @@
 @import url(../blocks/popup/__toggle-image/popup__toggle-image.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__submit/popup__submit.css);
-
-
-/* {
-  outline: 1px dotted rgb(0, 255, 42);
-  }
-
-  .page {
-    outline: 1px dotted rgb(0, 255, 42);
-  }
-
-  .profile {
-    outline: 1px dotted rgb(219, 0, 248);
-  }
-
-.footer {
-    outline: 1px dotted rgb(219, 0, 248);
-  }
-
-  .header {
-    outline: 1px dotted rgb(219, 0, 248);
-  }
-
-  .elements {
-    outline: 1px dotted rgb(219, 0, 248);
-  }

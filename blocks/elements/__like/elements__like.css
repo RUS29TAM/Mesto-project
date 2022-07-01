@@ -4,18 +4,15 @@
   background-position: center;
   width: 22px;
   border-style: none;
-  /*background-color: white;*/
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border: none;
   outline: none;
-  background-size:contain;
-  
-
+  background-size: contain;
 }
 
 .elements__like:hover {
   opacity: 0.5;
-  
 }
 
 .elements__like:active {
@@ -25,6 +22,7 @@
   background-position: center;
   width: 22px;
   border-style: none;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border: none;
   outline: none;
@@ -44,4 +42,4 @@
   outline: none;
   opacity: 1;
 }
-
+*/
