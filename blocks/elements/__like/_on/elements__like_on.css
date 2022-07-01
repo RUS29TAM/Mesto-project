@@ -1,0 +1,16 @@
+.elements__like_on {
+  background: rgb(0, 0, 0);
+  background: url(../../../image/like-black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 22px;
+  border-style: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  opacity: 1;
+}
+
+/*к сожалению я не понял как оставить кнопку в состоянии вкл и применить 
+к ней другой стиль с помощью модификатора */

@@ -15,6 +15,7 @@
   opacity: 0.5;
 }
 
+/*другого способа не нашел кроме как псевдоклассом анимировать кнопку, модификатором не получилось*/
 .elements__like:active {
   background: rgb(0, 0, 0);
   background: url(../../../image/like-black.svg);
@@ -29,7 +30,7 @@
   opacity: 1;
 }
 
-/*
+
 .elements__like:focus {
   background: rgb(0, 0, 0);
   background: url(../../../image/like-black.svg);
@@ -42,4 +43,3 @@
   outline: none;
   opacity: 1;
 }
-*/
