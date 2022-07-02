@@ -14,7 +14,7 @@
   justify-content: flex-start;
   position: relative;
   padding: 40px 0 50px;
-  margin: 45px auto 0;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 767px) {
