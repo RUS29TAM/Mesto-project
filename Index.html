@@ -23,19 +23,23 @@
     <div class="profile">
       <div class="profile__info-avatar">
         <img
-          src="./image/Жак-Ив-Кусто.png"
+          src="./image/dsli.jpg"
           class="profile__info-avatar"
           alt="профиль пользователя - аватар Жак-Ив Кусто"
         />
       </div>
       <div class="profile__info">
         <h1 class="profile__title">
-          Жак-Ив Кусто
-          <a href="#popup">
-            <button type="button" class="profile__edit-button"></button
-          ></a>
+          Там-Дали в Кусто
+          <button type="button" class="profile__edit-button">
+            <!--<a href="#popup" class="edit__link"></a> 
+              пробовал обернуть кнопку в ссылку - не пропустил валидатор,
+              пробовал задать стили ссылке как у кнопки - ссылка перекрыла кнопку и 
+              она переестала быть кликабельной. Не могу найти решение в CSS, а JS еще не изучал. 
+            -->
+          </button>
         </h1>
-        <p class="profile__subtitle">Исследователь океана</p>
+        <p class="profile__subtitle">Следователь в океане</p>
       </div>
       <button class="profile__add-button"></button>
     </div>
@@ -43,7 +47,7 @@
     <!--ELEMENTS-->
     <div class="elements">
       <div class="elements__element">
-        <img src="./image/a1 (1).jpg" class="elements__foto" alt="Собака" />
+        <img src="./image/Собака.jpg" class="elements__foto" alt="Собака" />
         <div class="element__info">
           <h2 class="elements__title">Собакен</h2>
           <div class="elements__like">
@@ -53,7 +57,11 @@
       </div>
 
       <div class="elements__element">
-        <img src="./image/a1 (2).jpg" class="elements__foto" alt="Кодинг" />
+        <img
+          src="./image/Программист.jpg"
+          class="elements__foto"
+          alt="Кодинг"
+        />
         <div class="element__info">
           <h2 class="elements__title">Человекен</h2>
           <div class="elements__like">
@@ -63,7 +71,11 @@
       </div>
 
       <div class="elements__element">
-        <img src="./image/a1 (3).jpg" class="elements__foto" alt="Мобильный телефон" />
+        <img
+          src="./image/Телефон.jpg"
+          class="elements__foto"
+          alt="Мобильный телефон"
+        />
         <div class="element__info">
           <h2 class="elements__title">Мобилька</h2>
           <div class="elements__like">
@@ -73,7 +85,7 @@
       </div>
 
       <div class="elements__element">
-        <img src="./image/a1 (4).jpg" class="elements__foto" alt="Попугай" />
+        <img src="./image/Попугай.jpg" class="elements__foto" alt="Попугай" />
         <div class="element__info">
           <h2 class="elements__title">Аррра</h2>
           <div class="elements__like">
@@ -83,7 +95,11 @@
       </div>
 
       <div class="elements__element">
-        <img src="./image/a1 (5).jpg" class="elements__foto" alt="Беспилотники Яндекс" />
+        <img
+          src="./image/яндекс-б-п.jpg"
+          class="elements__foto"
+          alt="Беспилотники Яндекс"
+        />
         <div class="element__info">
           <h2 class="elements__title">Яндекс беспилотники</h2>
           <div class="elements__like">
@@ -93,7 +109,11 @@
       </div>
 
       <div class="elements__element">
-        <img src="./image/a1 (6).jpg" class="elements__foto" alt="Собака пьет воду из третрапак" />
+        <img
+          src="./image/хаски.jpg"
+          class="elements__foto"
+          alt="Собака пьет воду из третрапак"
+        />
         <div class="element__info">
           <h2 class="elements__title">LFCSFS:FVCS:NCSN:VCENsv;rb</h2>
           <div class="elements__like">
@@ -101,7 +121,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <!--FOOTER-->
@@ -110,17 +129,22 @@
     </footer>
 
     <!--POPUP FORM-->
-    <div id="popup" class="popup popup__visible">
+    <section class="popup popup__visible">
       <div class="popup__box">
-        <a href="#">
+        <a href="#"></a>
           <button
+            type="button"
             class="popup__toggle-image"
-            src="./image/close.svg"
             aria-label="close"
           ></button
-        ></a>
+        >
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" name="form" method="post" action="#">
+        <form
+          class="popup__form"
+          name="popup__form-edit"
+          method="post"
+          action="#"
+        >
           <input
             type="text"
             class="popup__input popup__input_firstname"
@@ -136,7 +160,6 @@
           <button type="submit" class="popup__submit">Сохранить</button>
         </form>
       </div>
-    </div>
+    </section>
   </body>
 </html>
-
