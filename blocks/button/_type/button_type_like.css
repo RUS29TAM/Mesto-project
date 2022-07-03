@@ -1,0 +1,26 @@
+.button_type_like {
+    background-image: url(../../../image/like.svg);
+    border: none;
+    width: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    border-style: none;
+
+}
+
+.button_type_like:active {
+    background-image: url(../../../image/like-black.svg);
+
+}
+
+.button_type_like:focus {
+    background-image: url(../../../image/like-black.svg);
+
+}
+
+.button_type_like:hover {
+    opacity: .5;
+}

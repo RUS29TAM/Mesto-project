@@ -1,18 +1,16 @@
-.popup__toggle-image {
+.button_type_close {
   background-image: url(../../../image/close.svg);
   position: absolute;
   top: -35px;
   right: -35px;
   width: 32px;
   height: 32px;
-  border-style: none;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }
 
 @media screen and (max-width: 767px) {
-  .popup__toggle-image {
-    background-image: url(../../../image/clise-s.svg);
+  .button_type_close {
+    background-image: url(../../../image/close-s.svg);
     width: 20px;
     height: 20px;
     top: -30px;
