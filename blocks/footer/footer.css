@@ -14,12 +14,12 @@
 
 @media screen and (max-width: 767px) {
   .footer {
-    width: 320px;
+    width: 580px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 320px) {
   .footer {
-    width: 581px;
+    width: 320px;
   }
 }

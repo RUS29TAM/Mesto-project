@@ -1,19 +1,27 @@
 .button_type_edit {
-    width: 24px;
-    height: 24px;
-    background-image: url(../../../image/edit_vector.svg);
-    border-radius: 2px;
+  border: 1px solid rgb(255, 255, 255);
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../image/edit_vector.svg);
+  border-radius: 2px;
 }
 
-@media screen and (max-width: 700px) {
-    .button_type_edit {
-        width: 18px;
-        height: 18px;
-    }
+@media screen and (max-width: 767px) {
+  .button_type_edit {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 @media screen and (max-width: 620px) {
-    .button_type_edit {
-        align-self: center;
-    }
+  .button_type_edit {
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+  }
+}
+
+.button_type_edit:hover {
+  transition: opacity 0.3s linear;
+  opacity: 0.6;
 }
