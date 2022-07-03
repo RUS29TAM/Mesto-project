@@ -14,3 +14,10 @@
   border-radius: 10px;
   gap: 25px;
 }
+
+@media screen and (max-width: 767px) {
+  .elements__element {
+    width: 282px;
+    height: 361px;
+  }
+}

@@ -1,7 +1,7 @@
 /*STYLESHEET*/
-@import url(../Mesto/vendor/normalize.css);
-@import url(../blocks/page/page.css);
+@import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
+@import url(../blocks/page/page.css);
 
 /*GRID - AREAS - HEADER*/
 @import url(../blocks/header/header.css);
@@ -15,7 +15,6 @@
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
-@import url(../blocks/profile/__link/edit__link.css);
 
 /*GRID - AREAS - ELEMENTS*/
 @import url(../blocks/elements/elements.css);
