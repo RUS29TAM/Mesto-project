@@ -1,7 +1,6 @@
 .elements {
   grid-area: elements;
   max-width: 100%;
-  margin: 0 auto;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 282px 17px 282px 17px 282px;

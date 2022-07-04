@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 767px) {
   .profile__info {
-    gap: 10px;
+    column-gap: 10px;
     padding-top: 26px;
     overflow: hidden;
     width: 242px;
