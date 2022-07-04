@@ -4,6 +4,7 @@
   height: 24px;
   background-image: url(../../../image/edit_vector.svg);
   border-radius: 2px;
+  background-position: center ;
 }
 
 @media screen and (max-width: 767px) {
