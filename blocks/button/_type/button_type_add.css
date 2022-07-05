@@ -7,7 +7,7 @@
   border-style: none;
   border: 2px solid rgb(255, 255, 255);
   color: rgb(255, 255, 255);
-  background-image: url(../../../image/add_vector.svg);
+  background-image: url(../../../images/add_vector.svg);
   background-repeat: no-repeat;
   background-position: center;
   padding: 0;
@@ -27,6 +27,6 @@
     position: relative;
     margin-top: 30px;
     width: 282px;
-    background-image: url(../../../image/add_vector_s.svg);
+    background-image: url(../../../images/add_vector_s.svg);
   }
 }

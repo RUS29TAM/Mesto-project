@@ -1,5 +1,5 @@
 .button_type_like {
-  background-image: url(../../../image/like.svg);
+  background-image: url(../../../images/like.svg);
   border: none;
   width: 24px;
   background-repeat: no-repeat;
@@ -9,11 +9,11 @@
 }
 
 .button_type_like:active {
-  background-image: url(../../../image/like-black.svg);
+  background-image: url(../../../images/like-black.svg);
 }
 
 .button_type_like:focus {
-  background-image: url(../../../image/like-black.svg);
+  background-image: url(../../../images/like-black.svg);
 }
 
 .button_type_like:hover {
