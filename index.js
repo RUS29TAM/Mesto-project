@@ -2,8 +2,7 @@
 const page = document.querySelector(".page");
 
 // Переменные - POPUP
-const popup = document.querySelector(".popup");
-/*const popupBox = document.querySelector(".popup__box");*/
+const popupEditProfile = document.querySelector(".popup_edit-profile");
 
 // Переменные - FORM PROFILE-EDIT
 const form = document.querySelector("form");
@@ -29,9 +28,6 @@ const profilSubtitleProfession = document.querySelector(
   ".profile__subtitle-profession"
 );
 
-// Переменные - BUTTON ADD PROFILE
-const buttonTypeAdd = document.querySelector(".button_type_add");
-
 //-----------------------------------------------------------------------------FUNCTIONS
 //Получить и вернуть
 function getProfile() {
@@ -53,31 +49,30 @@ function openEditForm() {
   formInputTypeFirstname.setAttribute("value", userProfile.firstname);
   formInputTypeProfession.value = userProfile.profession;
 
-  popup.classList.add("popup_opened");
+  popupEditProfile.classList.add("popup_opened");
 }
 
 //Сохранить данные формы
-function saveProfile (evt) {
+function saveProfile(evt) {
   evt.preventDefault();
 
   let userProfile = {
-  firstname: formInputTypeFirstname.value,
-  profession: formInputTypeProfession.value,
+    firstname: formInputTypeFirstname.value,
+    profession: formInputTypeProfession.value,
   };
 
-setProfile(userProfile);
-closeEditForm();
+  setProfile(userProfile);
+  closeEditForm();
 }
 
 //Закрыть форму
 function closeEditForm() {
-  popup.classList.remove("popup_opened");
+  popupEditProfile.classList.remove("popup_opened");
 }
 
 //-----------------------------------------------------------------------------Обработчики
 buttonTypeEdit.addEventListener("click", openEditForm);
 buttonTypeClose.addEventListener("click", closeEditForm);
-buttonTypeSave.addEventListener('click', saveProfile);
-
+buttonTypeSave.addEventListener("click", saveProfile);
 
 //console.log();

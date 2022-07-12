@@ -1,7 +1,21 @@
+//  Переменные - BUTTON PROFILE-ADD
+const buttonTypeAdd = document.querySelector(".button_type_add");
+const buttonTypeSubmit = document.querySelector(".button_type_submit");
+
+//-----------------------------------------------------------------------------Слушатели события - закрытие popup
+function closePopup(event) {
+  const popup = event.target.closest(".popup");
+  popup && popup.classList.remove("popup_opened");
+}
+
+buttonTypeClose = document.querySelectorAll(".button_type_close");
+buttonTypeClose.forEach((buttonTypeClose) =>
+  buttonTypeClose.addEventListener("click", closePopup)
+);
+
 //-----------------------------------------------------------------------------ПЕРЕМЕННЫЕ
 // Переменные - POPUP
 const popupAddElements = document.querySelector(".popup_add-elements");
-/*const popupBox = document.querySelector(".popup__box");*/
 
 // Переменные - FORM PROFILE-ADD
 const formAddElements = document.querySelector("form_add-elements");
@@ -9,10 +23,6 @@ const formInputTypeTown = document.querySelector(".form__input_type_town");
 const formInputTypeTownLink = document.querySelector(
   ".form__input_type_town-link"
 );
-//  Переменные - BUTTON PROFILE-ADD
-const buttonTypeAdd = document.querySelector(".button_type_add");
-const buttonTypeClose = document.querySelector(".button_type_close");
-const buttonTypeSubmit = document.querySelector(".button_type_submit");
 
 // Переменные - ELEMENTS (TOWN)
 const elementsFoto = document.querySelector(".elements__foto");
@@ -47,12 +57,9 @@ function AddElements(evt) {
   closeAddForm();
 }
 
-//Закрыть форму
-function closeAddForm() {
-  popupAddElements.classList.remove("popup_opened");
-}
-
 //-----------------------------------------------------------------------------Обработчики
 buttonTypeAdd.addEventListener("click", openAddForm);
 buttonTypeClose.addEventListener("click", closeAddForm);
 buttonTypeSubmit.addEventListener("click", AddElements);
+
+//console.log()
