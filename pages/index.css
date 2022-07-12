@@ -11,14 +11,15 @@
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__info-avatar/profile__info-avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__title/profile__title.css);
-@import url(../blocks/profile/__subtitle/profile__subtitle.css);
+@import url(../blocks/profile/__title-firstname/profile__title-firstname.css);
+@import url(../blocks/profile/__subtitle-profession/profile__subtitle-profession.css);
 
 /*BUTTON*/
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_type/button_type_edit.css);
 @import url(../blocks/button/_type/button_type_add.css);
 @import url(../blocks/button/_type/button_type_save.css);
+@import url(../blocks/button/_type/button_type_submit.css);
 @import url(../blocks/button/_type/button_type_close.css);
 @import url(../blocks/button/_type/button_type_like.css);
 @import url(../blocks/button/_like/button_like_on.css);

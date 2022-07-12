@@ -1,9 +1,7 @@
 //-----------------------------------------------------------------------------ПЕРЕМЕННЫЕ
-const page = document.querySelector(".page");
-
 // Переменные - POPUP
 const popup = document.querySelector(".popup");
-/*const popupBox = document.querySelector(".popup__box");*/
+const popupBox = document.querySelector(".popup__box");
 
 // Переменные - FORM PROFILE-EDIT
 const form = document.querySelector("form");
@@ -19,8 +17,8 @@ const buttonTypeClose = document.querySelector(".button_type_close");
 const buttonTypeSave = document.querySelector(".button_type_save");
 
 // Переменные - FORM PROFILE
-/*const profile = document.querySelector(".profile");*/
-/*const profileInfoAvatar = document.querySelector(".profile__info-avatar");*/
+const profile = document.querySelector(".profile");
+const profileInfoAvatar = document.querySelector(".profile__info-avatar");
 const profileInfo = document.querySelector(".profile__info");
 const profilTitleFirstname = document.querySelector(
   ".profile__title-firstname"
@@ -28,9 +26,6 @@ const profilTitleFirstname = document.querySelector(
 const profilSubtitleProfession = document.querySelector(
   ".profile__subtitle-profession"
 );
-
-// Переменные - BUTTON ADD PROFILE
-const buttonTypeAdd = document.querySelector(".button_type_add");
 
 //-----------------------------------------------------------------------------FUNCTIONS
 //Получить и вернуть
@@ -78,6 +73,3 @@ function closeEditForm() {
 buttonTypeEdit.addEventListener("click", openEditForm);
 buttonTypeClose.addEventListener("click", closeEditForm);
 buttonTypeSave.addEventListener('click', saveProfile);
-
-
-//console.log();
