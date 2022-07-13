@@ -1,0 +1,27 @@
+.popup_overview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    /*position: relative;*/
+    
+    
+  }
+  
+  @media screen and (max-width: 767px) {
+    .popup_overview {
+      padding: 25px;
+      width: 282px;
+      right: 8px;
+    }
+  }
+  

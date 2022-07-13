@@ -1,78 +1,104 @@
-//-----------------------------------------------------------------------------ПЕРЕМЕННЫЕ
-const page = document.querySelector(".page");
-
-// Переменные - POPUP
+//-----------------------------------------------------------------------------VARIABLES FOR POPUP PROFILE-EDIT
 const popupEditProfile = document.querySelector(".popup_edit-profile");
-
-// Переменные - FORM PROFILE-EDIT
 const form = document.querySelector("form");
-const formInputTypeFirstname = document.querySelector(
-  ".form__input_type_firstname"
-);
-const formInputTypeProfession = document.querySelector(
-  ".form__input_type_profession"
-);
-//  Переменные - BUTTON PROFILE-EDIT
-const buttonTypeEdit = document.querySelector(".button_type_edit");
-const buttonTypeClose = document.querySelector(".button_type_close");
-const buttonTypeSave = document.querySelector(".button_type_save");
-
-// Переменные - FORM PROFILE
-/*const profile = document.querySelector(".profile");*/
-/*const profileInfoAvatar = document.querySelector(".profile__info-avatar");*/
+const formInputTypeFirstname = document.querySelector(".form__input_type_firstname");
+const formInputTypeProfession = document.querySelector(".form__input_type_profession");
 const profileInfo = document.querySelector(".profile__info");
-const profilTitleFirstname = document.querySelector(
-  ".profile__title-firstname"
-);
-const profilSubtitleProfession = document.querySelector(
-  ".profile__subtitle-profession"
-);
-
-//-----------------------------------------------------------------------------FUNCTIONS
-//Получить и вернуть
+const profilTitleFirstname = document.querySelector(".profile__title-firstname");
+const profilSubtitleProfession = document.querySelector(".profile__subtitle-profession");
+const buttonTypeEdit = document.querySelector(".button_type_edit");
+const buttonTypeSave = document.querySelector(".button_type_save");
+//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP PROFILE-EDIT
 function getProfile() {
-  return {
-    firstname: profilTitleFirstname.textContent,
-    profession: profilSubtitleProfession.textContent,
-  };
-}
-//Ввод
+    return {
+      firstname: profilTitleFirstname.textContent,
+      profession: profilSubtitleProfession.textContent,
+    };
+  }
+
 function setProfile(userProfile) {
-  profilTitleFirstname.textContent = userProfile.firstname;
-  profilSubtitleProfession.textContent = userProfile.profession;
-}
+    profilTitleFirstname.textContent = userProfile.firstname;
+    profilSubtitleProfession.textContent = userProfile.profession;
+  }
 
-//Открыть форму
 function openEditForm() {
-  let userProfile = getProfile();
+    let userProfile = getProfile();
+    formInputTypeFirstname.setAttribute("value", userProfile.firstname);
+    formInputTypeProfession.value = userProfile.profession;
+    popupEditProfile.classList.add("popup_opened");
+  }
 
-  formInputTypeFirstname.setAttribute("value", userProfile.firstname);
-  formInputTypeProfession.value = userProfile.profession;
-
-  popupEditProfile.classList.add("popup_opened");
-}
-
-//Сохранить данные формы
 function saveProfile(evt) {
-  evt.preventDefault();
+    evt.preventDefault();
+      let userProfile = {
+      firstname: formInputTypeFirstname.value,
+      profession: formInputTypeProfession.value,
+    };
+    setProfile(userProfile);
+    closeEditForm();
+  }
 
-  let userProfile = {
-    firstname: formInputTypeFirstname.value,
-    profession: formInputTypeProfession.value,
-  };
-
-  setProfile(userProfile);
-  closeEditForm();
-}
-
-//Закрыть форму
 function closeEditForm() {
-  popupEditProfile.classList.remove("popup_opened");
+    popupEditProfile.classList.remove("popup_opened");
+  }
+//-----------------------------------------------------------------------------LISTENER FOR POPUP PROFILE-EDIT
+buttonTypeEdit.addEventListener("click", openEditForm);
+buttonTypeSave.addEventListener("click", saveProfile);
+//-----------------------------------------------------------------------------LISTENER BUTTON CLOSE IN ALL POPUP
+function closePopup(event) {
+    const popup = event.target.closest(".popup");
+    popup && popup.classList.remove("popup_opened");
+  }
+  
+  buttonTypeClose = document.querySelectorAll(".button_type_close");
+  buttonTypeClose.forEach((buttonTypeClose) =>
+    buttonTypeClose.addEventListener("click", closePopup)
+  );
+  
+//-----------------------------------------------------------------------------VARIABLES FOR POPUP ADD 
+const popupAddElements = document.querySelector(".popup_add-elements");
+const formAddElements = document.querySelector(".form_add-elements");
+const formInputTypeTown = document.querySelector(".form__input_type_town");
+const formInputTypeTownLink = document.querySelector(".form__input_type_town-link");
+const elementsFoto = document.querySelector(".elements__foto");
+const elementsTitle = document.querySelector(".elements__title");
+const buttonTypeAdd = document.querySelector('.button_type_add');
+const buttonTypeSubmit = document.querySelector(".button_type_submit");
+//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP ADD 
+function openAddForm() {
+    popupAddElements.classList.add("popup_opened");
+  }
+
+function setElements(elementsInfo) {
+    elementsFoto.textContent = elementsInfo.town;
+    elementsTitle.textContent = elementsInfo.townLink;
+  }
+
+function AddElements(evt) {
+    evt.preventDefault();
+  
+    let elementsInfo = {
+      town: formInputTypeTown.value,
+      townLink: formInputTypeTownLink.value,
+    };
+  
+    formInputTypeTown.value = "";
+    formInputTypeTownLink.value = "";
+  
+    setElements(elementsInfo);
+    popupAddElements.classList.remove("popup_opened");
+  }
+//-----------------------------------------------------------------------------LISTENER FOR POPUP ADD 
+buttonTypeAdd.addEventListener("click", openAddForm);
+buttonTypeSubmit.addEventListener("click", AddElements);
+//-----------------------------------------------------------------------------VARIABLES FOR POPUP OVERVIEW 
+const popupOverview = document.querySelector(".popup_overview");
+const overviewCaption = document.querySelector(".overview__caption");
+
+//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP OVERVIEW
+function popupOverviewOpened() {
+  popupOverview.classList.add("popup_opened");
 }
 
-//-----------------------------------------------------------------------------Обработчики
-buttonTypeEdit.addEventListener("click", openEditForm);
-buttonTypeClose.addEventListener("click", closeEditForm);
-buttonTypeSave.addEventListener("click", saveProfile);
+elementsFoto.addEventListener("click", popupOverviewOpened);
 
-//console.log();

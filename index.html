@@ -29,8 +29,7 @@
       </div>
       <div class="profile__info">
         <h1 class="profile__title-firstname">Там-вДали&nbsp;Кусто</h1>
-        <button type="button" class="button button_type_edit">
-        </button>
+        <button type="button" class="button button_type_edit"></button>
         <p class="profile__subtitle-profession">Cледователь в океане</p>
       </div>
       <button type="button" class="button button_type_add"></button>
@@ -40,44 +39,50 @@
     <section class="elements">
       <div class="elements__element">
         <img src="./images/dog.jpg" class="elements__foto" alt="Собака" />
+        <button
+          type="button"
+          class="button button_type_delete-element"
+        ></button>
         <div class="element__info">
-          <h2 class="elements__title">
-            Собакен
-          </h2>
+          <h2 class="elements__title">Собакен</h2>
+          <button type="button" class="button button_type_like"></button>
+        </div>
+      </div>
+
+      <div class="elements__element">
+        <img src="./images/coder.jpg" class="elements__foto" alt="Кодинг" />
+        <button
+          type="button"
+          class="button button_type_delete-element"
+        ></button>
+        <div class="element__info">
+          <h2 class="elements__title">Человекен</h2>
           <button type="button" class="button button_type_like"></button>
         </div>
       </div>
 
       <div class="elements__element">
         <img
-          src="./images/coder.jpg"
           class="elements__foto"
-          alt="Кодинг"
-        />
-        <div class="element__info">
-          <h2 class="elements__title">
-            Человекен
-          </h2>
-          <button type="button" class="button button_type_like"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img
-        class="elements__foto"
-        src="./images/fone.jpg"
+          src="./images/fone.jpg"
           alt="Мобильный телефон"
         />
+        <button
+          type="button"
+          class="button button_type_delete-element"
+        ></button>
         <div class="element__info">
-          <h2 class="elements__title">
-            Мобилька
-          </h2>
+          <h2 class="elements__title">Мобилька</h2>
           <button type="button" class="button button_type_like"></button>
         </div>
       </div>
 
       <div class="elements__element">
         <img src="./images/bird.jpg" class="elements__foto" alt="Попугай" />
+        <button
+          type="button"
+          class="button button_type_delete-element"
+        ></button>
         <div class="element__info">
           <h2 class="elements__title">Аррра попугай</h2>
           <button type="button" class="button button_type_like"></button>
@@ -90,10 +95,12 @@
           class="elements__foto"
           alt="Беспилотники Яндекс"
         />
+        <button
+          type="button"
+          class="button button_type_delete-element"
+        ></button>
         <div class="element__info">
-          <h2 class="elements__title">
-            Яндекс беспилотники
-          </h2>
+          <h2 class="elements__title">Яндекс беспилотники</h2>
           <button type="button" class="button button_type_like"></button>
         </div>
       </div>
@@ -104,11 +111,13 @@
           class="elements__foto"
           alt="Собака пьет воду из третрапак"
         />
+        <button
+          type="button"
+          class="button button_type_delete-element"
+        ></button>
 
         <div class="element__info">
-          <h2 class="elements__title">
-            LFCSFS:FVCS:NCSN:VCENsv;rb
-          </h2>
+          <h2 class="elements__title">LFCSFS:FVCS:NCSN:VCENsv;rb</h2>
           <button type="button" class="button button_type_like"></button>
         </div>
       </div>
@@ -120,64 +129,83 @@
     </footer>
 
     <!--POPUP EDIT FORM-->
-<div class="popup popup_edit-profile">
-  <div class="popup__box">
-    <form class="form" name="author">
-      <h3 class="form__title">Редактировать профиль</h3>
-      <input
-        type="text"
-        class="form__input form__input_type_firstname"
-        name="firstname"
-        placeholder="Там-вДали Кусто"
-      />
-      <input
-        type="text"
-        class="form__input form__input_type_profession"
-        name="profession"
-        placeholder="Cледователь в океане"
-      />
-      <button
-        type="button"
-        class="button button_type_close"
-        aria-label="закрыть"
-      ></button>
-      <button type="submit" class="button button_type_save" aria-label="сохранить">
-        Сохранить
-      </button>
-    </form>
-  </div>
-</div>
+    <div class="popup popup_edit-profile">
+      <div class="popup__box">
+        <form class="form" name="author">
+          <h3 class="form__title">Редактировать профиль</h3>
+          <input
+            type="text"
+            class="form__input form__input_type_firstname"
+            name="firstname"
+            placeholder="Там-вДали Кусто"
+          />
+          <input
+            type="text"
+            class="form__input form__input_type_profession"
+            name="profession"
+            placeholder="Cледователь в океане"
+          />
+          <button
+            type="button"
+            class="button button_type_close"
+            aria-label="закрыть"
+          ></button>
+          <button
+            type="submit"
+            class="button button_type_save"
+            aria-label="сохранить"
+          >
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
 
     <!--POPUP ADD TOWN-->
-<div class="popup popup_add-elements">
-  <div class="popup__box">
-    <form class="form form_add-elements" name="town">
-      <h3 class="form__title">Новое место</h3>
-      <input
-        type="text"
-        class="form__input form__input_type_town"
-        name="town"
-        placeholder="Название"
-      />
-      <input
-        type="text"
-        class="form__input form__input_type_town-link"
-        name="town-link"
-        placeholder="Ссылка на картинку"
-      />
-      <button
-        type="button"
-        class="button button_type_close"
-        aria-label="закрыть"
-      ></button>
-      <button type="submit" class="button button_type_submit" aria-label="сохранить">
-        Сохранить
-      </button>
-    </form>
-  </div>
-</div>
-<script src="./popup-add.js"></script>
+    <div class="popup popup_add-elements">
+      <div class="popup__box">
+        <form class="form form_add-elements" name="town">
+          <h3 class="form__title">Новое место</h3>
+          <input
+            type="text"
+            class="form__input form__input_type_town"
+            name="town"
+            placeholder="Название"
+          />
+          <input
+            type="text"
+            class="form__input form__input_type_town-link"
+            name="town-link"
+            placeholder="Ссылка на картинку"
+          />
+          <button
+            type="button"
+            class="button button_type_close"
+            aria-label="закрыть"
+          ></button>
+          <button
+            type="submit"
+            class="button button_type_submit"
+            aria-label="сохранить"
+          >
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--POPUP OVERVIEW-->
+    <div class="popup popup_overview">
+      <section class="overview__image">
+        <img class="overview__image" src="./images/dog.jpg" alt="собакен">
+        <h2 class="overview__caption">Собакен</h2>
+          <button
+            type="button"
+            class="button button_type_close"
+            aria-label="закрыть"
+          ></button>
+      </section>
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>
-
-
