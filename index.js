@@ -8,8 +8,44 @@ const profilTitleFirstname = document.querySelector(".profile__title-firstname")
 const profilSubtitleProfession = document.querySelector(".profile__subtitle-profession");
 const buttonTypeEdit = document.querySelector(".button_type_edit");
 const buttonTypeSave = document.querySelector(".button_type_save");
+const formInput = document.querySelector(".form__input");
+
+//-----------------------------------------------------------------------------FUNCTIONS FOR OPEN/CLOSE POPUP 
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
+
+const buttonTypeClose = document.querySelectorAll(".button_type_close");
+
+buttonTypeClose.forEach(buttonTypeClose => {
+  const popup = buttonTypeClose.closest(".popup");
+  buttonTypeClose.addEventListener("click", () => closePopup(popup));
+});
+
 //-----------------------------------------------------------------------------FUNCTIONS FOR POPUP PROFILE-EDIT
-function getProfile() {
+
+function profileEditForm() {
+  formInputTypeFirstname.value = profilTitleFirstname.textContent;
+  formInputTypeProfession.value = profilSubtitleProfession.textContent;
+  openPopup(popupEditProfile);
+}
+
+function closeProfileEditForm (event) {
+  event.preventDefault();
+  profilTitleFirstname.textContent = formInputTypeFirstname.value;
+  profilSubtitleProfession.textContent = formInputTypeProfession.value;
+  closePopup(profileEditForm);
+}
+
+buttonTypeEdit.addEventListener("click", profileEditForm);
+buttonTypeSave.addEventListener("submit", closeProfileEditForm);
+
+
+
+/*function getProfile() {
     return {
       firstname: profilTitleFirstname.textContent,
       profession: profilSubtitleProfession.textContent,
@@ -40,12 +76,12 @@ function saveProfile(evt) {
 
 function closeEditForm() {
     popupEditProfile.classList.remove("popup_opened");
-  }
+  }*/
 //-----------------------------------------------------------------------------LISTENER FOR POPUP PROFILE-EDIT
-buttonTypeEdit.addEventListener("click", openEditForm);
-buttonTypeSave.addEventListener("click", saveProfile);
+/*buttonTypeEdit.addEventListener("click", openEditForm);
+buttonTypeSave.addEventListener("click", saveProfile);*/
 //-----------------------------------------------------------------------------LISTENER BUTTON CLOSE IN ALL POPUP
-function closePopup(event) {
+/*function closePopup(event) {
     const popup = event.target.closest(".popup");
     popup && popup.classList.remove("popup_opened");
   }
@@ -54,7 +90,9 @@ function closePopup(event) {
   buttonTypeClose.forEach((buttonTypeClose) =>
     buttonTypeClose.addEventListener("click", closePopup)
   );
-  
+  */
+
+/*
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP ADD 
 const popupAddElements = document.querySelector(".popup_add-elements");
 const formAddElements = document.querySelector(".form_add-elements");
@@ -93,12 +131,43 @@ buttonTypeAdd.addEventListener("click", openAddForm);
 buttonTypeSubmit.addEventListener("click", AddElements);
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP OVERVIEW 
 const popupOverview = document.querySelector(".popup_overview");
+const overviewImage = document.querySelector(".overview__image");
 const overviewCaption = document.querySelector(".overview__caption");
 
 //-----------------------------------------------------------------------------FUNCTIONS FOR POPUP OVERVIEW
-function popupOverviewOpened() {
+/*function popupOverview(event) {
+const image = event.target;
+overviewImage.setAttribute("src", image.src);
+overviewImage.setAttribute("alt", image.alt);
+overviewCaption.textContent = image.alt;
+
+openPopup(popupOverview);
+
+}
+
+
+
+
+
+/*function popupOverviewOpened() {
   popupOverview.classList.add("popup_opened");
 }
 
-elementsFoto.addEventListener("click", popupOverviewOpened);
+elementsFoto.addEventListener("click", popupOverviewOpened);*/
+
+/*function renderCardPopup(evt) {
+  openPopup(overviewImage);
+  
+  const elementsFoto = evt.target;
+  const elementsElement = elementsFoto.closest(".elements__element");
+  /*const elementsTitle = elementsElement.querySelector(".elements__title");*/
+
+ /* overviewImage.src = overviewImage.src;
+  overviewImage.alt = overviewCaption.textContent;
+  overviewCaption.textContent = overviewCaption.textContent;*/
+
+
+
+ 
+
 
