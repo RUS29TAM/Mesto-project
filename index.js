@@ -1,15 +1,11 @@
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP PROFILE-EDIT
 const popupEditProfile = document.querySelector(".popup_edit-profile");
-const form = document.querySelector("form");
+const formEditProfile= document.querySelector(".form_edit-profile");
 const formInputTypeFirstname = document.querySelector(".form__input_type_firstname");
 const formInputTypeProfession = document.querySelector(".form__input_type_profession");
-const profileInfo = document.querySelector(".profile__info");
 const profilTitleFirstname = document.querySelector(".profile__title-firstname");
 const profilSubtitleProfession = document.querySelector(".profile__subtitle-profession");
 const buttonTypeEdit = document.querySelector(".button_type_edit");
-const buttonTypeSave = document.querySelector(".button_type_save");
-const formInput = document.querySelector(".form__input");
-
 //-----------------------------------------------------------------------------FUNCTIONS FOR OPEN/CLOSE POPUP 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -18,117 +14,136 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
+//ADD LISTENER FOR OPEN/CLOSE POPUP 
 const buttonTypeClose = document.querySelectorAll(".button_type_close");
 
 buttonTypeClose.forEach(buttonTypeClose => {
   const popup = buttonTypeClose.closest(".popup");
   buttonTypeClose.addEventListener("click", () => closePopup(popup));
 });
-
 //-----------------------------------------------------------------------------FUNCTIONS FOR POPUP PROFILE-EDIT
-
-function profileEditForm() {
+function formEditProfileOpen() {
   formInputTypeFirstname.value = profilTitleFirstname.textContent;
   formInputTypeProfession.value = profilSubtitleProfession.textContent;
   openPopup(popupEditProfile);
 }
 
-function closeProfileEditForm (event) {
+function closeFormEditProfile (event) {
   event.preventDefault();
   profilTitleFirstname.textContent = formInputTypeFirstname.value;
   profilSubtitleProfession.textContent = formInputTypeProfession.value;
-  closePopup(profileEditForm);
+  closePopup(popupEditProfile);
 }
-
-buttonTypeEdit.addEventListener("click", profileEditForm);
-buttonTypeSave.addEventListener("submit", closeProfileEditForm);
-
-
-
-/*function getProfile() {
-    return {
-      firstname: profilTitleFirstname.textContent,
-      profession: profilSubtitleProfession.textContent,
-    };
-  }
-
-function setProfile(userProfile) {
-    profilTitleFirstname.textContent = userProfile.firstname;
-    profilSubtitleProfession.textContent = userProfile.profession;
-  }
-
-function openEditForm() {
-    let userProfile = getProfile();
-    formInputTypeFirstname.setAttribute("value", userProfile.firstname);
-    formInputTypeProfession.value = userProfile.profession;
-    popupEditProfile.classList.add("popup_opened");
-  }
-
-function saveProfile(evt) {
-    evt.preventDefault();
-      let userProfile = {
-      firstname: formInputTypeFirstname.value,
-      profession: formInputTypeProfession.value,
-    };
-    setProfile(userProfile);
-    closeEditForm();
-  }
-
-function closeEditForm() {
-    popupEditProfile.classList.remove("popup_opened");
-  }*/
-//-----------------------------------------------------------------------------LISTENER FOR POPUP PROFILE-EDIT
-/*buttonTypeEdit.addEventListener("click", openEditForm);
-buttonTypeSave.addEventListener("click", saveProfile);*/
-//-----------------------------------------------------------------------------LISTENER BUTTON CLOSE IN ALL POPUP
-/*function closePopup(event) {
-    const popup = event.target.closest(".popup");
-    popup && popup.classList.remove("popup_opened");
-  }
-  
-  buttonTypeClose = document.querySelectorAll(".button_type_close");
-  buttonTypeClose.forEach((buttonTypeClose) =>
-    buttonTypeClose.addEventListener("click", closePopup)
-  );
-  */
-
-/*
+//ADD LISTENER POPUP PROFILE-EDIT
+buttonTypeEdit.addEventListener("click", formEditProfileOpen);
+formEditProfile.addEventListener("submit", closeFormEditProfile);
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP ADD 
 const popupAddElements = document.querySelector(".popup_add-elements");
-const formAddElements = document.querySelector(".form_add-elements");
 const formInputTypeTown = document.querySelector(".form__input_type_town");
 const formInputTypeTownLink = document.querySelector(".form__input_type_town-link");
 const elementsFoto = document.querySelector(".elements__foto");
 const elementsTitle = document.querySelector(".elements__title");
 const buttonTypeAdd = document.querySelector('.button_type_add');
+const formAddElements = document.querySelector(".form_add-elements");
 const buttonTypeSubmit = document.querySelector(".button_type_submit");
-//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP ADD 
-function openAddForm() {
-    popupAddElements.classList.add("popup_opened");
-  }
 
-function setElements(elementsInfo) {
-    elementsFoto.textContent = elementsInfo.town;
-    elementsTitle.textContent = elementsInfo.townLink;
-  }
+/*const elements = document.querySelector(".elements");
+const elementsElement = document.querySelector(".elements__element");*/
+//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP ADD
+/*function AddElementsCard(event) {
+  event.preventDefault();
+  renderCard(createCard(formInputTypeTown.value, formInputTypeTownLink.value), elements);
+  formInputTypeTown.value = "";
+  formInputTypeTownLink.value = "";
+  closePopup(popupAddElements);
+}
+buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElements));
+formAddElements.addEventListener("submit", AddElementsCard);
+*/
 
-function AddElements(evt) {
-    evt.preventDefault();
-  
-    let elementsInfo = {
-      town: formInputTypeTown.value,
-      townLink: formInputTypeTownLink.value,
-    };
-  
-    formInputTypeTown.value = "";
-    formInputTypeTownLink.value = "";
-  
-    setElements(elementsInfo);
-    popupAddElements.classList.remove("popup_opened");
-  }
-//-----------------------------------------------------------------------------LISTENER FOR POPUP ADD 
-buttonTypeAdd.addEventListener("click", openAddForm);
-buttonTypeSubmit.addEventListener("click", AddElements);
+function formAddElementsOpen (event) {
+  event.preventDefault();
+  elements.prepend(getElement(formInputTypeTown.value, formInputTypeTownLink.value));
+  formAddElements.reset();
+  closePopup(popupAddElements);
+}
+
+buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElements));
+formAddElements.addEventListener("submit", formAddElementsOpen);
+//-----------------------------------------------------------------------------RENDERING ELEMENTS
+const templateElement = document.querySelector("#template__element");
+const elements = document.querySelector(".elements");
+const buttonTypeDeleteElement = [
+  {
+    town:"Собакен",
+    townLink: "./images/dog.jpg",
+  },
+  {
+    town:"Человекен",
+    townLink: "./images/coder.jpg",
+  },
+  {
+    town:"Мобилька",
+    townLink: "./images/fone.jpg",
+  },
+  {
+    town:"Аррра попугай",
+    townLink: "./images/bird.jpg",
+  },
+  {
+    town:"Яндекс беспилотники",
+    townLink: "./images/yauto.jpg",
+  },
+  {
+    town:"LFCSFS:FVCS:NCSN:VCENsv;rb",
+    townLink: "./images/husk.jpg",
+  },
+];
+
+/*function deleteElement(evtent) {
+  Пересмотреть
+  const elementsElement = evtent.target.closest('.elements__element');
+  elementsElement.remove();
+} */
+
+function toggleLikeElement(event) {
+  event.target.classList.toggle("button_type_like_on");
+}
+
+function deleteElement (event) {
+  const element = event.target.closest(".elements__element");
+  if (!element) return;
+  element.remove();
+}
+
+function getElement(town, townLink) {
+  const template = templateElement.content.cloneNode(true);
+  const img = template.querySelector(".elements__foto");
+  img.setAttribute("alt", town);
+  img.setAttribute("src", townLink);
+  /*img.setAttribute("click", popupOverview);*/
+  const h2 = template.querySelector(".elements__title");
+  h2.textContent = town;
+
+  const buttonTypeLike = template.querySelector(".button_type_like");
+  buttonTypeLike.addEventListener('click', toggleLikeElement);
+
+  const buttonTypeDeleteElement = template.querySelector(".button_type_delete-element");
+  buttonTypeDeleteElement.addEventListener("click", deleteElement);
+
+  return template;
+}
+
+
+
+function renderElements() {
+  element.innerHTML = "";
+  buttonTypeDeleteElement.forEach(element => elements.append(getElement(elements.town, elements.townLink)));
+}
+
+renderElements();
+
+/*
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP OVERVIEW 
 const popupOverview = document.querySelector(".popup_overview");
 const overviewImage = document.querySelector(".overview__image");
@@ -144,10 +159,6 @@ overviewCaption.textContent = image.alt;
 openPopup(popupOverview);
 
 }
-
-
-
-
 
 /*function popupOverviewOpened() {
   popupOverview.classList.add("popup_opened");
