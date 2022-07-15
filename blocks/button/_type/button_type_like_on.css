@@ -1,5 +1,5 @@
-.button_type_like {
-  background-image: url(../../../images/like.svg);
+.button_type_like_on {
+  background-image: url(../../../images/like-black.svg);
   border: none;
   width: 24px;
   background-repeat: no-repeat;
@@ -8,8 +8,7 @@
   border: none;
 }
 
-.button_type_like:hover {
+.button_type_like_on:hover {
   opacity: 0.5;
   transition: opacity 0.3s linear;
 }
-

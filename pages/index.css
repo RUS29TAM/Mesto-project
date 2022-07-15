@@ -22,6 +22,7 @@
 @import url(../blocks/button/_type/button_type_submit.css);
 @import url(../blocks/button/_type/button_type_close.css);
 @import url(../blocks/button/_type/button_type_like.css);
+@import url(../blocks/button/_type/button_type_like_on.css);
 @import url(../blocks/button/_like/button_like_on.css);
 @import url(../blocks/button/_type/button_type_delete-element.css);
 

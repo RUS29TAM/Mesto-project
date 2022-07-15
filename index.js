@@ -1,3 +1,4 @@
+"use strict"
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP PROFILE-EDIT
 const popupEditProfile = document.querySelector(".popup_edit-profile");
 const formEditProfile= document.querySelector(".form_edit-profile");
@@ -46,21 +47,7 @@ const elementsTitle = document.querySelector(".elements__title");
 const buttonTypeAdd = document.querySelector('.button_type_add');
 const formAddElements = document.querySelector(".form_add-elements");
 const buttonTypeSubmit = document.querySelector(".button_type_submit");
-
-/*const elements = document.querySelector(".elements");
-const elementsElement = document.querySelector(".elements__element");*/
 //-----------------------------------------------------------------------------FUNCTIONS FOR POPUP ADD
-/*function AddElementsCard(event) {
-  event.preventDefault();
-  renderCard(createCard(formInputTypeTown.value, formInputTypeTownLink.value), elements);
-  formInputTypeTown.value = "";
-  formInputTypeTownLink.value = "";
-  closePopup(popupAddElements);
-}
-buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElements));
-formAddElements.addEventListener("submit", AddElementsCard);
-*/
-
 function formAddElementsOpen (event) {
   event.preventDefault();
   elements.prepend(getElement(formInputTypeTown.value, formInputTypeTownLink.value));
@@ -70,6 +57,10 @@ function formAddElementsOpen (event) {
 
 buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElements));
 formAddElements.addEventListener("submit", formAddElementsOpen);
+//-----------------------------------------------------------------------------BUTTON LIKE ON ELEMENTS
+function toggleLikeElement(event) {
+  event.target.classList.toggle("button_type_like_on");
+}
 //-----------------------------------------------------------------------------RENDERING ELEMENTS
 const templateElement = document.querySelector("#template__element");
 const elements = document.querySelector(".elements");
@@ -106,9 +97,6 @@ const buttonTypeDeleteElement = [
   elementsElement.remove();
 } */
 
-function toggleLikeElement(event) {
-  event.target.classList.toggle("button_type_like_on");
-}
 
 function deleteElement (event) {
   const element = event.target.closest(".elements__element");
@@ -119,38 +107,34 @@ function deleteElement (event) {
 function getElement(town, townLink) {
   const template = templateElement.content.cloneNode(true);
   const img = template.querySelector(".elements__foto");
+
   img.setAttribute("alt", town);
   img.setAttribute("src", townLink);
-  /*img.setAttribute("click", popupOverview);*/
+  img.setAttribute("click", overview);
+
   const h2 = template.querySelector(".elements__title");
   h2.textContent = town;
-
   const buttonTypeLike = template.querySelector(".button_type_like");
   buttonTypeLike.addEventListener('click', toggleLikeElement);
-
   const buttonTypeDeleteElement = template.querySelector(".button_type_delete-element");
   buttonTypeDeleteElement.addEventListener("click", deleteElement);
 
   return template;
 }
 
-
-
 function renderElements() {
-  element.innerHTML = "";
-  buttonTypeDeleteElement.forEach(element => elements.append(getElement(elements.town, elements.townLink)));
+  elements.innerHTML = "";
+  buttonTypeDeleteElement.forEach(element => elements.append(getElement(element.town, element.townLink)));
 }
 
 renderElements();
-
-/*
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP OVERVIEW 
 const popupOverview = document.querySelector(".popup_overview");
 const overviewImage = document.querySelector(".overview__image");
 const overviewCaption = document.querySelector(".overview__caption");
-
 //-----------------------------------------------------------------------------FUNCTIONS FOR POPUP OVERVIEW
-/*function popupOverview(event) {
+function overview(event) {
+  
 const image = event.target;
 overviewImage.setAttribute("src", image.src);
 overviewImage.setAttribute("alt", image.alt);
@@ -159,25 +143,6 @@ overviewCaption.textContent = image.alt;
 openPopup(popupOverview);
 
 }
-
-/*function popupOverviewOpened() {
-  popupOverview.classList.add("popup_opened");
-}
-
-elementsFoto.addEventListener("click", popupOverviewOpened);*/
-
-/*function renderCardPopup(evt) {
-  openPopup(overviewImage);
-  
-  const elementsFoto = evt.target;
-  const elementsElement = elementsFoto.closest(".elements__element");
-  /*const elementsTitle = elementsElement.querySelector(".elements__title");*/
-
- /* overviewImage.src = overviewImage.src;
-  overviewImage.alt = overviewCaption.textContent;
-  overviewCaption.textContent = overviewCaption.textContent;*/
-
-
 
  
 

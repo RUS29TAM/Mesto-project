@@ -2,8 +2,10 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="favicon" href="https://raw.githubusercontent.com/fontello/brandico.font/master/src/svg/yandex-rect.svg" type="MMImage-Origin"/>
     <meta name="descrition" content="Mesto" />
     <meta name="autor" content="Рустам Никончук" />
     <title>Mesto</title>
@@ -196,8 +198,9 @@
 
     <!--POPUP OVERVIEW-->
     <div class="popup popup_overview">
-      <section class="overview__image">
-        <img class="overview__image" src="./images/dog.jpg" alt="собакен">
+      <div class="popup__box">
+      <section class="overview">
+        <img class="overview__image" src="./images/dog.jpg" alt="собакен"/>
         <h2 class="overview__caption">Собакен</h2>
           <button
             type="button"
@@ -206,6 +209,7 @@
           ></button>
       </section>
     </div>
+  </div>
 
 <!--TAMPLATE ELEMENT-->
     <template id="template__element">
