@@ -41,7 +41,7 @@ formEditProfile.addEventListener("submit", closeFormEditProfile);
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP ADD 
 const popupAddElements = document.querySelector(".popup_add-elements");
 const formInputTypeTown = document.querySelector(".form__input_type_town");
-const formInputTypeTownLink = document.querySelector(".form__input_type_town-link");
+const formInputTypeTownLink = document.querySelector(".form__input_type_townlink");
 const elementsFoto = document.querySelector(".elements__foto");
 const elementsTitle = document.querySelector(".elements__title");
 const buttonTypeAdd = document.querySelector('.button_type_add');
@@ -51,6 +51,7 @@ const buttonTypeSubmit = document.querySelector(".button_type_submit");
 function formAddElementsOpen (event) {
   event.preventDefault();
   elements.prepend(getElement(formInputTypeTown.value, formInputTypeTownLink.value));
+
   formAddElements.reset();
   closePopup(popupAddElements);
 }
@@ -62,55 +63,51 @@ function toggleLikeElement(event) {
   event.target.classList.toggle("button_type_like_on");
 }
 //-----------------------------------------------------------------------------RENDERING ELEMENTS
-const templateElement = document.querySelector("#template__element");
+const templateElement = document.querySelector("template");
 const elements = document.querySelector(".elements");
-const buttonTypeDeleteElement = [
+
+const elementsElement 
+/*const buttonTypeDeleteElement*/ = [
   {
     town:"Собакен",
-    townLink: "./images/dog.jpg",
+    townlink: "./images/dog.jpg",
   },
   {
     town:"Человекен",
-    townLink: "./images/coder.jpg",
+    townlink: "./images/coder.jpg",
   },
   {
-    town:"Мобилька",
-    townLink: "./images/fone.jpg",
+    town:"Джо",
+    townlink: "https://c.tenor.com/psoPTJCAoJYAAAAC/joey-tribbiani-brain.gif",
   },
   {
-    town:"Аррра попугай",
-    townLink: "./images/bird.jpg",
+    town:"Байкер",
+    townlink: "https://images.unsplash.com/photo-1658064273986-844330ff8870?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
   },
   {
     town:"Яндекс беспилотники",
-    townLink: "./images/yauto.jpg",
+    townlink: "https://images.unsplash.com/photo-1625924305476-d8f96c560c21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
   },
   {
     town:"LFCSFS:FVCS:NCSN:VCENsv;rb",
-    townLink: "./images/husk.jpg",
+    townlink: "https://images.unsplash.com/photo-1553531384-411a247ccd73?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
   },
 ];
 
-/*function deleteElement(evtent) {
-  Пересмотреть
+function deleteElement(evtent) {
+ 
   const elementsElement = evtent.target.closest('.elements__element');
   elementsElement.remove();
-} */
+} 
 
 
-function deleteElement (event) {
-  const element = event.target.closest(".elements__element");
-  if (!element) return;
-  element.remove();
-}
-
-function getElement(town, townLink) {
+function getElement(town, townlink) {
   const template = templateElement.content.cloneNode(true);
   const img = template.querySelector(".elements__foto");
 
   img.setAttribute("alt", town);
-  img.setAttribute("src", townLink);
-  img.setAttribute("click", overview);
+  img.setAttribute("src", townlink);
+  img.addEventListener("click", overview);
 
   const h2 = template.querySelector(".elements__title");
   h2.textContent = town;
@@ -124,10 +121,12 @@ function getElement(town, townLink) {
 
 function renderElements() {
   elements.innerHTML = "";
-  buttonTypeDeleteElement.forEach(element => elements.append(getElement(element.town, element.townLink)));
+  elementsElement.forEach(element => elements.append(getElement(element.town, element.townlink)));
 }
 
 renderElements();
+
+
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP OVERVIEW 
 const popupOverview = document.querySelector(".popup_overview");
 const overviewImage = document.querySelector(".overview__image");

@@ -22,3 +22,8 @@
     height: 361px;
   }
 }
+ .elements__element:hover {
+  box-shadow: 0px 0px 7px 3px rgb(255, 255, 255);
+  transition: 0.2s linear;
+  
+} 
