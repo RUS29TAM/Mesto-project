@@ -15,37 +15,6 @@ const profilSubtitleProfession = document.querySelector(
   ".profile__subtitle-profession"
 );
 const buttonTypeEdit = document.querySelector(".button_type_edit");
-//-----------------------------------------------------------------------------FUNCTIONS FOR OPEN/CLOSE POPUP
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-}
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-}
-
-//ADD LISTENER FOR OPEN/CLOSE POPUP
-const buttonTypeClose = document.querySelectorAll(".button_type_close");
-
-buttonTypeClose.forEach((buttonTypeClose) => {
-  const popup = buttonTypeClose.closest(".popup");
-  buttonTypeClose.addEventListener("click", () => closePopup(popup));
-});
-//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP PROFILE-EDIT
-function formEditProfileOpen() {
-  formInputTypeFirstname.value = profilTitleFirstname.textContent;
-  formInputTypeProfession.value = profilSubtitleProfession.textContent;
-  openPopup(popupEditProfile);
-}
-
-function closeFormEditProfile(event) {
-  event.preventDefault();
-  profilTitleFirstname.textContent = formInputTypeFirstname.value;
-  profilSubtitleProfession.textContent = formInputTypeProfession.value;
-  closePopup(popupEditProfile);
-}
-//ADD LISTENER POPUP PROFILE-EDIT
-buttonTypeEdit.addEventListener("click", formEditProfileOpen);
-formEditProfile.addEventListener("submit", closeFormEditProfile);
 //-----------------------------------------------------------------------------VARIABLES FOR POPUP ADD
 const popupAddElements = document.querySelector(".popup_add-elements");
 const formInputTypeTown = document.querySelector(".form__input_type_town");
@@ -57,27 +26,13 @@ const elementsTitle = document.querySelector(".elements__title");
 const buttonTypeAdd = document.querySelector(".button_type_add");
 const formAddElements = document.querySelector(".form_add-elements");
 const buttonTypeSubmit = document.querySelector(".button_type_submit");
-//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP ADD
-function formAddElementsOpen(event) {
-  event.preventDefault();
-  elements.prepend(
-    getElement(formInputTypeTown.value, formInputTypeTownLink.value)
-  );
-
-  formAddElements.reset();
-  closePopup(popupAddElements);
-}
-
-buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElements));
-formAddElements.addEventListener("submit", formAddElementsOpen);
-//-----------------------------------------------------------------------------BUTTON LIKE ON ELEMENTS
-function toggleLikeElement(event) {
-  event.target.classList.toggle("button_type_like_on");
-}
-//-----------------------------------------------------------------------------RENDERING ELEMENTS
+//-----------------------------------------------------------------------------VARIABLES FOR POPUP OVERVIEW
+const popupOverview = document.querySelector(".popup_overview");
+const overviewImage = document.querySelector(".overview__image");
+const overviewCaption = document.querySelector(".overview__caption");
+//-----------------------------------------------------------------------------VARIABLES FOR ELEMENTS
 const templateElement = document.querySelector("template");
 const elements = document.querySelector(".elements");
-
 const elementsElement = [
   {
     town: "Собакен",
@@ -107,16 +62,65 @@ const elementsElement = [
       "https://images.unsplash.com/photo-1553531384-411a247ccd73?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
   },
 ];
+//-----------------------------------------------------------------------------FUNCTIONS FOR OPEN/CLOSE POPUP
+function openPopup(popup) {//open popup
+  popup.classList.add("popup_opened");
+}
+function closePopup(popup) {//close popup
+  popup.classList.remove("popup_opened");
+}
+//ADD LISTENER FOR CLOSE POPUP
+const buttonTypeClose = document.querySelectorAll(".button_type_close");
+buttonTypeClose.forEach((buttonTypeClose) => {//close on all cross button
+  const popup = buttonTypeClose.closest(".popup");
+  buttonTypeClose.addEventListener("click", () => closePopup(popup));
+});
+//ADD LISTENER POPUP PROFILE-EDIT
+buttonTypeEdit.addEventListener("click", formEditProfileOpen);
+formEditProfile.addEventListener("submit", closeFormEditProfile);
+//ADD LISTENER FOR ADD ELEMENTS
+buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElements));
+formAddElements.addEventListener("submit", formAddElementsOpen);
+//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP PROFILE-EDIT
+function formEditProfileOpen() {//the data that will be displayed in the input field
+  formInputTypeFirstname.value = profilTitleFirstname.textContent;
+  formInputTypeProfession.value = profilSubtitleProfession.textContent;
+  openPopup(popupEditProfile);
+}
 
+function closeFormEditProfile(event) {//data that will be sent after
+  event.preventDefault();//Canceling the default browser action
+  profilTitleFirstname.textContent = formInputTypeFirstname.value;
+  profilSubtitleProfession.textContent = formInputTypeProfession.value;
+  closePopup(popupEditProfile);
+}
+//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP ADD
+function formAddElementsOpen(event) {
+  event.preventDefault();//Canceling the default browser action
+  elements.prepend(//insert nodes or rows at the beginning
+    getElement(formInputTypeTown.value, formInputTypeTownLink.value) //search method
+  );
+
+  formAddElements.reset();
+  closePopup(popupAddElements);
+}
+
+//-----------------------------------------------------------------------------BUTTON LIKE ON ELEMENTS
+function toggleLikeElement(event) {
+  event.target.classList.toggle("button_type_like_on");
+}
+//-----------------------------------------------------------------------------RENDERING ELEMENTS
 function deleteElement(evtent) {
   const elementsElement = evtent.target.closest(".elements__element");
   elementsElement.remove();
 }
 
-function getElement(town, townlink) {
-  const template = templateElement.content.cloneNode(true);
+function getElement(town, townlink) {//search method 
+  const template = templateElement.content.cloneNode(true); /*The cloneNode method allows you to clone an element and get an exact copy of it.
+  This copy can then be inserted into the page using the methods prepend, append, appendChild, insertBefore or insertAdjacentElement.
+   In the parameter, the method gets true or false. If true is passed, the element is cloned completely, 
+   along with all attributes and child elements, and if false, only the element itself (without child elements).*/
   const img = template.querySelector(".elements__foto");
-  
   img.setAttribute("alt", town);
   img.setAttribute("src", townlink);
   img.addEventListener("click", overview);
@@ -127,25 +131,21 @@ function getElement(town, townlink) {
   const buttonTypeDeleteElement = template.querySelector(
     ".button_type_delete-element"
   );
-  
-  buttonTypeDeleteElement.addEventListener("click", deleteElement);
+
+  buttonTypeDeleteElement.addEventListener("click", deleteElement); //delete button on the image
 
   return template;
 }
 
 function renderElements() {
-  elements.innerHTML = "";
-  elementsElement.forEach((element) =>
-    elements.append(getElement(element.town, element.townlink))
+  elements.innerHTML = ""; //The innerHTML property allows you to get the HTML content of an element as a string.
+  elementsElement.forEach((element) => //Iterating through the array
+    elements.append(getElement(element.town, element.townlink)) /*method inserts a set of Node objects or string objects after the last child of the Element. 
+String objects are inserted as equivalent Text nodes.*/
   );
 }
 
 renderElements();
-
-//-----------------------------------------------------------------------------VARIABLES FOR POPUP OVERVIEW
-const popupOverview = document.querySelector(".popup_overview");
-const overviewImage = document.querySelector(".overview__image");
-const overviewCaption = document.querySelector(".overview__caption");
 //-----------------------------------------------------------------------------FUNCTIONS FOR POPUP OVERVIEW
 function overview(event) {
   const image = event.target;
