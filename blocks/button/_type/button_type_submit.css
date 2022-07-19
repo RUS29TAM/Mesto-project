@@ -23,5 +23,7 @@
 
 .button_type_submit:hover {
   opacity: 0.8;
+  -webkit-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
   transition: opacity 0.3s linear;
 }

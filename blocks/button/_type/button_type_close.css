@@ -1,24 +1,32 @@
-.button_type_close {
-  background-image: url(../../../images/close.svg);
+.button_type_add {
+  right: 0;
   position: absolute;
-  top: -35px;
-  right: -35px;
-  width: 32px;
-  height: 32px;
-  border: none;
+  width: 150px;
+  height: 50px;
+  background: black;
+  border-style: none;
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  background-image: url(../../../images/add_vector.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.button_type_add:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 767px) {
-  .button_type_close {
-    background-image: url(../../../images/close-s.svg);
-    width: 20px;
-    height: 20px;
-    top: -30px;
-    right: 0;
+  .button_type_add {
+    position: relative;
+    margin-top: 30px;
+    width: 282px;
+    background-image: url(../../../images/add_vector_s.svg);
   }
-}
-
-.button_type_close:hover {
-  opacity: 0.5;
-  transition: opacity 0.3s linear;
 }

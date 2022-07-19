@@ -11,5 +11,7 @@
 
 .button_type_delete-element:hover {
   opacity: 0.5;
+  -webkit-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
   transition: opacity 0.3s linear;
 }
