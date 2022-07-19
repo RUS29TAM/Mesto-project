@@ -24,9 +24,10 @@
 3. Схема построения flex-box GRID Layout 
 4. Адаптивная вёрстка. Минимальная ширина: 320px (одна карточка в ряд). Максимальная: 1280px (три карточки в ряд).
 5. Все интерактивные элементы обладают состоянием наведения или фокуса.
-6. _[оптимизация картинок через ресурс: _tinypng.com_](https://tinypng.com/)_
-7. _[Дизайн и разметка соответствует макету:](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)_
-8. В работе с макетом используется _[PerfectPixel by WellDoneCode](https://www.welldonecode.com/perfectpixel/)_
+6. Функциональность проекта за счет применения следующих свойств и методов: innerHTML, getElement, renderElements, forEach, append, cloneNode, template.
+7. _[оптимизация картинок через ресурс: _tinypng.com_](https://tinypng.com/)_
+8. _[Дизайн и разметка соответствует макету:](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)_
+9. В работе с макетом используется _[PerfectPixel by WellDoneCode](https://www.welldonecode.com/perfectpixel/)_
 
 ---
 ![alt text](https://yastatic.net/q/logoaas/v2/Яндекс.svg?circle=black&color=000&first=white "Logo")
