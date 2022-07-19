@@ -6,6 +6,7 @@
   border: none;
   right: 20px;
   top: 20px;
+  z-index: 10;
 }
 
 .button_type_delete-element:hover {

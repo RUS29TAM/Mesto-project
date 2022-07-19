@@ -78,7 +78,7 @@ function toggleLikeElement(event) {
 const templateElement = document.querySelector("template");
 const elements = document.querySelector(".elements");
 
-const elementsElement = /*const buttonTypeDeleteElement*/ [
+const elementsElement = [
   {
     town: "Собакен",
     townlink: "./images/dog.jpg",
@@ -116,11 +116,10 @@ function deleteElement(evtent) {
 function getElement(town, townlink) {
   const template = templateElement.content.cloneNode(true);
   const img = template.querySelector(".elements__foto");
-
+  
   img.setAttribute("alt", town);
   img.setAttribute("src", townlink);
   img.addEventListener("click", overview);
-
   const h2 = template.querySelector(".elements__title");
   h2.textContent = town;
   const buttonTypeLike = template.querySelector(".button_type_like");
@@ -128,6 +127,7 @@ function getElement(town, townlink) {
   const buttonTypeDeleteElement = template.querySelector(
     ".button_type_delete-element"
   );
+  
   buttonTypeDeleteElement.addEventListener("click", deleteElement);
 
   return template;
