@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="https://www.mihayloscarves.com/wp-content/uploads/2019/07/M-Favicon.png" type="image/x-icon"/>
+    <link
+      rel="shortcut icon"
+      href="https://www.mihayloscarves.com/wp-content/uploads/2019/07/M-Favicon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./pages/index.css" />
     <meta name="descrition" content="Mesto" />
     <meta name="autor" content="Рустам Никончук" />
@@ -38,92 +42,7 @@
     </section>
 
     <!--ELEMENTS-->
-    <section class="elements">
-      <div class="elements__element">
-        <img src="./images/dog.jpg" class="elements__foto" alt="Собака" />
-        <button
-          type="button"
-          class="button button_type_delete-element"
-        ></button>
-        <div class="element__info">
-          <h2 class="elements__title">Собакен</h2>
-          <button type="button" class="button button_type_like"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img src="./images/coder.jpg" class="elements__foto" alt="Кодинг" />
-        <button
-          type="button"
-          class="button button_type_delete-element"
-        ></button>
-        <div class="element__info">
-          <h2 class="elements__title">Человекен</h2>
-          <button type="button" class="button button_type_like"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img
-          class="elements__foto"
-          src="./images/fone.jpg"
-          alt="Мобильный телефон"
-        />
-        <button
-          type="button"
-          class="button button_type_delete-element"
-        ></button>
-        <div class="element__info">
-          <h2 class="elements__title">Джо</h2>
-          <button type="button" class="button button_type_like"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img src="./images/bird.jpg" class="elements__foto" alt="Попугай" />
-        <button
-          type="button"
-          class="button button_type_delete-element"
-        ></button>
-        <div class="element__info">
-          <h2 class="elements__title">Байкер</h2>
-          <button type="button" class="button button_type_like"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img
-          src="./images/yauto.jpg"
-          class="elements__foto"
-          alt="Беспилотники Яндекс"
-        />
-        <button
-          type="button"
-          class="button button_type_delete-element"
-        ></button>
-        <div class="element__info">
-          <h2 class="elements__title">Яндекс беспилотники</h2>
-          <button type="button" class="button button_type_like"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img
-          src="./images/husk.jpg"
-          class="elements__foto"
-          alt="Собака пьет воду из третрапак"
-        />
-        <button
-          type="button"
-          class="button button_type_delete-element"
-        ></button>
-
-        <div class="element__info">
-          <h2 class="elements__title">LFCSFS:FVCS:NCSN:VCENsv;rb</h2>
-          <button type="button" class="button button_type_like"></button>
-        </div>
-      </div>
-    </section>
+    <section class="elements"></section>
 
     <!--FOOTER-->
     <footer class="footer">
@@ -199,32 +118,32 @@
     <!--POPUP OVERVIEW-->
     <div class="popup popup_overview">
       <div class="popup__box-overview">
-      <section class="overview">
-        <img class="overview__image" src="./images/dog.jpg" alt="собакен"/>
-        <h2 class="overview__caption">Собакен</h2>
-        <button
-        type="button"
-        class="button button_type_close"
-        aria-label="закрыть"
-        ></button>
-      </section>
-    </div>
-  </div>
-
-<!--TAMPLATE ELEMENT-->
-    <template id="template__element">
-    <div class="elements__element">
-      <img src="" class="elements__foto" alt="Попугай" />
-      <button
-        type="button"
-        class="button button_type_delete-element"
-      ></button>
-      <div class="element__info">
-        <h2 class="elements__title">Аррра попугай</h2>
-        <button type="button" class="button button_type_like"></button>
+        <section class="overview">
+          <img class="overview__image" src="./images/dog.jpg" alt="собакен" />
+          <h2 class="overview__caption">Собакен</h2>
+          <button
+            type="button"
+            class="button button_type_close"
+            aria-label="закрыть"
+          ></button>
+        </section>
       </div>
     </div>
-  </template>
+
+    <!--TAMPLATE ELEMENT-->
+    <template id="template__element">
+      <div class="elements__element">
+        <img src="" class="elements__foto" alt="Попугай" />
+        <button
+          type="button"
+          class="button button_type_delete-element"
+        ></button>
+        <div class="element__info">
+          <h2 class="elements__title">Аррра попугай</h2>
+          <button type="button" class="button button_type_like"></button>
+        </div>
+      </div>
+    </template>
     <script src="./pages/index.js"></script>
   </body>
 </html>

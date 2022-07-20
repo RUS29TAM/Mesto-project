@@ -1,5 +1,5 @@
 "use strict";
-//-----------------------------------------------------------------------------VARIABLES FOR POPUP PROFILE-EDIT
+//_____________________________________________________________________________VARIABLES FOR POPUP PROFILE-EDIT
 const popupEditProfile = document.querySelector(".popup_edit-profile");
 const formEditProfile = document.querySelector(".form_edit-profile");
 const formInputTypeFirstname = document.querySelector(
@@ -15,8 +15,8 @@ const profilSubtitleProfession = document.querySelector(
   ".profile__subtitle-profession"
 );
 const buttonTypeEdit = document.querySelector(".button_type_edit");
-//-----------------------------------------------------------------------------VARIABLES FOR POPUP ADD
-const popupAddElements = document.querySelector(".popup_add-elements");
+//_____________________________________________________________________________VARIABLES FOR POPUP ADD
+const popupAddElement = document.querySelector(".popup_add-elements");//<-----------------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
 const formInputTypeTown = document.querySelector(".form__input_type_town");
 const formInputTypeTownLink = document.querySelector(
   ".form__input_type_townlink"
@@ -24,23 +24,23 @@ const formInputTypeTownLink = document.querySelector(
 const elementsFoto = document.querySelector(".elements__foto");
 const elementsTitle = document.querySelector(".elements__title");
 const buttonTypeAdd = document.querySelector(".button_type_add");
-const formAddElements = document.querySelector(".form_add-elements");
-const buttonTypeSubmit = document.querySelector(".button_type_submit");
-//-----------------------------------------------------------------------------VARIABLES FOR POPUP OVERVIEW
+const formAddElement = document.querySelector(".form_add-elements");//<-------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
+// const buttonTypeSubmit = document.querySelector(".button_type_submit");<---------------------------The variable has been removed because it is not currently used by the code structure.
+//_____________________________________________________________________________VARIABLES FOR POPUP OVERVIEW
 const popupOverview = document.querySelector(".popup_overview");
 const overviewImage = document.querySelector(".overview__image");
 const overviewCaption = document.querySelector(".overview__caption");
-//-----------------------------------------------------------------------------VARIABLES FOR ELEMENTS
+//_____________________________________________________________________________VARIABLES FOR ELEMENTS
 const templateElement = document.querySelector("template");
-const elements = document.querySelector(".elements");
+const cardsContainer = document.querySelector(".elements");//<----------------------------------------Fixed a bug in the variable name (elements --> cardsContainer)
 const elementsElement = [
   {
     town: "Собакен",
-    townlink: "./images/dog.jpg",
+    townlink: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
   },
   {
     town: "Человекен",
-    townlink: "./images/coder.jpg",
+    townlink: "https://images.unsplash.com/photo-1604145559206-e3bce0040e2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
   },
   {
     town: "Джо",
@@ -62,7 +62,7 @@ const elementsElement = [
       "https://images.unsplash.com/photo-1553531384-411a247ccd73?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
   },
 ];
-//-----------------------------------------------------------------------------FUNCTIONS FOR OPEN/CLOSE POPUP
+//_____________________________________________________________________________FUNCTIONS FOR OPEN/CLOSE POPUP
 function openPopup(popup) {//open popup
   popup.classList.add("popup_opened");
 }
@@ -70,19 +70,19 @@ function closePopup(popup) {//close popup
   popup.classList.remove("popup_opened");
 }
 //ADD LISTENER FOR CLOSE POPUP
-const buttonTypeClose = document.querySelectorAll(".button_type_close");
-buttonTypeClose.forEach((buttonTypeClose) => {//close on all cross button
-  const popup = buttonTypeClose.closest(".popup");
-  buttonTypeClose.addEventListener("click", () => closePopup(popup));
+const buttonTypeCloseList = document.querySelectorAll(".button_type_close");//<---------------------Fixed a bug in the variable name (buttonTypeClose --> buttonTypeCloseList)
+buttonTypeCloseList.forEach((buttonTypeCloseList) => {//close on all cross button//<----------------Fixed a bug in the variable name (buttonTypeClose --> buttonTypeCloseList)
+  const popup = buttonTypeCloseList.closest(".popup");//<-------------------------------------------Fixed a bug in the variable name (buttonTypeClose --> buttonTypeCloseList)
+  buttonTypeCloseList.addEventListener("click", () => closePopup(popup));//<------------------------Fixed a bug in the variable name (buttonTypeClose --> buttonTypeCloseList)
 });
 //ADD LISTENER POPUP PROFILE-EDIT
-buttonTypeEdit.addEventListener("click", formEditProfileOpen);
+buttonTypeEdit.addEventListener("click", OpenformEditProfile);//<-----------------------------------Fixed a bug in the variable name (formEditProfileOpen --> OpenformEditProfile)
 formEditProfile.addEventListener("submit", closeFormEditProfile);
 //ADD LISTENER FOR ADD ELEMENTS
-buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElements));
-formAddElements.addEventListener("submit", formAddElementsOpen);
-//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP PROFILE-EDIT
-function formEditProfileOpen() {//the data that will be displayed in the input field
+buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElement));//<-----------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
+formAddElement.addEventListener("submit", formAddElementsOpen);//<----------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
+//_____________________________________________________________________________FUNCTIONS FOR POPUP PROFILE-EDIT
+function OpenformEditProfile() {//the data that will be displayed in the input field//<-------------Fixed a bug in the variable name (formEditProfileOpen --> OpenformEditProfile)
   formInputTypeFirstname.value = profilTitleFirstname.textContent;
   formInputTypeProfession.value = profilSubtitleProfession.textContent;
   openPopup(popupEditProfile);
@@ -94,22 +94,22 @@ function closeFormEditProfile(event) {//data that will be sent after
   profilSubtitleProfession.textContent = formInputTypeProfession.value;
   closePopup(popupEditProfile);
 }
-//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP ADD
+//_____________________________________________________________________________FUNCTIONS FOR POPUP ADD
 function formAddElementsOpen(event) {
   event.preventDefault();//Canceling the default browser action
-  elements.prepend(//insert nodes or rows at the beginning
+  cardsContainer.prepend(//insert nodes or rows at the beginning//<---------------------------------Fixed a bug in the variable name (elements --> cardsContainer)
     getElement(formInputTypeTown.value, formInputTypeTownLink.value) //search method
   );
 
-  formAddElements.reset();
-  closePopup(popupAddElements);
+  formAddElement.reset();//<------------------------------------------------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
+  closePopup(popupAddElement);//<-------------------------------------------------------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
 }
 
-//-----------------------------------------------------------------------------BUTTON LIKE ON ELEMENTS
+//_____________________________________________________________________________BUTTON LIKE ON ELEMENTS
 function toggleLikeElement(event) {
   event.target.classList.toggle("button_type_like_on");
 }
-//-----------------------------------------------------------------------------RENDERING ELEMENTS
+//_____________________________________________________________________________RENDERING ELEMENTS
 function deleteElement(evtent) {
   const elementsElement = evtent.target.closest(".elements__element");
   elementsElement.remove();
@@ -124,8 +124,8 @@ function getElement(town, townlink) {//search method
   img.setAttribute("alt", town);
   img.setAttribute("src", townlink);
   img.addEventListener("click", overview);
-  const h2 = template.querySelector(".elements__title");
-  h2.textContent = town;
+  const TitleFoto = template.querySelector(".elements__title");//<----------------------------------Fixed a bug in the variable name (h2 --> TitleFoto)
+  TitleFoto.textContent = town;//<------------------------------------------------------------------Fixed a bug in the variable name (h2 --> TitleFoto)
   const buttonTypeLike = template.querySelector(".button_type_like");
   buttonTypeLike.addEventListener("click", toggleLikeElement);
   const buttonTypeDeleteElement = template.querySelector(
@@ -138,15 +138,15 @@ function getElement(town, townlink) {//search method
 }
 
 function renderElements() {
-  elements.innerHTML = ""; //The innerHTML property allows you to get the HTML content of an element as a string.
+  // elements.innerHTML = ""; //The innerHTML property allows you to get the HTML content of an element as a string.
   elementsElement.forEach((element) => //Iterating through the array
-    elements.append(getElement(element.town, element.townlink)) /*method inserts a set of Node objects or string objects after the last child of the Element. 
-String objects are inserted as equivalent Text nodes.*/
+  cardsContainer.append(getElement(element.town, element.townlink)) /*method inserts a set of Node objects or string objects after the last child of the Element. 
+String objects are inserted as equivalent Text nodes.*///<----------------Fixed a bug in the variable name (elements --> cardsContainer)
   );
 }
 
 renderElements();
-//-----------------------------------------------------------------------------FUNCTIONS FOR POPUP OVERVIEW
+//_____________________________________________________________________________FUNCTIONS FOR POPUP OVERVIEW
 function overview(event) {
   const image = event.target;
   overviewImage.setAttribute("src", image.src);
