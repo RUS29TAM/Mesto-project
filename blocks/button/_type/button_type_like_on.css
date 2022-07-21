@@ -1,7 +1,7 @@
 .button_type_like_on {
   background-image: url(../../../images/like-black.svg);
   border: none;
-  width: 24px;
+  width: 30px;
   background-repeat: no-repeat;
   background-position: center;
   padding: 0 10px;
@@ -13,4 +13,8 @@
   -webkit-transition: opacity 0.3s linear;
   -o-transition: opacity 0.3s linear;
   transition: opacity 0.3s linear;
+}
+
+.button_type_like_on:focus {
+  background-image: url(../../../images/like-black.svg);
 }

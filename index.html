@@ -52,7 +52,7 @@
     <!--POPUP EDIT FORM-->
     <div class="popup popup_edit-profile">
       <div class="popup__box">
-        <form class="form form_edit-profile" name="author">
+        <form class="form form_edit-profile" name="profile" method="post"> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
           <h3 class="form__title">Редактировать профиль</h3>
           <input
             type="text"
@@ -85,20 +85,20 @@
     <!--POPUP ADD TOWN-->
     <div class="popup popup_add-elements">
       <div class="popup__box">
-        <form class="form form_add-elements" name="town">
+        <form class="form form_add-elements" name="card" method="post"> <!--Fixed a bug in the variable name (town -> card) + add method="post"-->
           <h3 class="form__title">Новое место</h3>
           <input
             type="text"
             class="form__input form__input_type_town"
-            name="town"
+            name="card-name"
             placeholder="Название"
-          />
+          /> <!--Fixed a bug in the variable name (town -> card-name)-->
           <input
             type="text"
             class="form__input form__input_type_townlink"
-            name="townlink"
+            name="card-link"
             placeholder="Ссылка на картинку"
-          />
+          /><!--Fixed a bug in the variable name (townlink -> card-link)-->
           <button
             type="button"
             class="button button_type_close"
