@@ -47,6 +47,9 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__title/form__title.css);
 @import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__input/form__input-error.css);
+@import url(../blocks/form/__input/form__input-error-firstname.css);
+@import url(../blocks/form/__input/form__input-error-profession.css);
 
 /*OVERVIEW*/
 @import url(../blocks/overview/overview.css);

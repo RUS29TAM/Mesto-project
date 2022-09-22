@@ -175,3 +175,43 @@ function overview(event) {
 
   openPopup(popupOverview);
 }
+
+//_____________________________________________________________________________FUNCTIONS FOR VALIDATION FORM
+
+const formInput = document.querySelector('.form__input');
+const formError = document.querySelector(`.${formInput.id}`);
+
+const showError = (input, errorMessage) => {
+  input.classList.add('form__input_type_error');
+  formError.textContent = errorMessage;
+  formError.classList.remove('form__input-error_active');
+};
+
+const hideError = (input) => {
+  input.classList.remove('form__input_type_error');
+  formError.classList.remove('form__input-error_active')
+  formError.textContent = '';
+};
+
+const checkInputValidity = () => {
+  if (!formInput.validity.valid) {
+    showError(formInput, formInput.validationMessage);
+  } else {
+    hideError(formInput);
+  }
+};
+
+
+formInput.addEventListener('input', function () {
+  checkInputValidity();
+});
+
+
+
+// formEditProfile.addEventListener('input', function (event) {
+//   console.log(event.target.validity);
+// });
+
+// formAddElement.addEventListener('input', function (event) {
+//   console.log(event.target.validity);
+// });
