@@ -59,12 +59,18 @@
             class="form__input form__input_type_firstname"
             name="firstname"
             placeholder="Там-вДали Кусто"
+            minlength="2"
+            maxlength="40"
+            required
           />
           <input
             type="text"
             class="form__input form__input_type_profession"
             name="profession"
             placeholder="Cледователь в океане"
+            minlength="2"
+            maxlength="200"
+            required
           />
           <button
             type="button"
@@ -92,12 +98,16 @@
             class="form__input form__input_type_town"
             name="card-name"
             placeholder="Название"
+            minlength="2"
+            maxlength="30"
+            required
           /> <!--Fixed a bug in the variable name (town -> card-name)-->
           <input
-            type="text"
+            type="url"
             class="form__input form__input_type_townlink"
             name="card-link"
             placeholder="Ссылка на картинку"
+            required
           /><!--Fixed a bug in the variable name (townlink -> card-link)-->
           <button
             type="button"

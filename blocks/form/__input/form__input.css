@@ -45,3 +45,9 @@
   line-height: 1.21;
   padding-bottom: 13px;
 }
+
+.form__input:invalid {
+  border-bottom: solid 1px #FF0000;
+  outline: none;
+}
+
