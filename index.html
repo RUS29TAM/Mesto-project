@@ -54,18 +54,34 @@
       <div class="popup__box">
         <form class="form form_edit-profile" name="profile" method="post"> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
           <h3 class="form__title">Редактировать профиль</h3>
+          <!-- <fieldset class="form__set"> -->
           <input
             type="text"
             class="form__input form__input_type_firstname"
             name="firstname"
             placeholder="Там-вДали Кусто"
+            id="firstname-input"
+            required 
+            minlength="2"
+            maxlength="40"
+            pattern="^[a-zA-Z]+$"
+            data-error-message="Разрешены только латинские буквы"
           />
+          <span class="form__input-error firstname-input-error">Вы пропустили это поле.</span>
           <input
             type="text"
             class="form__input form__input_type_profession"
             name="profession"
             placeholder="Cледователь в океане"
+            id="profession-input"
+            required 
+            minlength="2"
+            maxlength="200"
+            pattern="^[a-zA-Z]+$"
+            data-error-message="Введите адрес сайта."
+                    
           />
+          <span class="form__input-error profession-input-error">Вы пропустили это поле.</span>
           <button
             type="button"
             class="button button_type_close"
@@ -78,6 +94,7 @@
           >
             Сохранить
           </button>
+        <!-- </fieldset> -->
         </form>
       </div>
     </div>
@@ -108,6 +125,7 @@
             type="submit"
             class="button button_type_submit"
             aria-label="сохранить"
+            id="submit"
           >
             Сохранить
           </button>
@@ -144,6 +162,7 @@
         </div>
       </div>
     </template>
+    <script src="./pages/validation.js"></script>
     <script src="./pages/index.js"></script>
   </body>
 </html>

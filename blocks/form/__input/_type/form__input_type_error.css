@@ -1,0 +1,4 @@
+.form__input_type_error {
+    border-bottom-color: rgb(255, 0, 0);
+    background: rgba(223, 10, 74, 0.151);
+}   

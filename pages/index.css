@@ -24,6 +24,7 @@
 @import url(../blocks/button/_type/button_type_like.css);
 @import url(../blocks/button/_type/button_type_like_on.css);
 @import url(../blocks/button/_type/button_type_delete-element.css);
+@import url(../blocks/button/_inactive/button_inactive.css);
 
 /*GRID - AREAS - ELEMENTS*/
 @import url(../blocks/elements/elements.css);
@@ -42,11 +43,14 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/_overview/popup_overview.css);
 @import url(../blocks/popup/__box-overview/popup__box-overview.css); 
+@import url(../blocks/form/__input/_type/form__input_type_error.css);
 
 /*FORM*/
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__title/form__title.css);
 @import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__input/form__input-error.css);
+@import url(../blocks/form/__input/_active/form__input-error_active.css);
 
 /*OVERVIEW*/
 @import url(../blocks/overview/overview.css);
