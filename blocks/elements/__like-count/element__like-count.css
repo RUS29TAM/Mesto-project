@@ -1,0 +1,11 @@
+.element__like-count {
+    margin: 0;
+    padding: 0 0 0 217px;
+    color: rgb(0, 0, 0);
+    font-family: "Inter", "Arial", sans-serif;
+    font-style: normal;
+    position: relative;
+    /* right: 10px;
+    top: 25px; */
+  
+}
