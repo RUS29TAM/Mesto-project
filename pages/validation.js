@@ -21,15 +21,16 @@ const showInputError = (formElement, inputElement, errorMessage) => {
       hideInputError(formElement, inputElement);
     }
   };
+
   
   const setEventListeners = (formElement) => {
     const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-    const buttonElement = formElement.querySelector('.button_type_save');
-    toggleButtonState(inputList, buttonElement);
-    inputList.forEach((inputElement) => {
+    const buttonTypeSave = formElement.querySelector('.button_type_save');
+    toggleButtonState(inputList, buttonTypeSave);
+        inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', function () {
         checkInputValidity(formElement, inputElement);
-        toggleButtonState(inputList, buttonElement);
+        toggleButtonState(inputList, buttonTypeSave);
       });
     });
   };
@@ -54,23 +55,21 @@ const showInputError = (formElement, inputElement, errorMessage) => {
       return !inputElement.validity.valid;
     });
   }
-  
 
-  function toggleButtonState(inputList, buttonElement) {
+  function toggleButtonState(inputList, buttonTypeSave) {
     if (hasInvalidInput(inputList)) {
-      buttonElement.classList.add('button_inactive');
+      buttonTypeSave.classList.add('button_inactive');
+      buttonTypeSave.setAttribute("disabled", true);
     } else {
-      buttonElement.classList.remove('button_inactive');
+      buttonTypeSave.classList.remove('button_inactive');
+      buttonTypeSave.removeAttribute("disabled", true);
     }
-  }
+  };
 
-//   console.log('blaaa');
+  console.log('blaaa');
 
 const isValid = (formElement, inputElement) => {
     if (inputElement.validity.patternMismatch) {
-        // данные атрибута доступны у элемента инпута через ключевое слово dataset.
-        // обратите внимание, что в js имя атрибута пишется в camelCase (да-да, в
-        // HTML мы писали в kebab-case, это не опечатка)
     inputElement.setCustomValidity(inputElement.dataset.errorMessage);
   } else {
     inputElement.setCustomValidity("");

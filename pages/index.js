@@ -138,9 +138,10 @@ function getElement(name, link) {
   img.setAttribute("alt", name); //town reneme --> name
   img.setAttribute("src", link); //townlink reneme --> link
   img.addEventListener("click", overview);
-  const TitleFoto = template.querySelector(".elements__title"); //<----------------------------------Fixed a bug in the variable name (h2 --> TitleFoto)
-  TitleFoto.textContent = name; //<------------------------------------------------------------------Fixed a bug in the variable name (h2 --> TitleFoto) //town reneme --> name
+  const titleFoto = template.querySelector(".elements__title"); //<----------------------------------Fixed a bug in the variable name (h2 --> TitleFoto)
+  titleFoto.textContent = name; //<------------------------------------------------------------------Fixed a bug in the variable name (h2 --> TitleFoto) //town reneme --> name
   const buttonTypeLike = template.querySelector(".button_type_like");
+
   buttonTypeLike.addEventListener("click", toggleLikeElement);
   const buttonTypeDeleteElement = template.querySelector(
     ".button_type_delete-element"

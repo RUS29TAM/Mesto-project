@@ -27,11 +27,13 @@
     <!--PROFILE-->
     <section class="profile">
       <div class="profile__info-avatar">
+        <button class="button button_type_avatar" type="button" aria-label="Редактировать">
         <img
           src="./images/dsli.jpg"
           class="profile__info-avatar"
           alt="профиль пользователя - аватар Жак-Ив Кусто"
         />
+      </button>
       </div>
       <div class="profile__info">
         <h1 class="profile__title-firstname">Там-вДали&nbsp;Кусто</h1>
@@ -64,10 +66,10 @@
             required 
             minlength="2"
             maxlength="40"
-            pattern="^[a-zA-Z]+$"
+            pattern="^[A-Za-zА-Яа-яЁёъь\s\-]+$"
             data-error-message="Разрешены только латинские буквы"
           />
-          <span class="form__input-error firstname-input-error">Вы пропустили это поле.</span>
+          <span class="form__input-error firstname-input-error">Разрешены только латинские и русские буквы, пробелы и тире</span>
           <input
             type="text"
             class="form__input form__input_type_profession"
@@ -77,11 +79,11 @@
             required 
             minlength="2"
             maxlength="200"
-            pattern="^[a-zA-Z]+$"
+            pattern="^[A-Za-zА-Яа-яЁёъь\s\-]+$"
             data-error-message="Введите адрес сайта."
                     
           />
-          <span class="form__input-error profession-input-error">Вы пропустили это поле.</span>
+          <span class="form__input-error profession-input-error">Разрешены только латинские и русские буквы, пробелы и тире</span>
           <button
             type="button"
             class="button button_type_close"
@@ -157,8 +159,9 @@
           class="button button_type_delete-element"
         ></button>
         <div class="element__info">
-          <h2 class="elements__title"></h2>
+          <h2 class="elements__title"></h2>        
           <button type="button" class="button button_type_like"></button>
+          <span class="element__like-count">0</span>          
         </div>
       </div>
     </template>
