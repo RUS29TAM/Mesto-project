@@ -59,10 +59,10 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   function toggleButtonState(inputList, buttonTypeSave) {
     if (hasInvalidInput(inputList)) {
       buttonTypeSave.classList.add('button_inactive');
-      buttonTypeSave.setAttribute("disabled", true);
+      // buttonTypeSave.setAttribute("disabled", true);
     } else {
       buttonTypeSave.classList.remove('button_inactive');
-      buttonTypeSave.removeAttribute("disabled", true);
+      // buttonTypeSave.removeAttribute("disabled", true);
     }
   };
 
