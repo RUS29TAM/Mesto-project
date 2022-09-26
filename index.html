@@ -54,7 +54,7 @@
     <!--POPUP EDIT FORM-->
     <div class="popup popup_edit-profile">
       <div class="popup__box">
-        <form class="form form_edit-profile" name="profile" method="post"> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
+        <form class="form form_edit-profile" name="profile" method="post" novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
           <h3 class="form__title">Редактировать профиль</h3>
           <!-- <fieldset class="form__set"> -->
           <input
@@ -104,7 +104,7 @@
     <!--POPUP EDIT AVATAR-->
     <div class="popup popup_edit-avatar">
       <div class="popup__box">
-        <form class="form form_edit-avatar" name="avatar" method="post"> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
+        <form class="form form_edit-avatar" name="avatar" method="post" novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
           <h3 class="form__title">Сменить фотографию</h3>
           <!-- <fieldset class="form__set"> -->
           <input
@@ -137,7 +137,7 @@
     <!--POPUP ADD TOWN-->
     <div class="popup popup_add-elements">
       <div class="popup__box">
-        <form class="form form_add-elements" name="card" method="post"> 
+        <form class="form form_add-elements" name="card" method="post" novalidate> 
           <h3 class="form__title">Новое место</h3>
           <input
             type="text"
@@ -147,10 +147,10 @@
             id="card-input"
             required 
             minlength="2"
-            maxlength="40"
+            maxlength="30"
             pattern="^[A-Za-zА-Яа-яЁёъь\s\-]+$"
             data-error-message="Разрешены только латинские и русские буквы, пробелы и тире"
-          />
+            />
           <span class="form__input-error card-input-error"></span>
           
           <input

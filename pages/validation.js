@@ -1,5 +1,10 @@
 'use strict';
 
+// const formElement = document.querySelector('.form');
+// const formImput = formElement.querySelector('.form__input');
+
+// const formError = formElement.querySelector(`.${formImput.id}-error`);
+
 const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add('form__input_type_error');
@@ -16,11 +21,12 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   
   const checkInputValidity = (formElement, inputElement) => {
     if (!inputElement.validity.valid) {
-      showInputError(formElement, inputElement, inputElement.validationMessage);
+      showInputError(formElement, inputElement, inputElement.validationMessage);  
     } else {
       hideInputError(formElement, inputElement);
     }
   };
+  
 
   const submitButton = 'button_type_save';
   
@@ -39,8 +45,8 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   const enableValidation = () => {
     const formList = Array.from(document.querySelectorAll('.popup__box'));
     formList.forEach((formElement) => {
-      formElement.addEventListener('submit', function (evt) {
-        evt.preventDefault();
+      formElement.addEventListener('submit', function (evtent) {
+        evtent.preventDefault();
       });
       const fieldsetList = Array.from(formElement.querySelectorAll('.form'));
       fieldsetList.forEach((fieldset) => {
@@ -60,10 +66,10 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   function toggleButtonState(inputList, buttonTypeSave) {
     if (hasInvalidInput(inputList)) {
       buttonTypeSave.classList.add('button_inactive');
-      // buttonTypeSave.setAttribute("disabled", true);
+      buttonTypeSave.setAttribute("disabled", true);
     } else {
       buttonTypeSave.classList.remove('button_inactive');
-      // buttonTypeSave.removeAttribute("disabled", true);
+      buttonTypeSave.removeAttribute("disabled", true);
     }
   };
 
@@ -81,3 +87,5 @@ const isValid = (formElement, inputElement) => {
     hideInputError(formElement, inputElement);
   }
 };
+
+
