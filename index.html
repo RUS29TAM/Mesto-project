@@ -66,8 +66,8 @@
             required 
             minlength="2"
             maxlength="40"
-            pattern="^[A-Za-zА-Яа-яЁёъь\s\-]+$"
-            data-error-message="Разрешены только латинские буквы"
+            pattern="^[a-zA-Zа-яА-Я-\s]+$"
+            data-error-message="Разрешены только латинские буквы."
           />
           <span class="form__input-error firstname-input-error"></span>
           <input
@@ -148,7 +148,7 @@
             required 
             minlength="2"
             maxlength="30"
-            pattern="^[A-Za-zА-Яа-яЁёъь\s\-]+$"
+            pattern="^[a-zA-Zа-яА-Я-\s]+$"
             data-error-message="Разрешены только латинские и русские буквы, пробелы и тире"
             />
           <span class="form__input-error card-input-error"></span>
@@ -210,6 +210,7 @@
         <span class="element__like-count">0</span>          
       </div>
     </template>
+    <script src="./pages/asasas.js"></script>
     <script src="./pages/ava.js"></script>
     <script src="./pages/validation.js"></script>
     <script src="./pages/index.js"></script>
