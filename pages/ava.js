@@ -1,3 +1,5 @@
+"use strict";
+
 const buttonTypeAvatar = document.querySelector(".button_type_avatar");
 const popupEditAvatar = document.querySelector(".popup_edit-avatar");
 const formEditAvatar = document.querySelector(".form_edit-avatar");

@@ -1,8 +1,8 @@
 "use strict";
 
+const submitButton = "button_type_save";
 const formElement = document.querySelector(".form");
 const formImput = formElement.querySelector(".form__input-error");
-
 const formError = formElement.querySelector(`.${formImput.id}-error`);
 
 const showInputError = (formElement, inputElement, errorMessage) => {
@@ -18,8 +18,6 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.classList.remove("form__input-error_active");
   errorElement.textContent = "";
 };
-
-const submitButton = "button_type_save";
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));

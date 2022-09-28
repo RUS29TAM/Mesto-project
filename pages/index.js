@@ -64,10 +64,14 @@ const elementsElement = [
 function openPopup(popup) {
   //open popup
   popup.classList.add("popup_opened");
+  document.addEventListener('keydown', closePopupClickEscape);
+  document.addEventListener('click', closePopupClickOutside);
 }
 function closePopup(popup) {
   //close popup
   popup.classList.remove("popup_opened");
+  // document.removeEventListener('keydown', closePopupClickEscape);
+  // document.removeEventListener('click', closePopupClickOutside);
 }
 
 //ADD LISTENER FOR CLOSE POPUP
@@ -176,3 +180,19 @@ function overview(event) {
 
   openPopup(popupOverview);
 }
+
+
+const popupClassOpened = 'popup_opened';
+const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
+
+function closePopupClickEscape(event) {
+  if (event.key === 'Escape') {
+      closePopup(getActivePopup());
+  };
+};
+
+function closePopupClickOutside (event) {
+  if (event.target.classList.contains(popupClassOpened)) {
+      closePopup(getActivePopup());
+  };
+};
