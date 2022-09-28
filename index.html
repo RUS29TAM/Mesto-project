@@ -79,7 +79,7 @@
             required 
             minlength="2"
             maxlength="200"
-            pattern="^[A-Za-zА-Яа-яЁёъь\s\-]+$"
+            pattern="^[a-zA-Zа-яА-Я-\s]+$"
             data-error-message="Разрешены только латинские и русские буквы, пробелы и тире."
                     
           />
@@ -210,9 +210,9 @@
         <span class="element__like-count">0</span>          
       </div>
     </template>
-    <script src="./pages/ava.js"></script>
-    <!-- <script src="./pages/modal.js"></script> -->
-    <script src="./pages/validation.js"></script>
-    <script src="./pages/index.js"></script>
+    <script type="module" src="./pages/index.js"></script>
+    <script type="module" src="./pages/validation.js"></script>
+    <script type="module" src="./pages/ava.js"></script>
+    <script type="module" src="./pages/modal.js"></script>
   </body>
 </html>

@@ -61,17 +61,20 @@ const elementsElement = [
 ];
 
 //_____________________________________________________________________________FUNCTIONS FOR OPEN/CLOSE POPUP
-function openPopup(popup) {
+export function openPopup(popup) {
   //open popup
   popup.classList.add("popup_opened");
   document.addEventListener('keydown', closePopupClickEscape);
   document.addEventListener('click', closePopupClickOutside);
+
 }
-function closePopup(popup) {
+
+export function closePopup(popup) {
   //close popup
   popup.classList.remove("popup_opened");
-  // document.removeEventListener('keydown', closePopupClickEscape);
-  // document.removeEventListener('click', closePopupClickOutside);
+  document.removeEventListener('keydown', closePopupClickEscape);
+  document.removeEventListener('click', closePopupClickOutside);
+
 }
 
 //ADD LISTENER FOR CLOSE POPUP
@@ -196,3 +199,22 @@ function closePopupClickOutside (event) {
       closePopup(getActivePopup());
   };
 };
+
+
+
+// const buttonTypeAvatar = document.querySelector(".button_type_avatar");
+// const popupEditAvatar = document.querySelector(".popup_edit-avatar");
+// const formEditAvatar = document.querySelector(".form_edit-avatar");
+
+// buttonTypeAvatar.addEventListener("click", openformEditAvatar);
+// formEditAvatar.addEventListener("submit", closeFormEditAvatar);
+
+// function openformEditAvatar() {
+//   openPopup(popupEditAvatar);
+// }
+
+// function closeFormEditAvatar(event) {
+//   event.preventDefault();
+//   //   something.textContent = formInputTypeSomething.value;
+//   closePopup(popupEditAvatar);
+// }
