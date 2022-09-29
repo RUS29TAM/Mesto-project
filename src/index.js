@@ -1,6 +1,6 @@
 "use strict";
 
-import '../pages/index.css';
+import '../src/index.css'
 //_____________________________________________________________________________VARIABLES FOR POPUP PROFILE-EDIT
 const popupEditProfile = document.querySelector(".popup_edit-profile");
 const formEditProfile = document.querySelector(".form_edit-profile");
@@ -23,8 +23,8 @@ const formInputTypeTown = document.querySelector(".form__input_type_town");
 const formInputTypeTownLink = document.querySelector(
   ".form__input_type_townlink"
 );
-const elementsFoto = document.querySelector(".elements__foto");
-const elementsTitle = document.querySelector(".elements__title");
+// const elementsFoto = document.querySelector(".elements__foto");
+// const elementsTitle = document.querySelector(".elements__title");
 const buttonTypeAdd = document.querySelector(".button_type_add");
 const formAddElement = document.querySelector(".form_add-elements"); //<-------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
 // const buttonTypeSubmit = document.querySelector(".button_type_submit");<---------------------------The variable has been removed because it is not currently used by the code structure.
@@ -66,10 +66,17 @@ const elementsElement = [
 function openPopup(popup) {
   //open popup
   popup.classList.add("popup_opened");
+  document.addEventListener('keydown', closePopupClickEscape);
+  document.addEventListener('click', closePopupClickOutside);
+
 }
+
 function closePopup(popup) {
   //close popup
   popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', closePopupClickEscape);
+  document.removeEventListener('click', closePopupClickOutside);
+
 }
 
 //ADD LISTENER FOR CLOSE POPUP
@@ -140,9 +147,10 @@ function getElement(name, link) {
   img.setAttribute("alt", name); //town reneme --> name
   img.setAttribute("src", link); //townlink reneme --> link
   img.addEventListener("click", overview);
-  const TitleFoto = template.querySelector(".elements__title"); //<----------------------------------Fixed a bug in the variable name (h2 --> TitleFoto)
-  TitleFoto.textContent = name; //<------------------------------------------------------------------Fixed a bug in the variable name (h2 --> TitleFoto) //town reneme --> name
+  const titleFoto = template.querySelector(".elements__title"); //<----------------------------------Fixed a bug in the variable name (h2 --> TitleFoto)
+  titleFoto.textContent = name; //<------------------------------------------------------------------Fixed a bug in the variable name (h2 --> TitleFoto) //town reneme --> name
   const buttonTypeLike = template.querySelector(".button_type_like");
+
   buttonTypeLike.addEventListener("click", toggleLikeElement);
   const buttonTypeDeleteElement = template.querySelector(
     ".button_type_delete-element"
@@ -177,3 +185,124 @@ function overview(event) {
 
   openPopup(popupOverview);
 }
+
+//_____________________________________________________________________________FUNCTIONS CLOSE ESCAPE & OUTSIDE CLICK
+const popupClassOpened = 'popup_opened';
+const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
+
+function closePopupClickEscape(event) {
+  if (event.key === 'Escape') {
+      closePopup(getActivePopup());
+  };
+};
+
+function closePopupClickOutside (event) {
+  if (event.target.classList.contains(popupClassOpened)) {
+      closePopup(getActivePopup());
+  };
+};
+
+
+//_____________________________________________________________________________ OPEN POPUP EDIT AVATAR
+const buttonTypeAvatar = document.querySelector(".button_type_avatar");
+const popupEditAvatar = document.querySelector(".popup_edit-avatar");
+const formEditAvatar = document.querySelector(".form_edit-avatar");
+
+buttonTypeAvatar.addEventListener("click", openformEditAvatar);
+formEditAvatar.addEventListener("submit", closeFormEditAvatar);
+
+function openformEditAvatar() {
+  openPopup(popupEditAvatar);
+}
+
+function closeFormEditAvatar(event) {
+  event.preventDefault();
+  //   something.textContent = formInputTypeSomething.value;
+  closePopup(popupEditAvatar);
+}
+
+
+//_____________________________________________________________________________ VALIDATION 
+
+
+const submitButton = "button_type_save";
+const formElement = document.querySelector(".form");
+const formImput = formElement.querySelector(".form__input-error");
+const formError = formElement.querySelector(`.${formImput.id}-error`);
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add("form__input_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("form__input-error_active");
+};
+
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove("form__input_error");
+  errorElement.classList.remove("form__input-error_active");
+  errorElement.textContent = "";
+};
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonTypeSave = formElement.querySelector(`.${submitButton}`);
+  toggleButtonState(inputList, buttonTypeSave);
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      isValid(formElement, inputElement);
+      toggleButtonState(inputList, buttonTypeSave);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".popup__box"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", function (evtent) {
+      evtent.preventDefault();
+    });
+    const fieldsetList = Array.from(formElement.querySelectorAll(".form"));
+    fieldsetList.forEach((fieldset) => {
+      setEventListeners(fieldset);
+    });
+  });
+};
+
+enableValidation();
+
+function hasInvalidInput(inputList) {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+}
+
+function toggleButtonState(inputList, buttonTypeSave) {
+  if (hasInvalidInput(inputList)) {
+    buttonTypeSave.classList.add("button_inactive");
+    buttonTypeSave.setAttribute("disabled", true);
+  } else {
+    buttonTypeSave.classList.remove("button_inactive");
+    buttonTypeSave.removeAttribute("disabled", true);
+  }
+}
+
+const isValid = (formElement, inputElement) => {
+  if (inputElement.validity.patternMismatch) {
+    inputElement.setCustomValidity(inputElement.dataset.errorMessage);
+  } else {
+    inputElement.setCustomValidity("");
+  }
+
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+  }
+
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+  }
+};
