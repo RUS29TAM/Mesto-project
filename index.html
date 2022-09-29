@@ -27,11 +27,13 @@
     <!--PROFILE-->
     <section class="profile">
       <div class="profile__info-avatar">
+        <button class="button button_type_avatar" type="button" aria-label="Редактировать">
         <img
           src="./images/dsli.jpg"
           class="profile__info-avatar"
           alt="профиль пользователя - аватар Жак-Ив Кусто"
         />
+      </button>
       </div>
       <div class="profile__info">
         <h1 class="profile__title-firstname">Там-вДали&nbsp;Кусто</h1>
@@ -52,20 +54,36 @@
     <!--POPUP EDIT FORM-->
     <div class="popup popup_edit-profile">
       <div class="popup__box">
-        <form class="form form_edit-profile" name="profile" method="post"> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
+        <form class="form form_edit-profile" name="profile" method="post" novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
           <h3 class="form__title">Редактировать профиль</h3>
+          <!-- <fieldset class="form__set"> -->
           <input
             type="text"
             class="form__input form__input_type_firstname"
             name="firstname"
             placeholder="Там-вДали Кусто"
+            id="firstname-input"
+            required 
+            minlength="2"
+            maxlength="40"
+            pattern="^[a-zA-Zа-яА-Я-\s]+$"
+            data-error-message="Разрешены только латинские и русские буквы, пробелы и тире."
           />
+          <span class="form__input-error firstname-input-error"></span>
           <input
             type="text"
             class="form__input form__input_type_profession"
             name="profession"
             placeholder="Cледователь в океане"
+            id="profession-input"
+            required 
+            minlength="2"
+            maxlength="200"
+            pattern="^[a-zA-Zа-яА-Я-\s]+$"
+            data-error-message="Разрешены только латинские и русские буквы, пробелы и тире."
+                    
           />
+          <span class="form__input-error profession-input-error"></span>
           <button
             type="button"
             class="button button_type_close"
@@ -78,27 +96,27 @@
           >
             Сохранить
           </button>
+        <!-- </fieldset> -->
         </form>
       </div>
     </div>
 
-    <!--POPUP ADD TOWN-->
-    <div class="popup popup_add-elements">
+    <!--POPUP EDIT AVATAR-->
+    <div class="popup popup_edit-avatar">
       <div class="popup__box">
-        <form class="form form_add-elements" name="card" method="post"> <!--Fixed a bug in the variable name (town -> card) + add method="post"-->
-          <h3 class="form__title">Новое место</h3>
+        <form class="form form_edit-avatar" name="avatar" method="post" novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
+          <h3 class="form__title">Сменить фотографию</h3>
+          <!-- <fieldset class="form__set"> -->
           <input
-            type="text"
-            class="form__input form__input_type_town"
-            name="card-name"
-            placeholder="Название"
-          /> <!--Fixed a bug in the variable name (town -> card-name)-->
-          <input
-            type="text"
-            class="form__input form__input_type_townlink"
-            name="card-link"
-            placeholder="Ссылка на картинку"
-          /><!--Fixed a bug in the variable name (townlink -> card-link)-->
+            type="url"
+            class="form__input form__input_type_avatar"
+            name="avatar"
+            placeholder="https://"
+            id="avatar-input"
+            required 
+            data-error-message="Введите ссылку на аватар"
+          />
+          <span class="form__input-error avatar-input-error"></span>
           <button
             type="button"
             class="button button_type_close"
@@ -106,8 +124,55 @@
           ></button>
           <button
             type="submit"
-            class="button button_type_submit"
+            class="button button_type_save"
             aria-label="сохранить"
+          >
+            Сохранить
+          </button>
+        <!-- </fieldset> -->
+        </form>
+      </div>
+    </div>
+
+    <!--POPUP ADD TOWN-->
+    <div class="popup popup_add-elements">
+      <div class="popup__box">
+        <form class="form form_add-elements" name="card" method="post" novalidate> 
+          <h3 class="form__title">Новое место</h3>
+          <input
+            type="text"
+            class="form__input form__input_type_town"
+            name="town-name"
+            placeholder="Название"
+            id="card-input"
+            required 
+            minlength="2"
+            maxlength="30"
+            pattern="^[a-zA-Zа-яА-Я-\s]+$"
+            data-error-message="Разрешены только латинские и русские буквы, пробелы и тире"
+            />
+          <span class="form__input-error card-input-error"></span>
+          
+          <input
+            type="url"
+            class="form__input form__input_type_townlink"
+            name="card-link"
+            placeholder="Ссылка на картинку"
+            id="townlink-input"
+            required 
+            data-error-message="Введите ссылку на картинку"
+          />
+          <span class="form__input-error townlink-input-error"></span>
+          <button
+            type="button"
+            class="button button_type_close"
+            aria-label="закрыть"
+          ></button>
+          <button
+            type="submit"
+            class="button button_type_save"
+            aria-label="сохранить"
+            id="submit"
           >
             Сохранить
           </button>
@@ -139,11 +204,12 @@
           class="button button_type_delete-element"
         ></button>
         <div class="element__info">
-          <h2 class="elements__title"></h2>
+          <h2 class="elements__title"></h2>        
           <button type="button" class="button button_type_like"></button>
         </div>
+        <span class="element__like-count">0</span>          
       </div>
     </template>
-    <script src="./pages/index.js"></script>
+    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
