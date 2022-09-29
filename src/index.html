@@ -9,7 +9,7 @@
       href="https://www.mihayloscarves.com/wp-content/uploads/2019/07/M-Favicon.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
     <meta name="descrition" content="Mesto" />
     <meta name="autor" content="Рустам Никончук" />
     <title>Mesto</title>
@@ -18,7 +18,7 @@
     <!--HEADER-->
     <header class="header">
       <img
-        src="./images/logo__mesto.svg"
+        src="<%=require('../images/logo__mesto.svg')%>"
         class="header__logo"
         alt="Логотип Место - Россия"
       />
@@ -28,7 +28,7 @@
     <section class="profile">
       <div class="profile__info-avatar">
         <img
-          src="./images/dsli.jpg"
+          src="<%=require('../images/dsli.jpg')%>"
           class="profile__info-avatar"
           alt="профиль пользователя - аватар Жак-Ив Кусто"
         />
@@ -144,6 +144,6 @@
         </div>
       </div>
     </template>
-    <!-- <script type="module" src="./pages/index.js"></script> -->
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
