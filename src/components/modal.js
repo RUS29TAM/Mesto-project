@@ -9,6 +9,11 @@ import { cardsContainer,
     formInputTypeProfession,
     profilSubtitleProfession,
     popupEditProfile,
+    popupEditAvatar,
+    buttonTypeAvatar,
+    formEditAvatar,
+
+
   } from './variables.js';
 import { getElement } from './index.js';
 
@@ -66,3 +71,16 @@ export function openformAddElements(event) {
   formAddElement.reset(); //<------------------------------------------------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
   closePopup(popupAddElement); //<-------------------------------------------------------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
 }
+
+export function openformEditAvatar() {
+  openPopup(popupEditAvatar);
+}
+
+export function closeFormEditAvatar(event) {
+  event.preventDefault();
+  //   something.textContent = formInputTypeSomething.value;
+  closePopup(popupEditAvatar);
+}
+
+buttonTypeAvatar.addEventListener("click", openformEditAvatar);
+formEditAvatar.addEventListener("submit", closeFormEditAvatar);
