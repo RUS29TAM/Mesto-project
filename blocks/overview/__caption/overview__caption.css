@@ -1,0 +1,10 @@
+.overview__caption {
+  color: rgb(255, 255, 255);
+  margin: 10px 0 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+}

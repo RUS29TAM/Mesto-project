@@ -1,4 +1,4 @@
-.button_type_save {
+.button_type_submit {
   font-family: "Inter", "Arial", sans-serif;
   color: rgb(255, 255, 255);
   margin: 49px 0 0;
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .button_type_save {
+  .button_type_submit {
     width: 238px;
     height: 46px;
     margin-top: 45px;
@@ -21,10 +21,9 @@
   }
 }
 
-.button_type_save:hover {
+.button_type_submit:hover {
   opacity: 0.8;
   -webkit-transition: opacity 0.3s linear;
   -o-transition: opacity 0.3s linear;
   transition: opacity 0.3s linear;
 }
-

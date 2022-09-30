@@ -15,22 +15,19 @@
 
 ## О проекте:
 
-**_«Procrastinate» представляет собой приложение на JavaScript, которое позволит расслабиться и сделать перерыв. Зайдите в него, нажмите на кнопку и получите совет. Пусть в наших соцсетях продуктивным сверхлюдям станет чуть спокойнее._**
+**_Реализация проекта «Mesto» представляет собой сервис с интерактивной страницей, куда можно добавлять фотографии, удалять их и ставить лайки._**
 
-- _[сылка на проект в GitHub Pages](https://rus29tam.github.io/Procrastinate./)_
-
- правила HTML-разметки и научитесь работать со стилями: управлять цветом, шрифтами, расположением блоков на странице. На примере двух проектов освоите базовый синтаксис HTML и CSS, а также минимально необходимый набор тегов и стилистических правил.
+- _[сылка на проект в GitHub Pages](https://rus29tam.github.io/mesto-project/index.html)_
 
 1. Схема организации файловой структуры БЭМ - Nested
 2. Имена классов даны по БЭМ.
 3. Схема построения flex-box GRID Layout 
 4. Адаптивная вёрстка. Минимальная ширина: 320px (одна карточка в ряд). Максимальная: 1280px (три карточки в ряд).
 5. Все интерактивные элементы обладают состоянием наведения или фокуса.
-6. _[оптимизация картинок через ресурс: _tinypng.com_](https://tinypng.com/)_
-7. _[Дизайн и разметка соответствует макету:](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)_
-8. В работе с макетом используется _[PerfectPixel by WellDoneCode](https://www.welldonecode.com/perfectpixel/)_
-
-![alt text](./images/Mesto.gif)
+6. Функциональность проекта за счет применения следующих свойств и методов: innerHTML, getElement, renderElements, forEach, append, cloneNode, template.
+7. Первоначально производилась _[оптимизация картинок через ресурс: _tinypng.com_](https://tinypng.com/)_ и загрузка файлов в корень проекта, далее файлы были удалены и изображения стали подгружаться с сервера бесплатных фотографий: _[_unsplash.com_](https://unsplash.com/)_
+8. Дизайн и разметка соответствует _[макету](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)_
+9. В работе с макетом используется _[PerfectPixel by WellDoneCode](https://www.welldonecode.com/perfectpixel/)_
 
 ---
 ![alt text](https://yastatic.net/q/logoaas/v2/Яндекс.svg?circle=black&color=000&first=white "Logo")

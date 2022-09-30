@@ -7,4 +7,14 @@
   border-top-right-radius: 10px;
   width: 282px;
   height: 282px;
+  z-index: 10;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.elements__foto:hover {
+  -webkit-filter: sepia(0.5);
+  filter: sepia(0.5);
+  outline: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
 }

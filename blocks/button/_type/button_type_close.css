@@ -17,3 +17,8 @@
     right: 0;
   }
 }
+
+.button_type_close:hover {
+  opacity: 0.5;
+  transition: opacity 0.3s linear;
+}

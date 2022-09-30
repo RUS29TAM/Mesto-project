@@ -11,17 +11,19 @@
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__info-avatar/profile__info-avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__title/profile__title.css);
-@import url(../blocks/profile/__subtitle/profile__subtitle.css);
+@import url(../blocks/profile/__title-firstname/profile__title-firstname.css);
+@import url(../blocks/profile/__subtitle-profession/profile__subtitle-profession.css);
 
 /*BUTTON*/
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_type/button_type_edit.css);
 @import url(../blocks/button/_type/button_type_add.css);
 @import url(../blocks/button/_type/button_type_save.css);
+@import url(../blocks/button/_type/button_type_submit.css);
 @import url(../blocks/button/_type/button_type_close.css);
 @import url(../blocks/button/_type/button_type_like.css);
-@import url(../blocks/button/_like/button_like_on.css);
+@import url(../blocks/button/_type/button_type_like_on.css);
+@import url(../blocks/button/_type/button_type_delete-element.css);
 
 /*GRID - AREAS - ELEMENTS*/
 @import url(../blocks/elements/elements.css);
@@ -38,9 +40,16 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__box/popup__box.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/_overview/popup_overview.css);
+@import url(../blocks/popup/__box-overview/popup__box-overview.css); 
 
 /*FORM*/
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__title/form__title.css);
 @import url(../blocks/form/__input/form__input.css);
+
+/*OVERVIEW*/
+@import url(../blocks/overview/overview.css);
+@import url(../blocks/overview/__image/overview__image.css);
+@import url(../blocks/overview/__caption/overview__caption.css);
 
