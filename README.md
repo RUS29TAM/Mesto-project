@@ -1,5 +1,5 @@
 # Реализация проекта «Mesto»
-Это вторая часть проектной работы второго месяца обучения по программе "Веб-разработчик плюс" в Яндекс Практикуме.
+Проектная работа по программе обучения "Веб-разработчик плюс" в Яндекс Практикуме.
 
 ---
 ### Сведения об образовательном учреждении
@@ -27,7 +27,13 @@
 6. Функциональность проекта за счет применения следующих свойств и методов: innerHTML, getElement, renderElements, forEach, append, cloneNode, template.
 7. Первоначально производилась _[оптимизация картинок через ресурс: _tinypng.com_](https://tinypng.com/)_ и загрузка файлов в корень проекта, далее файлы были удалены и изображения стали подгружаться с сервера бесплатных фотографий: _[_unsplash.com_](https://unsplash.com/)_
 8. Дизайн и разметка соответствует _[макету](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)_
-9. В работе с макетом используется _[PerfectPixel by WellDoneCode](https://www.welldonecode.com/perfectpixel/)_
+9. В работе с макетом используется _[PerfectPixel by WellDoneCode](https://www.welldonecode.com/perfectpixel/)_     
+10. Mинификация транспиляция HTML,CSS,JS (Сборка webpack)    
+11. Инкапсуляция и мдули в JS (export/import)    
+12. Валидация форм (браузерная, и JS  с кастомизацией сообщений)     
+
+
+
 
 ---
 ![alt text](https://yastatic.net/q/logoaas/v2/Яндекс.svg?circle=black&color=000&first=white "Logo")
