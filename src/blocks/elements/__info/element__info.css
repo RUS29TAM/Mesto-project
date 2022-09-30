@@ -1,0 +1,13 @@
+.element__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  max-width: 246px;
+  width: 100%;
+  gap: 20px;
+  position: relative;
+  margin-top: 25px;
+}
