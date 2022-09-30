@@ -31,3 +31,8 @@ export const overviewCaption = document.querySelector(".overview__caption");
 //_____________________________________________________________________________VARIABLES FOR ELEMENTS
 export const templateElement = document.querySelector("template");
 export const cardsContainer = document.querySelector(".elements");
+
+//_____________________________________________________________________________ OPEN POPUP EDIT AVATAR
+export const buttonTypeAvatar = document.querySelector(".button_type_avatar");
+export const popupEditAvatar = document.querySelector(".popup_edit-avatar");
+export const formEditAvatar = document.querySelector(".form_edit-avatar");

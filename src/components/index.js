@@ -1,16 +1,10 @@
 "use strict";
 
 import '../../src/index.css';
-import { popupEditProfile, 
+import {  
   formEditProfile, 
-  formInputTypeFirstname, 
-  formInputTypeProfession,
-  profilTitleFirstname,
-  profilSubtitleProfession,
   buttonTypeEdit,
-  popupAddElement,
-  formInputTypeTown,
-  formInputTypeTownLink,
+  popupAddElement, 
   buttonTypeAdd,
   formAddElement,
   popupOverview,
@@ -18,41 +12,18 @@ import { popupEditProfile,
   overviewCaption,
   templateElement,
   cardsContainer,
+  buttonTypeAvatar,
+  popupEditAvatar,
+  formEditAvatar,
+
  } from './variables.js';
-//_____________________________________________________________________________VARIABLES FOR POPUP PROFILE-EDIT
-// const popupEditProfile = document.querySelector(".popup_edit-profile");
-// const formEditProfile = document.querySelector(".form_edit-profile");
-// const formInputTypeFirstname = document.querySelector(
-//   ".form__input_type_firstname"
-// );
-// const formInputTypeProfession = document.querySelector(
-//   ".form__input_type_profession"
-// );
-// const profilTitleFirstname = document.querySelector(
-//   ".profile__title-firstname"
-// );
-// const profilSubtitleProfession = document.querySelector(
-//   ".profile__subtitle-profession"
-// );
-// const buttonTypeEdit = document.querySelector(".button_type_edit");
-// //_____________________________________________________________________________VARIABLES FOR POPUP ADD
-// const popupAddElement = document.querySelector(".popup_add-elements"); //<-----------------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
-// const formInputTypeTown = document.querySelector(".form__input_type_town");
-// const formInputTypeTownLink = document.querySelector(
-//   ".form__input_type_townlink"
-// );
-// // const elementsFoto = document.querySelector(".elements__foto");
-// // const elementsTitle = document.querySelector(".elements__title");
-// const buttonTypeAdd = document.querySelector(".button_type_add");
-// const formAddElement = document.querySelector(".form_add-elements"); //<-------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
-// // const buttonTypeSubmit = document.querySelector(".button_type_submit");<---------------------------The variable has been removed because it is not currently used by the code structure.
-// //_____________________________________________________________________________VARIABLES FOR POPUP OVERVIEW
-// const popupOverview = document.querySelector(".popup_overview");
-// const overviewImage = document.querySelector(".overview__image");
-// const overviewCaption = document.querySelector(".overview__caption");
-// //_____________________________________________________________________________VARIABLES FOR ELEMENTS
-// const templateElement = document.querySelector("template");
-// const cardsContainer = document.querySelector(".elements"); //<----------------------------------------Fixed a bug in the variable name (elements --> cardsContainer)
+
+ import { openPopup, 
+  closePopup,
+  openformEditProfile,
+  closeFormEditProfile,
+  openformAddElements,
+ } from './modal.js';
 const elementsElement = [
   {
     name: "Собакен", //town reneme --> name //townlink reneme --> link
@@ -80,22 +51,7 @@ const elementsElement = [
   },
 ];
 
-//_____________________________________________________________________________FUNCTIONS FOR OPEN/CLOSE POPUP
-function openPopup(popup) {
-  //open popup
-  popup.classList.add("popup_opened");
-  document.addEventListener('keydown', closePopupClickEscape);
-  document.addEventListener('click', closePopupClickOutside);
 
-}
-
-function closePopup(popup) {
-  //close popup
-  popup.classList.remove("popup_opened");
-  document.removeEventListener('keydown', closePopupClickEscape);
-  document.removeEventListener('click', closePopupClickOutside);
-
-}
 
 //ADD LISTENER FOR CLOSE POPUP
 const buttonTypeCloseList = document.querySelectorAll(".button_type_close"); //<---------------------Fixed a bug in the variable name (buttonTypeClose --> buttonTypeCloseList)
@@ -113,33 +69,6 @@ formEditProfile.addEventListener("submit", closeFormEditProfile);
 buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElement)); //<-----------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
 formAddElement.addEventListener("submit", openformAddElements); //<----------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
 
-//_____________________________________________________________________________FUNCTIONS FOR POPUP PROFILE-EDIT
-function openformEditProfile() {
-  //the data that will be displayed in the input field//<-------------Fixed a bug in the variable name (formEditProfileOpen --> openformEditProfile)
-  formInputTypeFirstname.value = profilTitleFirstname.textContent;
-  formInputTypeProfession.value = profilSubtitleProfession.textContent;
-  openPopup(popupEditProfile);
-}
-
-function closeFormEditProfile(event) {
-  //data that will be sent after
-  event.preventDefault(); //Canceling the default browser action
-  profilTitleFirstname.textContent = formInputTypeFirstname.value;
-  profilSubtitleProfession.textContent = formInputTypeProfession.value;
-  closePopup(popupEditProfile);
-}
-
-//_____________________________________________________________________________FUNCTIONS FOR POPUP ADD
-function openformAddElements(event) {
-  event.preventDefault(); //Canceling the default browser action
-  cardsContainer.prepend(
-    //insert nodes or rows at the beginning//<---------------------------------Fixed a bug in the variable name (elements --> cardsContainer)
-    getElement(formInputTypeTown.value, formInputTypeTownLink.value) //search method
-  );
-
-  formAddElement.reset(); //<------------------------------------------------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
-  closePopup(popupAddElement); //<-------------------------------------------------------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
-}
 
 //_____________________________________________________________________________BUTTON LIKE ON ELEMENTS
 function toggleLikeElement(event) {
@@ -152,7 +81,7 @@ function deleteElement(evtent) {
   elementsElement.remove();
 }
 
-function getElement(name, link) {
+export function getElement(name, link) {
   //search method //town reneme --> name //townlink reneme --> link
   const template =
     templateElement.content.cloneNode(
@@ -179,7 +108,7 @@ function getElement(name, link) {
   return template;
 }
 
-function renderElements() {
+ function renderElements() {
   // elements.innerHTML = ""; //The innerHTML property allows you to get the HTML content of an element as a string.
   elementsElement.forEach(
     (
@@ -204,27 +133,10 @@ function overview(event) {
   openPopup(popupOverview);
 }
 
-//_____________________________________________________________________________FUNCTIONS CLOSE ESCAPE & OUTSIDE CLICK
-const popupClassOpened = 'popup_opened';
-const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
-
-function closePopupClickEscape(event) {
-  if (event.key === 'Escape') {
-      closePopup(getActivePopup());
-  };
-};
-
-function closePopupClickOutside (event) {
-  if (event.target.classList.contains(popupClassOpened)) {
-      closePopup(getActivePopup());
-  };
-};
-
-
-//_____________________________________________________________________________ OPEN POPUP EDIT AVATAR
-const buttonTypeAvatar = document.querySelector(".button_type_avatar");
-const popupEditAvatar = document.querySelector(".popup_edit-avatar");
-const formEditAvatar = document.querySelector(".form_edit-avatar");
+// //_____________________________________________________________________________ OPEN POPUP EDIT AVATAR
+// const buttonTypeAvatar = document.querySelector(".button_type_avatar");
+// const popupEditAvatar = document.querySelector(".popup_edit-avatar");
+// const formEditAvatar = document.querySelector(".form_edit-avatar");
 
 buttonTypeAvatar.addEventListener("click", openformEditAvatar);
 formEditAvatar.addEventListener("submit", closeFormEditAvatar);
