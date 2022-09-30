@@ -1,21 +1,21 @@
-// import {closePopupClickEscape, closePopupClickOutside } from './index'
-import { cardsContainer,
-    formInputTypeTown,
-    formInputTypeTownLink, 
-    formAddElement,
-    popupAddElement,
-    formInputTypeFirstname,
-    profilTitleFirstname,
-    formInputTypeProfession,
-    profilSubtitleProfession,
-    popupEditProfile,
-    popupEditAvatar,
-    buttonTypeAvatar,
-    formEditAvatar,
+"use strict";
 
-
-  } from './variables.js';
-import { getElement } from './index.js';
+import {
+  cardsContainer,
+  formInputTypeTown,
+  formInputTypeTownLink,
+  formAddElement,
+  popupAddElement,
+  formInputTypeFirstname,
+  profilTitleFirstname,
+  formInputTypeProfession,
+  profilSubtitleProfession,
+  popupEditProfile,
+  popupEditAvatar,
+  buttonTypeAvatar,
+  formEditAvatar,
+} from "./variables.js";
+import { getElement } from "./card.js";
 
 export function openPopup(popup) {
   //open popup
@@ -84,3 +84,13 @@ export function closeFormEditAvatar(event) {
 
 buttonTypeAvatar.addEventListener("click", openformEditAvatar);
 formEditAvatar.addEventListener("submit", closeFormEditAvatar);
+
+//_____________________________________________________________________________FUNCTIONS FOR POPUP OVERVIEW
+export function overview(event) {
+  const image = event.target;
+  overviewImage.setAttribute("src", image.src);
+  overviewImage.setAttribute("alt", image.alt);
+  overviewCaption.textContent = image.alt;
+
+  openPopup(popupOverview);
+}

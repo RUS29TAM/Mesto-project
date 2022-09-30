@@ -1,8 +1,10 @@
-// import { getElement } from './index.js';
+
+"use strict";
+
 export const submitButton = "button_type_save";
-const formElement = document.querySelector(".form");
-const formImput = formElement.querySelector(".form__input-error");
-const formError = formElement.querySelector(`.${formImput.id}-error`);
+export const formElement = document.querySelector(".form");
+export const formImput = formElement.querySelector(".form__input-error");
+export const formError = formElement.querySelector(`.${formImput.id}-error`);
 
 export const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
