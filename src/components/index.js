@@ -4,27 +4,96 @@ import "../../src/index.css";
 import {
   formEditProfile,
   buttonTypeEdit,
-  popupAddElement,
+  popupAddCard,
   buttonTypeAdd,
-  formAddElement,
+  formAddCard,
+  buttonTypeAvatar,
+  formEditAvatar,
+  overviewImage,
+  overviewCaption,
+  popupOverview,
+  cardsContainer,
+  formInputTypeTown,
+  formInputTypeTownLink,
+  formInputTypeFirstname,
+  profilTitleFirstname,
+  formInputTypeProfession,
+  profilSubtitleProfession,
+  popupEditProfile,
+  popupEditAvatar,
+  rowSelectors,
 } from "./variables.js";
-import "./card.js"; 
-import './validate.js';
-import {
-  openPopup,
-  openformEditProfile,
-  closeFormEditProfile,
-  openformAddElements,
-} from "./modal.js";
+import  FormValidator from "./validate.js";
+import { getElement } from "./card.js";
+import { openPopup, closePopup } from "./modal.js";
 import "./utils.js";
 
+const popups = [...document.querySelectorAll(".popup")];
+popups.forEach((popup) =>
+  popup.addEventListener("click", (evtent) => {
+    if (evtent.target.classList.contains("popup")) {
+      closePopup(popup);
+    }
+  })
+);
 
-// enableValidation();
+function openformEditProfile() {
+  //the data that will be displayed in the input field
+  formInputTypeFirstname.value = profilTitleFirstname.textContent;
+  formInputTypeProfession.value = profilSubtitleProfession.textContent;
+  openPopup(popupEditProfile);
+}
 
-//ADD LISTENER POPUP PROFILE-EDIT
-buttonTypeEdit.addEventListener("click", openformEditProfile); //<-----------------------------------Fixed a bug in the variable name (formEditProfileOpen --> openformEditProfile)
+function closeFormEditProfile(event) {
+  //data that will be sent after
+  event.preventDefault(); //Canceling the default browser action
+  profilTitleFirstname.textContent = formInputTypeFirstname.value;
+  profilSubtitleProfession.textContent = formInputTypeProfession.value;
+  closePopup(popupEditProfile);
+}
+
+function openformAddCards(event) {
+  event.preventDefault(); //Canceling the default browser action
+  cardsContainer.prepend(
+    //insert nodes or rows at the beginning
+    getElement(formInputTypeTown.value, formInputTypeTownLink.value) //search method
+  );
+
+  formAddCard.reset();
+  closePopup(popupAddCard);
+}
+
+function openformEditAvatar() {
+  openPopup(popupEditAvatar);
+}
+
+function closeFormEditAvatar(event) {
+  event.preventDefault();
+    // something.textContent = formInputTypeSomething.value;
+  closePopup(popupEditAvatar);
+}
+
+export function showImage(event) {
+  const image = event.target;
+  overviewImage.setAttribute("src", image.src);
+  overviewImage.setAttribute("alt", image.alt);
+  overviewCaption.textContent = image.alt;
+
+  openPopup(popupOverview);
+}
+
+
+
+const popupEditProfileValid = new FormValidator(rowSelectors, popupEditProfile);
+popupEditProfileValid.enableValidation();
+const popupAddCardValid = new FormValidator(rowSelectors, popupAddCard);
+popupAddCardValid.enableValidation();
+const popupAddAvatarValid = new FormValidator(rowSelectors, popupEditAvatar);
+popupAddAvatarValid.enableValidation();
+
+buttonTypeEdit.addEventListener("click", openformEditProfile);
 formEditProfile.addEventListener("submit", closeFormEditProfile);
-
-//ADD LISTENER FOR ADD ELEMENTS
-buttonTypeAdd.addEventListener("click", () => openPopup(popupAddElement)); //<-----------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
-formAddElement.addEventListener("submit", openformAddElements); //<----------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
+buttonTypeAdd.addEventListener("click", () => openPopup(popupAddCard));
+formAddCard.addEventListener("submit", openformAddCards);
+buttonTypeAvatar.addEventListener("click", openformEditAvatar);
+formEditAvatar.addEventListener("submit", closeFormEditAvatar);

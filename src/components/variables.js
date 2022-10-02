@@ -13,26 +13,30 @@ export const profilSubtitleProfession = document.querySelector(
   ".profile__subtitle-profession"
 );
 export const buttonTypeEdit = document.querySelector(".button_type_edit");
-//_____________________________________________________________________________VARIABLES FOR POPUP ADD
-export const popupAddElement = document.querySelector(".popup_add-elements"); //<-----------------------------Fixed a bug in the variable name (popupAddElements --> popupAddElement)
-export const formInputTypeTown = document.querySelector(".form__input_type_town");
+export const popupAddCard = document.querySelector(".popup_add-elements");
+export const formInputTypeTown = document.querySelector(
+  ".form__input_type_town"
+);
 export const formInputTypeTownLink = document.querySelector(
   ".form__input_type_townlink"
 );
-// const elementsFoto = document.querySelector(".elements__foto");
-// const elementsTitle = document.querySelector(".elements__title");
+
 export const buttonTypeAdd = document.querySelector(".button_type_add");
-export const formAddElement = document.querySelector(".form_add-elements"); //<-------------------------------Fixed a bug in the variable name (formAddElements --> formAddElement)
-// const buttonTypeSubmit = document.querySelector(".button_type_submit");<---------------------------The variable has been removed because it is not currently used by the code structure.
-//_____________________________________________________________________________VARIABLES FOR POPUP OVERVIEW
+export const formAddCard = document.querySelector(".form_add-elements");
 export const popupOverview = document.querySelector(".popup_overview");
 export const overviewImage = document.querySelector(".overview__image");
 export const overviewCaption = document.querySelector(".overview__caption");
-//_____________________________________________________________________________VARIABLES FOR ELEMENTS
 export const templateElement = document.querySelector("template");
 export const cardsContainer = document.querySelector(".elements");
-
-//_____________________________________________________________________________ OPEN POPUP EDIT AVATAR
 export const buttonTypeAvatar = document.querySelector(".button_type_avatar");
 export const popupEditAvatar = document.querySelector(".popup_edit-avatar");
 export const formEditAvatar = document.querySelector(".form_edit-avatar");
+
+export const rowSelectors = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".button_type_save",
+  inactiveButtonClass: "button_inactive",
+  inputErrorClass: "popup__input_error",
+  errorClass: "form__input-error_active",
+};

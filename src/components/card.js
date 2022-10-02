@@ -1,7 +1,7 @@
 "use strict";
 
-import { templateElement, cardsContainer } from "./variables.js";
-import { overview } from "./modal.js";
+import { templateElement, cardsContainer,  } from "./variables.js";
+import { showImage } from "./index.js";
 
 export const elementsElement = [
   {
@@ -53,7 +53,7 @@ export function getElement(name, link) {
   const img = template.querySelector(".elements__foto");
   img.setAttribute("alt", name); //town reneme --> name
   img.setAttribute("src", link); //townlink reneme --> link
-  img.addEventListener("click", overview);
+  img.addEventListener("click", showImage);
   const titleFoto = template.querySelector(".elements__title"); //<----------------------------------Fixed a bug in the variable name (h2 --> TitleFoto)
   titleFoto.textContent = name; //<------------------------------------------------------------------Fixed a bug in the variable name (h2 --> TitleFoto) //town reneme --> name
   const buttonTypeLike = template.querySelector(".button_type_like");

@@ -1,21 +1,19 @@
 .popup__box {
-  color: rgb(0, 0, 0);
-  width: 430px;
-  height: 330px;
-  background-color: rgb(255, 255, 255);
-  padding: 35px;
+  background-color: #fff;
   border-radius: 10px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  color: #000;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 430px;
 }
 
 @media screen and (max-width: 767px) {
   .popup__box {
-    padding: 25px;
     width: 282px;
-    right: 8px;
+    height: 322px;
   }
 }

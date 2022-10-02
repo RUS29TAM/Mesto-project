@@ -1,3 +1,6 @@
 .form {
-    pointer-events: all;
+  pointer-events: all;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 36px 48px;
 }
