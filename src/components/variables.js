@@ -28,7 +28,7 @@ export const overviewImage = document.querySelector(".overview__image");
 export const overviewCaption = document.querySelector(".overview__caption");
 export const templateCard = document.querySelector("template");
 export const cardsContainer = document.querySelector(".elements");
-export const buttonTypeAvatar = document.querySelector(".button_type_avatar");
+export const buttonTypeAvatar = document.querySelector(".profile__info-avatar");
 export const popupEditAvatar = document.querySelector(".popup_edit-avatar");
 export const formEditAvatar = document.querySelector(".form_edit-avatar");
 
