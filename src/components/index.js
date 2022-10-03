@@ -28,6 +28,8 @@ import { getElement } from "./card.js";
 import { openPopup, closePopup } from "./modal.js";
 import "./utils.js";
 
+import { getElementAvatar} from './avatar.js';
+
 const popups = [...document.querySelectorAll(".popup")];
 popups.forEach((popup) =>
   popup.addEventListener("click", (evtent) => {
@@ -63,11 +65,12 @@ function openformAddCards(event) {
   closePopup(popupAddCard);
 }
 
-function openformEditAvatar() {
+export function openformEditAvatar() {
+
   openPopup(popupEditAvatar);
 }
 
-function closeFormEditAvatar(event) {
+export function closeFormEditAvatar(event) {
   event.preventDefault();
     // something.textContent = formInputTypeSomething.value;
   closePopup(popupEditAvatar);

@@ -1,9 +1,9 @@
 "use strict";
 
-import { templateElement, cardsContainer,  } from "./variables.js";
+import { templateCard, cardsContainer,  } from "./variables.js";
 import { showImage } from "./index.js";
 
-export const elementsElement = [
+export const elementsCards = [
   {
     name: "Собакен", //town reneme --> name //townlink reneme --> link
     link: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
@@ -31,20 +31,20 @@ export const elementsElement = [
 ];
 
 //_____________________________________________________________________________BUTTON LIKE ON ELEMENTS
-export function toggleLikeElement(event) {
+export function toggleLikeCard(event) {
   event.target.classList.toggle("button_type_like_on");
 }
 
 //_____________________________________________________________________________RENDERING ELEMENTS
-export function deleteElement(evtent) {
-  const elementsElement = evtent.target.closest(".elements__element");
-  elementsElement.remove();
+export function deleteCard(evtent) {
+  const elementsCards = evtent.target.closest(".elements__element");
+  elementsCards.remove();
 }
 
 export function getElement(name, link) {
   //search method //town reneme --> name //townlink reneme --> link
   const template =
-    templateElement.content.cloneNode(
+  templateCard.content.cloneNode(
       true
     ); /*The cloneNode method allows you to clone an element and get an exact copy of it.
     This copy can then be inserted into the page using the methods prepend, append, appendChild, insertBefore or insertAdjacentElement.
@@ -54,30 +54,30 @@ export function getElement(name, link) {
   img.setAttribute("alt", name); //town reneme --> name
   img.setAttribute("src", link); //townlink reneme --> link
   img.addEventListener("click", showImage);
-  const titleFoto = template.querySelector(".elements__title"); //<----------------------------------Fixed a bug in the variable name (h2 --> TitleFoto)
-  titleFoto.textContent = name; //<------------------------------------------------------------------Fixed a bug in the variable name (h2 --> TitleFoto) //town reneme --> name
+  const titleFoto = template.querySelector(".elements__title"); 
+  titleFoto.textContent = name; 
   const buttonTypeLike = template.querySelector(".button_type_like");
 
-  buttonTypeLike.addEventListener("click", toggleLikeElement);
-  const buttonTypeDeleteElement = template.querySelector(
+  buttonTypeLike.addEventListener("click", toggleLikeCard);
+  const buttonTypeDeleteCard = template.querySelector(
     ".button_type_delete-element"
   );
 
-  buttonTypeDeleteElement.addEventListener("click", deleteElement); //delete button on the image
+  buttonTypeDeleteCard.addEventListener("click", deleteCard); //delete button on the image
 
   return template;
 }
 
 export function renderElements() {
   // elements.innerHTML = ""; //The innerHTML property allows you to get the HTML content of an element as a string.
-  elementsElement.forEach(
+  elementsCards.forEach(
     (
       element //Iterating through the array
     ) =>
       cardsContainer.append(
         getElement(element.name, element.link)
       ) /*method inserts a set of Node objects or string objects after the last child of the Element. 
-  String objects are inserted as equivalent Text nodes.*/ //<----------------Fixed a bug in the variable name (elements --> cardsContainer)//town reneme --> name //townlink reneme --> link
+  String objects are inserted as equivalent Text nodes.*/
   );
 }
 
