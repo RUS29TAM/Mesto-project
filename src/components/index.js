@@ -28,7 +28,7 @@ import { getElement } from "./card.js";
 import { openPopup, closePopup } from "./modal.js";
 import "./utils.js";
 
-import { getElementAvatar} from './avatar.js';
+import './avatar.js';
 
 const popups = [...document.querySelectorAll(".popup")];
 popups.forEach((popup) =>
@@ -65,16 +65,14 @@ function openformAddCards(event) {
   closePopup(popupAddCard);
 }
 
-export function openformEditAvatar() {
+// export function openformEditAvatar() {
+//   openPopup(popupEditAvatar);
+// }
 
-  openPopup(popupEditAvatar);
-}
-
-export function closeFormEditAvatar(event) {
-  event.preventDefault();
-    // something.textContent = formInputTypeSomething.value;
-  closePopup(popupEditAvatar);
-}
+// export function closeFormEditAvatar(event) {
+//   event.preventDefault();
+//   closePopup(popupEditAvatar);
+// }
 
 export function showImage(event) {
   const image = event.target;
@@ -84,7 +82,6 @@ export function showImage(event) {
 
   openPopup(popupOverview);
 }
-
 
 
 const popupEditProfileValid = new FormValidator(rowSelectors, popupEditProfile);
@@ -98,5 +95,5 @@ buttonTypeEdit.addEventListener("click", openformEditProfile);
 formEditProfile.addEventListener("submit", closeFormEditProfile);
 buttonTypeAdd.addEventListener("click", () => openPopup(popupAddCard));
 formAddCard.addEventListener("submit", openformAddCards);
-buttonTypeAvatar.addEventListener("click", openformEditAvatar);
-formEditAvatar.addEventListener("submit", closeFormEditAvatar);
+// buttonTypeAvatar.addEventListener("click", openformEditAvatar);
+// formEditAvatar.addEventListener("submit", closeFormEditAvatar);

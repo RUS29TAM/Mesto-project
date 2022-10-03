@@ -1,15 +1,23 @@
 "use strict";
-import { openformEditAvatar } from "./index.js";
 
-export function getElementAvatar(link) {
-    //search method //town reneme --> name //townlink reneme --> link
-    const template =
-    templateAvatar.content.cloneNode(
-        true
-      );
-    const img = template.querySelector(".profile__info-avatar");
-    img.setAttribute("src", link); //townlink reneme --> link
-    img.addEventListener("click", openformEditAvatar);
+import {
+  popupEditAvatar,
+  formEditAvatar,
+  buttonTypeAvatar,
+} from "./variables.js";
+import { openPopup, closePopup } from "./modal.js";
 
-    return template;
-  }
+// console.log("1234567890-----------!!!!!!!!!!!!------------0987654321");
+
+function openformEditAvatar() {
+  openPopup(popupEditAvatar);
+}
+
+function closeFormEditAvatar(event) {
+  event.preventDefault();
+
+  closePopup(popupEditAvatar);
+}
+
+buttonTypeAvatar.addEventListener("click", openformEditAvatar);
+formEditAvatar.addEventListener("submit", closeFormEditAvatar);
