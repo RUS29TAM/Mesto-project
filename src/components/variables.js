@@ -31,6 +31,8 @@ export const cardsContainer = document.querySelector(".elements");
 export const buttonTypeAvatar = document.querySelector(".profile__info-avatar");
 export const popupEditAvatar = document.querySelector(".popup_edit-avatar");
 export const formEditAvatar = document.querySelector(".form_edit-avatar");
+export const avatarLink = popupEditAvatar.querySelector("#avatar-input");
+export const avatarImage = document.querySelector("#avatar");
 
 export const rowSelectors = {
   formSelector: ".form",

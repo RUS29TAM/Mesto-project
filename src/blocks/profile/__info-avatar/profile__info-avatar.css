@@ -8,7 +8,7 @@
   border-radius: 50%;
   margin-right: 30px;
   position: relative;
-  background-image: url('../../../images/dsli.jpg');
+  /* background-image: url('../../../images/dsli.jpg'); */
 }
 
 .profile__info-avatar:hover { 
