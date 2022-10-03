@@ -25,7 +25,6 @@
 @import url(../src/blocks/button/_type/button_type_like_on.css);
 @import url(../src/blocks/button/_type/button_type_delete-element.css);
 @import url(../src/blocks/button/_inactive/button_inactive.css);
-@import url(../src/blocks/button/_type/button_type_avatar.css);
 
 /*GRID - AREAS - ELEMENTS*/
 @import url(../src/blocks/elements/elements.css);

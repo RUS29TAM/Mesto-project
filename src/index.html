@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
       rel="shortcut icon"
       href="https://www.mihayloscarves.com/wp-content/uploads/2019/07/M-Favicon.png"
       type="image/x-icon"
-    />
-    <!-- <link rel="stylesheet" href="../pages/index.css" /> -->
-    <meta name="descrition" content="Mesto" />
-    <meta name="autor" content="Рустам Никончук" />
+    >
+    <!-- <link rel="stylesheet" href="../pages/index.css" > -->
+    <meta name="descrition" content="Mesto" >
+    <meta name="autor" content="Рустам Никончук" >
     <title>Mesto</title>
   </head>
   <body class="page">
@@ -21,19 +21,18 @@
         src="<%=require('../src/images/logo__mesto.svg')%>"
         class="header__logo"
         alt="Логотип Место - Россия"
-      />
+      >
     </header>
 
     <!--PROFILE-->
     <section class="profile">
-      <div class="profile__info-avatar">
-        <button class="button button_type_avatar" type="button" aria-label="Редактировать">
+      <div class="profile__info-avatar" >
         <img
           src="<%=require('../src/images/dsli.jpg')%>"
           class="profile__info-avatar"
           alt="профиль пользователя - аватар Жак-Ив Кусто"
+          id="avatar"
         />
-      </button>
       </div>
       <div class="profile__info">
         <h1 class="profile__title-firstname">Там-вДали&nbsp;Кусто</h1>
@@ -68,7 +67,7 @@
             maxlength="40"
             pattern="^[a-zA-Zа-яА-Я-\s]+$"
             data-error-message="Разрешены только латинские и русские буквы, пробелы и тире."
-          />
+          >
           <span class="form__input-error firstname-input-error"></span>
           <input
             type="text"
@@ -82,7 +81,7 @@
             pattern="^[a-zA-Zа-яА-Я-\s]+$"
             data-error-message="Разрешены только латинские и русские буквы, пробелы и тире."
                     
-          />
+          >
           <span class="form__input-error profession-input-error"></span>
           <button
             type="button"
@@ -115,7 +114,7 @@
             id="avatar-input"
             required 
             data-error-message="Введите ссылку на аватар"
-          />
+          >
           <span class="form__input-error avatar-input-error"></span>
           <button
             type="button"
@@ -150,7 +149,7 @@
             maxlength="30"
             pattern="^[a-zA-Zа-яА-Я-\s]+$"
             data-error-message="Разрешены только латинские и русские буквы, пробелы и тире"
-            />
+            >
           <span class="form__input-error card-input-error"></span>
           
           <input
@@ -161,7 +160,7 @@
             id="townlink-input"
             required 
             data-error-message="Введите ссылку на картинку"
-          />
+          >
           <span class="form__input-error townlink-input-error"></span>
           <button
             type="button"
@@ -184,7 +183,7 @@
     <div class="popup popup_overview">
       <div class="popup__box-overview">
         <section class="overview">
-          <img class="overview__image" src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Собакен" />
+          <img class="overview__image" src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Собакен" >
           <h2 class="overview__caption">Собакен</h2>
           <button
             type="button"
@@ -198,7 +197,7 @@
     <!--TAMPLATE ELEMENT-->
     <template id="template__element">
       <div class="elements__element">
-        <img src="" class="elements__foto" alt="" />
+        <img src="" class="elements__foto" alt="" >
         <button
           type="button"
           class="button button_type_delete-element"
