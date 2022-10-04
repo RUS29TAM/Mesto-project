@@ -21,44 +21,33 @@ import {
   profilSubtitleProfession,
   popupEditProfile,
   popupEditAvatar,
-  rowSelectors,
   avatarLink,
   avatarImage,
 } from "./variables.js";
-import FormValidator from "./validate.js";
+import { enableValidation, disabledSubmitBtn } from "./validate.js";
 import { getElement } from "./card.js";
 import { openPopup, closePopup } from "./modal.js";
 import "./utils.js";
 
-const popups = [...document.querySelectorAll(".popup")];
-popups.forEach((popup) =>
-  popup.addEventListener("click", (evtent) => {
-    if (evtent.target.classList.contains("popup")) {
-      closePopup(popup);
-    }
-  })
-);
+enableValidation({});
 
 function openformEditProfile() {
-  //the data that will be displayed in the input field
   formInputTypeFirstname.value = profilTitleFirstname.textContent;
   formInputTypeProfession.value = profilSubtitleProfession.textContent;
   openPopup(popupEditProfile);
 }
 
 function closeFormEditProfile(event) {
-  //data that will be sent after
-  event.preventDefault(); //Canceling the default browser action
+  event.preventDefault();
   profilTitleFirstname.textContent = formInputTypeFirstname.value;
   profilSubtitleProfession.textContent = formInputTypeProfession.value;
   closePopup(popupEditProfile);
 }
 
-function openformAddCards(event) {
-  event.preventDefault(); //Canceling the default browser action
+function createСard(event) {
+  event.preventDefault();
   cardsContainer.prepend(
-    //insert nodes or rows at the beginning
-    getElement(formInputTypeTown.value, formInputTypeTownLink.value) //search method
+    getElement(formInputTypeTown.value, formInputTypeTownLink.value)
   );
 
   formAddCard.reset();
@@ -66,7 +55,6 @@ function openformAddCards(event) {
 }
 
 function openformEditAvatar() {
-  avatarLink.value = avatarImage.getAttribute("src");
   openPopup(popupEditAvatar);
 }
 function closeFormEditAvatar(evt) {
@@ -84,16 +72,9 @@ export function showImage(event) {
   openPopup(popupOverview);
 }
 
-const popupEditProfileValid = new FormValidator(rowSelectors, popupEditProfile);
-popupEditProfileValid.enableValidation();
-const popupAddCardValid = new FormValidator(rowSelectors, popupAddCard);
-popupAddCardValid.enableValidation();
-const popupAddAvatarValid = new FormValidator(rowSelectors, popupEditAvatar);
-popupAddAvatarValid.enableValidation();
-
 buttonTypeEdit.addEventListener("click", openformEditProfile);
 formEditProfile.addEventListener("submit", closeFormEditProfile);
 buttonTypeAdd.addEventListener("click", () => openPopup(popupAddCard));
-formAddCard.addEventListener("submit", openformAddCards);
+formAddCard.addEventListener("submit", createСard);
 buttonTypeAvatar.addEventListener("click", openformEditAvatar);
 formEditAvatar.addEventListener("submit", closeFormEditAvatar);

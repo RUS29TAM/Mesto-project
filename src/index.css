@@ -45,6 +45,7 @@
 @import url(../src/blocks/popup/_overview/popup_overview.css);
 @import url(../src/blocks/popup/__box-overview/popup__box-overview.css); 
 @import url(../src/blocks/form/__input/_type/form__input_type_error.css);
+@import url(../src/blocks/form/__label/form__label.css);
 
 /*FORM*/
 @import url(../src/blocks/form/form.css);
@@ -57,4 +58,6 @@
 @import url(../src/blocks/overview/overview.css);
 @import url(../src/blocks/overview/__image/overview__image.css);
 @import url(../src/blocks/overview/__caption/overview__caption.css);
+
+
 

@@ -1,97 +1,97 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang='ru'>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link
-      rel="shortcut icon"
-      href="https://www.mihayloscarves.com/wp-content/uploads/2019/07/M-Favicon.png"
-      type="image/x-icon"
+      rel='shortcut icon'
+      href='https://www.mihayloscarves.com/wp-content/uploads/2019/07/M-Favicon.png'
+      type='image/x-icon'
     >
-    <!-- <link rel="stylesheet" href="../pages/index.css" > -->
-    <meta name="descrition" content="Mesto" >
-    <meta name="autor" content="Рустам Никончук" >
+    <!-- <link rel='stylesheet' href='../pages/index.css' > -->
+    <meta name='descrition' content='Mesto' >
+    <meta name='autor' content='Рустам Никончук' >
     <title>Mesto</title>
   </head>
-  <body class="page">
+  <body class='page'>
     <!--HEADER-->
-    <header class="header">
+    <header class='header'>
       <img
-        src="<%=require('../src/images/logo__mesto.svg')%>"
-        class="header__logo"
-        alt="Логотип Место - Россия"
+        src='<%=require('../src/images/logo__mesto.svg')%>'
+        class='header__logo'
+        alt='Логотип Место - Россия'
       >
     </header>
 
     <!--PROFILE-->
-    <section class="profile">
-      <div class="profile__info-avatar" >
+    <section class='profile'>
+      <div class='profile__info-avatar' >
         <img
-          src="<%=require('../src/images/dsli.jpg')%>"
-          class="profile__info-avatar"
-          alt="профиль пользователя - аватар Жак-Ив Кусто"
-          id="avatar"
+          src='<%=require('../src/images/dsli.jpg')%>'
+          class='profile__info-avatar'
+          alt='профиль пользователя - аватар Жак-Ив Кусто'
+          id='avatar'
         />
       </div>
-      <div class="profile__info">
-        <h1 class="profile__title-firstname">Там-вДали&nbsp;Кусто</h1>
-        <button type="button" class="button button_type_edit"></button>
-        <p class="profile__subtitle-profession">Cледователь в океане</p>
+      <div class='profile__info'>
+        <h1 class='profile__title-firstname'>Там-вДали&nbsp;Кусто</h1>
+        <button type='button' class='button button_type_edit'></button>
+        <p class='profile__subtitle-profession'>Cледователь в океане</p>
       </div>
-      <button type="button" class="button button_type_add"></button>
+      <button type='button' class='button button_type_add'></button>
     </section>
 
     <!--ELEMENTS-->
-    <div class="elements"></div>
+    <div class='elements'></div>
 
     <!--FOOTER-->
-    <footer class="footer">
-      <p class="footer__copyright">&copy; 2022 Rustam Nikonchuk</p>
+    <footer class='footer'>
+      <p class='footer__copyright'>&copy; 2022 Rustam Nikonchuk</p>
     </footer>
 
     <!--POPUP EDIT FORM-->
-    <div class="popup popup_edit-profile">
-      <div class="popup__box">
-        <form class="form form_edit-profile" name="profile" method="post" novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
-          <h3 class="form__title">Редактировать профиль</h3>
-          <!-- <fieldset class="form__set"> -->
+    <div class='popup popup_edit-profile'>
+      <div class='popup__box'>
+        <form class='form form_edit-profile' name='profile' method='post' novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method='post'-->
+          <h3 class='form__title'>Редактировать профиль</h3>
+          <!-- <fieldset class='form__set'> -->
           <input
-            type="text"
-            class="form__input form__input_type_firstname"
-            name="firstname"
-            placeholder="Там-вДали Кусто"
-            id="firstname-input"
+            type='text'
+            class='form__input form__input_type_firstname'
+            name='firstname'
+            placeholder='Там-вДали Кусто'
+            id='firstname-input'
             required 
-            minlength="2"
-            maxlength="40"
-            pattern="^[a-zA-Zа-яА-Я-\s]+$"
-            data-error-message="Разрешены только латинские и русские буквы, пробелы и тире."
+            minlength='2'
+            maxlength='40'
+            pattern='^[a-zA-Zа-яА-Я-\s]+$'
+            data-error-message='Разрешены только латинские и русские буквы, пробелы и тире.'
           >
-          <span class="form__input-error firstname-input-error"></span>
+          <span class='form__input-error firstname-input-error'></span>
           <input
-            type="text"
-            class="form__input form__input_type_profession"
-            name="profession"
-            placeholder="Cледователь в океане"
-            id="profession-input"
+            type='text'
+            class='form__input form__input_type_profession'
+            name='profession'
+            placeholder='Cледователь в океане'
+            id='profession-input'
             required 
-            minlength="2"
-            maxlength="200"
-            pattern="^[a-zA-Zа-яА-Я-\s]+$"
-            data-error-message="Разрешены только латинские и русские буквы, пробелы и тире."
+            minlength='2'
+            maxlength='200'
+            pattern='^[a-zA-Zа-яА-Я-\s]+$'
+            data-error-message='Разрешены только латинские и русские буквы, пробелы и тире.'
                     
           >
-          <span class="form__input-error profession-input-error"></span>
+          <span class='form__input-error profession-input-error'></span>
           <button
-            type="button"
-            class="button button_type_close"
-            aria-label="закрыть"
+            type='button'
+            class='button button_type_close'
+            aria-label='закрыть'
           ></button>
           <button
-            type="submit"
-            class="button button_type_save"
-            aria-label="сохранить"
+            type='submit'
+            class='button button_type_save'
+            aria-label='сохранить'
           >
             Сохранить
           </button>
@@ -101,30 +101,30 @@
     </div>
 
     <!--POPUP EDIT AVATAR-->
-    <div class="popup popup_edit-avatar">
-      <div class="popup__box">
-        <form class="form form_edit-avatar" name="avatar" method="post" novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method="post"-->
-          <h3 class="form__title">Сменить фотографию</h3>
-          <!-- <fieldset class="form__set"> -->
+    <div class='popup popup_edit-avatar'>
+      <div class='popup__box'>
+        <form class='form form_edit-avatar' name='avatar' method='post' novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method='post'-->
+          <h3 class='form__title'>Сменить фотографию</h3>
+          <!-- <fieldset class='form__set'> -->
           <input
-            type="url"
-            class="form__input form__input_type_avatar"
-            name="avatar"
-            placeholder="https://"
-            id="avatar-input"
+            type='url'
+            class='form__input form__input_type_avatar'
+            name='avatar'
+            placeholder='https://'
+            id='avatar-input'
             required 
-            data-error-message="Введите ссылку на аватар"
+            data-error-message='Введите ссылку на аватар'
           >
-          <span class="form__input-error avatar-input-error"></span>
+          <span class='form__input-error avatar-input-error'></span>
           <button
-            type="button"
-            class="button button_type_close"
-            aria-label="закрыть"
+            type='button'
+            class='button button_type_close'
+            aria-label='закрыть'
           ></button>
           <button
-            type="submit"
-            class="button button_type_save"
-            aria-label="сохранить"
+            type='submit'
+            class='button button_type_save'
+            aria-label='сохранить'
           >
             Сохранить
           </button>
@@ -134,81 +134,84 @@
     </div>
 
     <!--POPUP ADD TOWN-->
-    <div class="popup popup_add-elements">
-      <div class="popup__box">
-        <form class="form form_add-elements" name="card" method="post" novalidate> 
-          <h3 class="form__title">Новое место</h3>
+    <div class='popup popup_add-elements'>
+      <div class='popup__box'>
+        <form class='form form_add-elements' name='card' method='post' novalidate> 
+          <h3 class='form__title'>Новое место</h3>
+          <label class="form__label">
           <input
-            type="text"
-            class="form__input form__input_type_town"
-            name="town-name"
-            placeholder="Название"
-            id="card-input"
+            type='text'
+            class='form__input form__input_type_town'
+            name='town-name'
+            placeholder='Название'
+            id='card-input'
             required 
-            minlength="2"
-            maxlength="30"
-            pattern="^[a-zA-Zа-яА-Я-\s]+$"
-            data-error-message="Разрешены только латинские и русские буквы, пробелы и тире"
+            minlength='2'
+            maxlength='30'
+            pattern='^[a-zA-Zа-яА-Я-\s]+$'
+            data-error-message='Разрешены только латинские и русские буквы, пробелы и тире'
             >
-          <span class="form__input-error card-input-error"></span>
-          
+          <span class='form__input-error card-input-error'></span>
+        </label>
+          <label class="form__label">
           <input
-            type="url"
-            class="form__input form__input_type_townlink"
-            name="card-link"
-            placeholder="Ссылка на картинку"
-            id="townlink-input"
+            type='url'
+            class='form__input form__input_type_townlink'
+            name='card-link'
+            placeholder='Ссылка на картинку'
+            id='townlink-input'
             required 
-            data-error-message="Введите ссылку на картинку"
+            data-error-message='Введите ссылку на картинку'
           >
-          <span class="form__input-error townlink-input-error"></span>
+          <span class='form__input-error townlink-input-error'></span>
+        </label>
           <button
-            type="button"
-            class="button button_type_close"
-            aria-label="закрыть"
-          ></button>
-          <button
-            type="submit"
-            class="button button_type_save"
-            aria-label="сохранить"
-            id="submit"
+          type='submit'
+          class='button button_type_save'
+          aria-label='сохранить'
+          id='submit-card'
           >
-            Сохранить
-          </button>
-        </form>
+          Создать
+        </button>
+      </form>
+      <button
+        type='button'
+        class='button button_type_close'
+        aria-label='закрыть'
+      ></button>
       </div>
     </div>
 
     <!--POPUP OVERVIEW-->
-    <div class="popup popup_overview">
-      <div class="popup__box-overview">
-        <section class="overview">
-          <img class="overview__image" src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Собакен" >
-          <h2 class="overview__caption">Собакен</h2>
+    <div class='popup popup_overview'>
+      <div class='popup__box-overview'>
+        <section class='overview'>
+          <img class='overview__image' src='https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' alt='Собакен' >
+          <h2 class='overview__caption'>Собакен</h2>
           <button
-            type="button"
-            class="button button_type_close"
-            aria-label="закрыть"
+            type='button'
+            class='button button_type_close'
+            aria-label='закрыть'
           ></button>
         </section>
       </div>
     </div>
 
     <!--TAMPLATE ELEMENT-->
-    <template id="template__element">
-      <div class="elements__element">
-        <img src="" class="elements__foto" alt="" >
+    <template id='template__element'>
+      <div class='elements__element'>
+        <img src='' class='elements__foto' alt='' >
         <button
-          type="button"
-          class="button button_type_delete-element"
+          type='button'
+          class='button button_type_delete-element'
         ></button>
-        <div class="element__info">
-          <h2 class="elements__title"></h2>        
-          <button type="button" class="button button_type_like"></button>
+        <div class='element__info'>
+          <h2 class='elements__title'></h2>        
+          <button type='button' class='button button_type_like'></button>
         </div>
-        <span class="element__like-count">0</span>          
+        <span class='element__like-count'>0</span>          
       </div>
     </template>
-    <!-- <script type="module" src="../src/index.js"></script> -->
+    <!-- <script type='module' src='../src/index.js'></script> -->
   </body>
 </html>
