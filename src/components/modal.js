@@ -1,4 +1,6 @@
 "use strict";
+const popupClassOpened = "popup_opened";
+const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
 
 export function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -10,11 +12,17 @@ export function closePopup(popup) {
   document.removeEventListener("keydown", closePopupClickEscape);
 }
 
-const popupClassOpened = "popup_opened";
-const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
-
 function closePopupClickEscape(event) {
   if (event.key === "Escape") {
     closePopup(getActivePopup());
   }
 }
+
+const popups = [...document.querySelectorAll(".popup")];
+popups.forEach((popup) =>
+  popup.addEventListener("click", (evtent) => {
+    if (evtent.target.classList.contains("popup")) {
+      closePopup(popup);
+    }
+  })
+);

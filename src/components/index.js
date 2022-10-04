@@ -21,23 +21,15 @@ import {
   profilSubtitleProfession,
   popupEditProfile,
   popupEditAvatar,
-  rowSelectors,
   avatarLink,
   avatarImage,
 } from "./variables.js";
-import FormValidator from "./validate.js";
+import { enableValidation, disabledSubmitBtn } from "./validate.js";
 import { getElement } from "./card.js";
-import { openPopup, closePopup } from "./modal.js";
+import { openPopup, closePopup, } from "./modal.js";
 import "./utils.js";
 
-const popups = [...document.querySelectorAll(".popup")];
-popups.forEach((popup) =>
-  popup.addEventListener("click", (evtent) => {
-    if (evtent.target.classList.contains("popup")) {
-      closePopup(popup);
-    }
-  })
-);
+enableValidation({});
 
 function openformEditProfile() {
   //the data that will be displayed in the input field
@@ -83,13 +75,6 @@ export function showImage(event) {
 
   openPopup(popupOverview);
 }
-
-const popupEditProfileValid = new FormValidator(rowSelectors, popupEditProfile);
-popupEditProfileValid.enableValidation();
-const popupAddCardValid = new FormValidator(rowSelectors, popupAddCard);
-popupAddCardValid.enableValidation();
-const popupAddAvatarValid = new FormValidator(rowSelectors, popupEditAvatar);
-popupAddAvatarValid.enableValidation();
 
 buttonTypeEdit.addEventListener("click", openformEditProfile);
 formEditProfile.addEventListener("submit", closeFormEditProfile);
