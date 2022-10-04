@@ -1,11 +1,17 @@
 .form__input-error {
-  font-size: 12px;
+  font-size: 14px;
   color: rgb(255, 0, 0);
   opacity: 1;
   transition: 0.3s;
   font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.25;
-  min-height: 30px;
+  line-height: 1.21;
+  height: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .form__input-error {
+    font-size: 11px;
+  }
 }

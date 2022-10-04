@@ -1,5 +1,5 @@
-.form {
-  pointer-events: all;
+.form__label {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
