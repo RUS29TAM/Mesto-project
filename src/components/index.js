@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import "../../src/index.css";
+import '../../src/index.css';
 import {
   formEditProfile,
   buttonTypeEdit,
@@ -23,11 +23,11 @@ import {
   popupEditAvatar,
   avatarLink,
   avatarImage,
-} from "./variables.js";
-import { enableValidation, disabledSubmitBtn } from "./validate.js";
-import { getElement } from "./card.js";
-import { openPopup, closePopup, } from "./modal.js";
-import "./utils.js";
+} from './variables.js';
+import { enableValidation, disabledSubmitBtn } from './validate.js';
+import { getElement } from './card.js';
+import { openPopup, closePopup, } from './modal.js';
+import './utils.js';
 
 enableValidation({});
 
@@ -55,30 +55,31 @@ function openformAddCards(event) {
 
   formAddCard.reset();
   closePopup(popupAddCard);
+  
 }
 
 function openformEditAvatar() {
-  avatarLink.value = avatarImage.getAttribute("src");
+  avatarLink.value = avatarImage.getAttribute('src');
   openPopup(popupEditAvatar);
 }
 function closeFormEditAvatar(evt) {
   evt.preventDefault();
   closePopup(popupEditAvatar);
-  avatarImage.setAttribute("src", avatarLink.value);
+  avatarImage.setAttribute('src', avatarLink.value);
 }
 
 export function showImage(event) {
   const image = event.target;
-  overviewImage.setAttribute("src", image.src);
-  overviewImage.setAttribute("alt", image.alt);
+  overviewImage.setAttribute('src', image.src);
+  overviewImage.setAttribute('alt', image.alt);
   overviewCaption.textContent = image.alt;
 
   openPopup(popupOverview);
 }
 
-buttonTypeEdit.addEventListener("click", openformEditProfile);
-formEditProfile.addEventListener("submit", closeFormEditProfile);
-buttonTypeAdd.addEventListener("click", () => openPopup(popupAddCard));
-formAddCard.addEventListener("submit", openformAddCards);
-buttonTypeAvatar.addEventListener("click", openformEditAvatar);
-formEditAvatar.addEventListener("submit", closeFormEditAvatar);
+buttonTypeEdit.addEventListener('click', openformEditProfile);
+formEditProfile.addEventListener('submit', closeFormEditProfile);
+buttonTypeAdd.addEventListener('click', () => openPopup(popupAddCard));
+formAddCard.addEventListener('submit', openformAddCards);
+buttonTypeAvatar.addEventListener('click', openformEditAvatar);
+formEditAvatar.addEventListener('submit', closeFormEditAvatar);
