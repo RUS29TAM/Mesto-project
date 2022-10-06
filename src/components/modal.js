@@ -1,12 +1,11 @@
 'use strict';
-import { renderBtnInactive } from './validate.js';
+
 const popupClassOpened = 'popup_opened';
 const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
 
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupClickEscape);
-  renderBtnInactive();
 }
 
 export function closePopup(popup) {
