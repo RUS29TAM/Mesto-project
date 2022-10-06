@@ -1,28 +1,21 @@
 'use strict';
+import { validationConfig, errorValidationConfig } from './variables.js';
+// enableValidation(validationConfig);
 
-enableValidation({
-  formSelector: '.popup__box',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.button_type_save',
-  inactiveButtonClass: 'button_inactive',
-  inputErrorClass: 'form__input-error',
-  errorClass: 'form__input-error_active',
-});
-
-export function enableValidation(object) {
+export function enableValidation() {
   const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-    inputElement.classList.add(object.inputErrorClass);
+    inputElement.classList.add(validationConfig.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(object.errorClass);
+    errorElement.classList.add(validationConfig.errorClass);
   };
 
   const hideInputError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-    inputElement.classList.remove(object.inputErrorClass);
-    errorElement.classList.remove(object.errorClass);
+    inputElement.classList.remove(validationConfig.inputErrorClass);
+    errorElement.classList.remove(validationConfig.errorClass);
     errorElement.textContent = '';
   };
 
@@ -41,10 +34,10 @@ export function enableValidation(object) {
 
   const setEventListeners = (formElement) => {
     const inputList = Array.from(
-      formElement.querySelectorAll(object.inputSelector)
+      formElement.querySelectorAll(validationConfig.inputSelector)
     );
     const buttonElement = formElement.querySelector(
-      object.submitButtonSelector
+      validationConfig.submitButtonSelector
     );
 
     toggleButtonState(inputList, buttonElement);
@@ -56,12 +49,9 @@ export function enableValidation(object) {
     });
   };
 
-  const formList = Array.from(document.querySelectorAll(object.formSelector));
+  const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function (event) {
-      event.preventDefault();
-    });
-    setEventListeners(formElement);
+        setEventListeners(formElement);
   });
 
   function hasInvalidInput(inputList) {
@@ -72,17 +62,19 @@ export function enableValidation(object) {
 
   function toggleButtonState(inputList, buttonElement) {
     if (hasInvalidInput(inputList)) {
-      buttonElement.classList.add(object.inactiveButtonClass);
+      buttonElement.classList.add(validationConfig.inactiveButtonClass);
       buttonElement.disabled = true;
-      hasInvalidInput(inputList);
     } else {
-      buttonElement.classList.remove(object.inactiveButtonClass);
+      buttonElement.classList.remove(validationConfig.inactiveButtonClass);
       buttonElement.disabled = false;
     }
   }
+
 }
 
-export function renderBtnInactive() {
-  const inactiveBtn = document.querySelector('#submit-card');
+export function renderBtnInactive(popup) {
+  const inactiveBtn = popup.querySelector('.button_type_save');
   inactiveBtn.classList.add('button_inactive');
-}
+  inactiveBtn.setAttribute('disabled', 'disabled');
+} 
+

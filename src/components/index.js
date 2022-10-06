@@ -1,6 +1,7 @@
 "use strict";
 
 import "../../src/index.css";
+import './api.js';
 import {
   formEditProfile,
   buttonTypeEdit,
@@ -23,18 +24,20 @@ import {
   popupEditAvatar,
   avatarLink,
   avatarImage,
+  validationConfig,
+  formInputTypeAvatar,
 } from "./variables.js";
-import { enableValidation, disabledSubmitBtn } from "./validate.js";
+import { enableValidation, renderBtnInactive, } from "./validate.js";
 import { getElement } from "./card.js";
 import { openPopup, closePopup } from "./modal.js";
 import "./utils.js";
 
-enableValidation({});
+enableValidation(validationConfig);
 
 function openformEditProfile() {
   formInputTypeFirstname.value = profilTitleFirstname.textContent;
   formInputTypeProfession.value = profilSubtitleProfession.textContent;
-  openPopup(popupEditProfile);
+  openPopup(popupEditProfile);  
 }
 
 function closeFormEditProfile(event) {
@@ -49,18 +52,19 @@ function createСard(event) {
   cardsContainer.prepend(
     getElement(formInputTypeTown.value, formInputTypeTownLink.value)
   );
-
   formAddCard.reset();
-  closePopup(popupAddCard);
+  closePopup(popupAddCard); 
 }
 
 function openformEditAvatar() {
   openPopup(popupEditAvatar);
+  renderBtnInactive(popupEditAvatar); 
 }
 function closeFormEditAvatar(evt) {
   evt.preventDefault();
   closePopup(popupEditAvatar);
   avatarImage.setAttribute("src", avatarLink.value);
+  formInputTypeAvatar.value = "";
 }
 
 export function showImage(event) {
@@ -72,9 +76,15 @@ export function showImage(event) {
   openPopup(popupOverview);
 }
 
+function openformAddCard() {
+  openPopup(popupAddCard);
+  renderBtnInactive(popupAddCard); 
+}
+
+
 buttonTypeEdit.addEventListener("click", openformEditProfile);
 formEditProfile.addEventListener("submit", closeFormEditProfile);
-buttonTypeAdd.addEventListener("click", () => openPopup(popupAddCard));
+buttonTypeAdd.addEventListener("click", () => openformAddCard());
 formAddCard.addEventListener("submit", createСard);
 buttonTypeAvatar.addEventListener("click", openformEditAvatar);
 formEditAvatar.addEventListener("submit", closeFormEditAvatar);

@@ -8,26 +8,24 @@
   border-radius: 50%;
   margin-right: 30px;
   position: relative;
-  /* background-image: url('../../../images/dsli.jpg'); */
 }
 
-.profile__info-avatar:hover { 
+.profile__info-avatar:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.profile__info-avatar:hover::before { 
+.profile__info-avatar:hover::before {
   opacity: 0.8;
 }
 
 .profile__info-avatar::after {
-content: "";
-background: rgb(0, 0, 0);
+  content: "";
+  background: rgb(0, 0, 0);
 }
 
-
 .profile__info-avatar::before {
-  content: '';
+  content: "";
   background-size: 26px 26px;
   background: rgb(0, 0, 0);
   position: absolute;
