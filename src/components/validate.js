@@ -1,6 +1,5 @@
 'use strict';
-import { validationConfig, errorValidationConfig } from './variables.js';
-// enableValidation(validationConfig);
+import { validationConfig, } from './variables.js';
 
 export function enableValidation() {
   const showInputError = (formElement, inputElement, errorMessage) => {
@@ -73,8 +72,7 @@ export function enableValidation() {
 }
 
 export function renderBtnInactive(popup) {
-  const inactiveBtn = popup.querySelector('.button_type_save');
-  inactiveBtn.classList.add('button_inactive');
+  const inactiveBtn = popup.querySelector(validationConfig.submitButtonSelector);
+  inactiveBtn.classList.add(validationConfig.inactiveButtonClass);
   inactiveBtn.setAttribute('disabled', 'disabled');
 } 
-
