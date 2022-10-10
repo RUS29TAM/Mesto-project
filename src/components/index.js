@@ -58,7 +58,7 @@ function createСard(event) {
 
 function openformEditAvatar() {
   openPopup(popupEditAvatar);
-  renderBtnInactive(popupEditAvatar); 
+  renderBtnInactive(popupEditAvatar, validationConfig); 
 }
 function closeFormEditAvatar(evt) {
   evt.preventDefault();
@@ -78,7 +78,7 @@ export function showImage(event) {
 
 function openformAddCard() {
   openPopup(popupAddCard);
-  renderBtnInactive(popupAddCard); 
+  renderBtnInactive(popupAddCard, validationConfig); 
 }
 
 
