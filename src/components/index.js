@@ -1,7 +1,15 @@
 "use strict";
 
 import "../../src/index.css";
-import './api.js';
+// import './api.js';
+//---------------------------------------------------------------------------------------------<<<<<<<
+
+import {
+  getInitialCards,
+  getUserInfo,
+} from "./api.js";
+//---------------------------------------------------------------------------------------------<<<<<<<
+
 import {
   formEditProfile,
   buttonTypeEdit,
@@ -26,12 +34,27 @@ import {
   avatarImage,
   validationConfig,
   formInputTypeAvatar,
+  
 } from "./variables.js";
 import { enableValidation, renderBtnInactive, } from "./validate.js";
 import { getElement } from "./card.js";
 import { openPopup, closePopup } from "./modal.js";
 import "./utils.js";
+//---------------------------------------------------------------------------------------------<<<<<<<
+Promise.all([getUserInfo(), getInitialCards()])
+  .then(([userData, cards]) => {
+    profilTitleFirstname.textContent = userData.name;
+    profilSubtitleProfession.textContent = userData.about;
+    avatarImage.src = userData.avatar;
 
+    cards.reverse().forEach((name) => {
+      getElement(cardsContainer, createСard(name));
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+//---------------------------------------------------------------------------------------------<<<<<<<
 enableValidation(validationConfig);
 
 function openformEditProfile() {
@@ -48,7 +71,7 @@ function closeFormEditProfile(event) {
 }
 
 function createСard(event) {
-  event.preventDefault();
+  // event.preventDefault(); ------------------------------------------------------------------<<<<<<<
   cardsContainer.prepend(
     getElement(formInputTypeTown.value, formInputTypeTownLink.value)
   );
