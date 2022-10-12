@@ -13,9 +13,6 @@ import {
   formAddCard,
   buttonTypeAvatar,
   formEditAvatar,
-  overviewImage,
-  overviewCaption,
-  popupOverview,
   cardsContainer,
   formInputTypeTown,
   formInputTypeTownLink,
@@ -31,25 +28,22 @@ import {
   formInputTypeAvatar,   
 } from "./variables.js";
 import { enableValidation, renderBtnInactive, } from "./validate.js";
-import { getElement, cards, renderElements } from "./card.js";
+import { renderElements, createCard } from "./card.js";
 import { openPopup, closePopup, popupError } from "./modal.js";
 import "./utils.js";
-//---------------------------------------------------------------------------------------------<<<<<<<
 
 Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([profileData, cardsData]) => {
       profile.setProfile(profileData);
       profile.renderProfile();
-        cardsData.forEach(card => cards.push(card));
-        renderElements();        
+        renderElements(cardsData);        
     })
-    .catch(error => console.log(error) /*popupError(error)*/);
+    .catch(error => console.log(error), popupError(error));
 
     export function setProfile(profile) {
       currentVisitor = {...profile};
   }
 
-//---------------------------------------------------------------------------------------------<<<<<<<
 enableValidation(validationConfig);
 
 function openformEditProfile() {
@@ -67,11 +61,13 @@ function closeFormEditProfile(event) {
 
 function createСard(event) {
   event.preventDefault();
-  cardsContainer.prepend(
-    // getElement(formInputTypeTown.value, formInputTypeTownLink.value)
-  );
-  formAddCard.reset();
-  closePopup(popupAddCard); 
+  api.addCard(formInputTypeTown.value, formInputTypeTownLink.value).then(createdCardInfo => {
+    
+    cardsContainer.prepend(createCard(createdCardInfo))
+    formAddCard.reset();
+    closePopup(popupAddCard); 
+  });
+
 }
 
 function openformEditAvatar() {
@@ -85,14 +81,7 @@ function closeFormEditAvatar(evt) {
   formInputTypeAvatar.value = "";
 }
 
-export function showImage(event) {
-  const image = event.target;
-  overviewImage.setAttribute("src", image.src);
-  overviewImage.setAttribute("alt", image.alt);
-  overviewCaption.textContent = image.alt;
 
-  openPopup(popupOverview);
-}
 
 function openformAddCard() {
   openPopup(popupAddCard);

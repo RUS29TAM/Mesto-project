@@ -20,13 +20,14 @@ export function setProfile(profile) {
     currentVisitor = {...profile};
 }
 
-export function checkMeIn(visitors) {
-    return visitors.some(visitor => visitorsIdentical(visitor, currentVisitor));
+export function verifyMe(visitors) {
+    console.log(visitors)
+    return visitors.some(visitor => visitorsIdentical(visitor));
 }
 
-// export function visitorsIdentical(visitor1, visitor2) {
-//     return visitor1._id === visitor2._id;
-// }
+export function visitorsIdentical(visitor1) {
+    return visitor1._id === currentVisitor._id;
+}
 
 export function getProfile() {
     return api.getProfile()

@@ -1,6 +1,8 @@
 'use strict';
 
-import { errorPopup, errorTextElement, buttonElement, } from "./variables.js";
+import { errorPopup, errorTextElement, buttonElement, overviewImage, overviewCaption, popupOverview,} from "./variables.js"; 
+import { deleteCard,} from "./card.js"; 
+
 
 const popupClassOpened = 'popup_opened';
 const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
@@ -30,8 +32,6 @@ popups.forEach((popup) =>
   })
 );
 
-
-
 export const popupError = (errorText) => {
     errorTextElement.textContent = errorText;
     openPopup(errorPopup);
@@ -42,22 +42,32 @@ buttonElement.addEventListener('click', () => {
     closePopup(errorPopup);
 });
 
-let confirmedAction = undefined;
+let affirmed = undefined;
 const formConfirm = document.forms.confirm;
 const confirmPopup = document.querySelector('.popup_confirm');
 
-function doConfirmedAction() {
-    if (confirmedAction && typeof(confirmedAction) == 'function') confirmedAction();
+function makeConfirmed() {
+    if (affirmed && typeof(affirmed) == 'function') affirmed();
 }
 
-formConfirm.addEventListener('submit', doConfirmedAction);
+formConfirm.addEventListener('submit', makeConfirmed);
 
-export const showConfirmActionPopup = (actionAfterConfirm) => {
-    confirmedAction = actionAfterConfirm;
+export const showConfirmPopup = () => {
     openPopup(confirmPopup);
 }
 
 export const closeConfirmPopup = () => {
     closePopup(confirmPopup);
 }
+
+
+export function showImage(event) {
+  const image = event.target;
+  overviewImage.setAttribute("src", image.src);
+  overviewImage.setAttribute("alt", image.alt);
+  overviewCaption.textContent = image.alt;
+
+  openPopup(popupOverview);
+}
+
 
