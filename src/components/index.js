@@ -1,10 +1,8 @@
 "use strict";
 
 import "../../src/index.css";
-//---------------------------------------------------------------------------------------------<<<<<<<
 import * as api from './api';
 import * as profile from './profile.js'
-//---------------------------------------------------------------------------------------------<<<<<<<
 import {
   formEditProfile,
   buttonTypeEdit,
@@ -62,12 +60,10 @@ function closeFormEditProfile(event) {
 function createСard(event) {
   event.preventDefault();
   api.addCard(formInputTypeTown.value, formInputTypeTownLink.value).then(createdCardInfo => {
-    
-    cardsContainer.prepend(createCard(createdCardInfo))
-    formAddCard.reset();
-    closePopup(popupAddCard); 
+  cardsContainer.prepend(createCard(createdCardInfo))
+  formAddCard.reset();
+  closePopup(popupAddCard); 
   });
-
 }
 
 function openformEditAvatar() {
@@ -80,8 +76,6 @@ function closeFormEditAvatar(evt) {
   avatarImage.setAttribute("src", avatarLink.value);
   formInputTypeAvatar.value = "";
 }
-
-
 
 function openformAddCard() {
   openPopup(popupAddCard);
