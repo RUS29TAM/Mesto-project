@@ -1,15 +1,10 @@
 "use strict";
 
 import "../../src/index.css";
-// import './api.js';
 //---------------------------------------------------------------------------------------------<<<<<<<
-
-import {
-  getInitialCards,
-  getUserInfo,
-} from "./api.js";
+import * as api from './api';
+import * as profile from './profile.js'
 //---------------------------------------------------------------------------------------------<<<<<<<
-
 import {
   formEditProfile,
   buttonTypeEdit,
@@ -33,27 +28,27 @@ import {
   avatarLink,
   avatarImage,
   validationConfig,
-  formInputTypeAvatar,
-  
+  formInputTypeAvatar,   
 } from "./variables.js";
 import { enableValidation, renderBtnInactive, } from "./validate.js";
-import { getElement } from "./card.js";
-import { openPopup, closePopup } from "./modal.js";
+import { getElement, cards, renderElements } from "./card.js";
+import { openPopup, closePopup, popupError } from "./modal.js";
 import "./utils.js";
 //---------------------------------------------------------------------------------------------<<<<<<<
-Promise.all([getUserInfo(), getInitialCards()])
-  .then(([userData, cards]) => {
-    profilTitleFirstname.textContent = userData.name;
-    profilSubtitleProfession.textContent = userData.about;
-    avatarImage.src = userData.avatar;
 
-    cards.reverse().forEach((name) => {
-      getElement(cardsContainer, createСard(name));
-    });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+Promise.all([api.getProfile(), api.getInitialCards()])
+    .then(([profileData, cardsData]) => {
+      profile.setProfile(profileData);
+      profile.renderProfile();
+        cardsData.forEach(card => cards.push(card));
+        renderElements();        
+    })
+    .catch(error => console.log(error) /*popupError(error)*/);
+
+    export function setProfile(profile) {
+      currentVisitor = {...profile};
+  }
+
 //---------------------------------------------------------------------------------------------<<<<<<<
 enableValidation(validationConfig);
 
@@ -71,9 +66,9 @@ function closeFormEditProfile(event) {
 }
 
 function createСard(event) {
-  // event.preventDefault(); ------------------------------------------------------------------<<<<<<<
+  event.preventDefault();
   cardsContainer.prepend(
-    getElement(formInputTypeTown.value, formInputTypeTownLink.value)
+    // getElement(formInputTypeTown.value, formInputTypeTownLink.value)
   );
   formAddCard.reset();
   closePopup(popupAddCard); 

@@ -1,5 +1,7 @@
 'use strict';
 
+import { errorPopup, errorTextElement, buttonElement, } from "./variables.js";
+
 const popupClassOpened = 'popup_opened';
 const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
 
@@ -27,3 +29,35 @@ popups.forEach((popup) =>
     }
   })
 );
+
+
+
+export const popupError = (errorText) => {
+    errorTextElement.textContent = errorText;
+    openPopup(errorPopup);
+}
+
+buttonElement.addEventListener('click', () => {
+    errorTextElement.textContent = '';
+    closePopup(errorPopup);
+});
+
+let confirmedAction = undefined;
+const formConfirm = document.forms.confirm;
+const confirmPopup = document.querySelector('.popup_confirm');
+
+function doConfirmedAction() {
+    if (confirmedAction && typeof(confirmedAction) == 'function') confirmedAction();
+}
+
+formConfirm.addEventListener('submit', doConfirmedAction);
+
+export const showConfirmActionPopup = (actionAfterConfirm) => {
+    confirmedAction = actionAfterConfirm;
+    openPopup(confirmPopup);
+}
+
+export const closeConfirmPopup = () => {
+    closePopup(confirmPopup);
+}
+

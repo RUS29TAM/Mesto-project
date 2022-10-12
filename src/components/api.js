@@ -1,33 +1,60 @@
 "use strict";
 
-const config = {
-  baseUrl: "https://nomoreparties.co/v1/plus-cohort-15",
-  headers: {
-    authorization: "0d4fb9d5-dd34-405c-82ac-856c24d548a6",
-    "Content-Type": "application/json",
-  },
-};
+const COHORTID = 'plus-cohort-15';
+const COHORTTOKEN = '0d4fb9d5-dd34-405c-82ac-856c24d548a6';
 
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
+export const config = {
+    baseUrl: `https://nomoreparties.co/v1/${COHORTID}`,
+    headers: {
+      authorization: COHORTTOKEN,
+      'Content-Type': 'application/json',
+    }
+}
+
+export const checkRes = (request, method = 'GET', body = '') => {
+    
+  const setting = {
+      'method': method,
+      'headers': config.headers,
   }
-  // если ошибка, отклоняем промис
-  return Promise.reject(`Error: ${res.status}`);
-};
+  
+  if (method != 'GET' && body) setting.body = JSON.stringify(body);
 
-function request(url, options) {
-  return fetch(url, options).then(checkResponse);
+  return fetch(`${config.baseUrl}/${request}`, setting)
+      .then(res => {
+          if (res.ok) return res.json();
+          return Promise.reject(res);
+      });
 }
 
 export const getInitialCards = () => {
-  return request(`${config.baseUrl}/cards`, {
-    headers: config.headers,
-  });
-};
+  return checkRes('cards');
+}
 
-export const getUserInfo = () => {
-  return request(`${config.baseUrl}/users/me`, {
-    headers: config.headers,
-  });
-};
+export const getProfile = () => {
+  return checkRes('users/me');
+}
+
+export const updateProfile = (name, about) => {
+  return checkRes('users/me', 'PATCH', {name, about});
+}
+
+export const addLike = (cardID) => {
+  return checkRes(`cards/likes/${cardID}`, 'PUT');
+}
+
+export const removeLike = (cardID) => {
+  return checkRes(`cards/likes/${cardID}`, 'DELETE');
+}
+
+export const deleteCard = (cardID) => {
+  return checkRes(`cards/${cardID}`, 'DELETE');
+}
+
+export const addCard = (cardName, cardImageUrl) => {
+  return checkRes(`cards/`, 'POST', {name: cardName, link: cardImageUrl});
+}
+
+export const updateAvatar = (avatarUrl) => {
+  return checkRes('users/me/avatar', 'PATCH', {avatar: avatarUrl});
+}
