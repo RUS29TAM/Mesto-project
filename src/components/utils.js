@@ -8,3 +8,7 @@ buttonTypeCloseList.forEach((buttonTypeCloseList) => {
   const popup = buttonTypeCloseList.closest('.popup');
   buttonTypeCloseList.addEventListener('click', () => closePopup(popup));
 });
+
+export function setBtnText(button,text){
+  button.textContent = text;
+}
