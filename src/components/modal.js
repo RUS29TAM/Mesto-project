@@ -1,45 +1,81 @@
-'use strict';
+"use strict";
 
-import { errorPopup, errorTextElement, buttonElement, overviewImage, overviewCaption, popupOverview,} from "./variables.js"; 
+import {
+  errorPopup,
+  errorTextElement,
+  buttonElement,
+  overviewImage,
+  overviewCaption,
+  popupOverview,
+} from "./variables.js";
 
-const popupClassOpened = 'popup_opened';
+const popupClassOpened = "popup_opened";
 const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
 
 export function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupClickEscape);
+  popup.classList.add("popup_opened");
+  document.addEventListener("keydown", closePopupClickEscape);
 }
 
 export function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupClickEscape);
+  popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupClickEscape);
 }
 
 function closePopupClickEscape(event) {
-  if (event.key === 'Escape') {
+  if (event.key === "Escape") {
     closePopup(getActivePopup());
   }
 }
 
-const popups = [...document.querySelectorAll('.popup')];
+const popups = [...document.querySelectorAll(".popup")];
 popups.forEach((popup) =>
-  popup.addEventListener('mousedown', (evtent) => {
-    if (evtent.target.classList.contains('popup')) {
+  popup.addEventListener("mousedown", (evtent) => {
+    if (evtent.target.classList.contains("popup")) {
       closePopup(popup);
     }
   })
 );
 
 export const popupError = (errorText) => {
-    errorTextElement.textContent = errorText;
-    openPopup(errorPopup);
-}
+  errorTextElement.textContent = errorText;
+  openPopup(errorPopup);
+};
 
-buttonElement.addEventListener('click', () => {
-    errorTextElement.textContent = '';
-    closePopup(errorPopup);
+buttonElement.addEventListener("click", () => {
+  errorTextElement.textContent = "";
+  closePopup(errorPopup);
 });
 
+export function showImage(event) {
+  const image = event.target;
+  overviewImage.setAttribute("src", image.src);
+  overviewImage.setAttribute("alt", image.alt);
+  overviewCaption.textContent = image.alt;
+
+  openPopup(popupOverview);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//                                          Планирую доделать, комментарий решил пока не удалять.
 // let affirmed = undefined;
 // const formConfirm = document.forms.confirm;
 // const confirmPopup = document.querySelector('.popup_confirm');
@@ -58,15 +94,5 @@ buttonElement.addEventListener('click', () => {
 // export const closeConfirmPopup = () => {
 //     closePopup(confirmPopup);
 // }
-
-
-export function showImage(event) {
-  const image = event.target;
-  overviewImage.setAttribute("src", image.src);
-  overviewImage.setAttribute("alt", image.alt);
-  overviewCaption.textContent = image.alt;
-
-  openPopup(popupOverview);
-}
 
 

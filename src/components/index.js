@@ -1,8 +1,8 @@
 "use strict";
 
 import "../../src/index.css";
-import * as api from './api';
-import * as profile from './profile.js'
+import * as api from "./api";
+import * as profile from "./profile.js";
 import {
   formEditProfile,
   buttonTypeEdit,
@@ -24,68 +24,117 @@ import {
   avatarImage,
   validationConfig,
   formInputTypeAvatar,
+  buttonElement,
+  submitCardBtn,
+  submitAvatarBtn,
 } from "./variables.js";
-import { enableValidation, renderBtnInactive, } from "./validate.js";
+import { enableValidation, renderBtnInactive } from "./validate.js";
 import { renderElements, createCard } from "./card.js";
 import { openPopup, closePopup, popupError } from "./modal.js";
-import "./utils.js";
+import * as utils from "./utils.js";
 
 Promise.all([api.getProfile(), api.getInitialCards()])
-    .then(([profileData, cardsData]) => {
-      profile.setProfile(profileData);
-      profile.renderProfile();
-        renderElements(cardsData);        
-    })
-    .catch(error =>  popupError(error));   /*    console.log(error),    */
+  .then(([profileData, cardsData]) => {
+    profile.setProfile(profileData);
+    profile.renderProfile();
+    renderElements(cardsData);
+  })
+  .catch((error) => popupError(error));
 
-    export function setProfile(profile) {
-      currentVisitor = {...profile};
-  }
+export function setProfile(profile) {
+  currentVisitor = { ...profile };
+}
 
 enableValidation(validationConfig);
 
+export function getProfileSettings() {
+  return {
+    name: profilTitleFirstname.textContent,
+    about: profilSubtitleProfession.textContent,
+  };
+}
+
 function openformEditProfile() {
-  formInputTypeFirstname.value = profilTitleFirstname.textContent;
-  formInputTypeProfession.value = profilSubtitleProfession.textContent;
-  openPopup(popupEditProfile);  
+  const profile = getProfileSettings();
+  formInputTypeFirstname.value = profile["name"];
+  formInputTypeProfession.value = profile["about"];
+
+  openPopup(popupEditProfile);
 }
 
 function closeFormEditProfile(event) {
   event.preventDefault();
-  profilTitleFirstname.textContent = formInputTypeFirstname.value;
-  profilSubtitleProfession.textContent = formInputTypeProfession.value;
-  closePopup(popupEditProfile);
+  let name = formInputTypeFirstname.value;
+  let about = formInputTypeProfession.value;
+  utils.setBtnText(buttonElement, "Идет сохранение...");
+  api
+    .updateProfile(name, about)
+    .then((updateProfileInfo) => {
+      utils.setBtnText(buttonElement, "Успешно");
+      setTimeout(() => {
+        event.target.reset();
+        profile.setProfile(updateProfileInfo);
+        closePopup(popupEditProfile);
+      }, 500);
+    })
+    .catch((error) => console.log(error))
+    .finally(() => {
+      setTimeout(() => utils.setBtnText(buttonElement, "Сохранить"), 500);
+    });
 }
 
 function createСard(event) {
   event.preventDefault();
-  api.addCard(formInputTypeTown.value, formInputTypeTownLink.value).then(createdCardInfo => {
-  cardsContainer.prepend(createCard(createdCardInfo))
-  formAddCard.reset();
-  closePopup(popupAddCard); 
-  }).catch((error) => popupError(error));
+  const name = formInputTypeTown.value;
+  const link = formInputTypeTownLink.value;
+  utils.setBtnText(submitCardBtn, "Идет сохранение");
+
+  api
+    .addCard(name, link)
+    .then((createdCardInfo) => {
+      utils.setBtnText(submitCardBtn, "Успешно");
+      setTimeout(() => {
+        event.target.reset();
+        cardsContainer.prepend(createCard(createdCardInfo));
+        closePopup(popupAddCard);
+      }, 500);
+    })
+    .catch((error) => popupError(error))
+    .finally(() => {
+      setTimeout(() => utils.setBtnText(submitCardBtn, "Сохранить"), 500);
+    });
 }
 
 function openformEditAvatar() {
   openPopup(popupEditAvatar);
-  renderBtnInactive(popupEditAvatar, validationConfig); 
+  renderBtnInactive(popupEditAvatar, validationConfig);
 }
-function closeFormEditAvatar(evt) {
-  evt.preventDefault();
+function closeFormEditAvatar(event) {
+  event.preventDefault();
   closePopup(popupEditAvatar);
   avatarImage.setAttribute("src", avatarLink.value);
-  
 
-  api.updateAvatar(avatarLink.value)
-  .then(updateProfile => { 
-    avatarImage.setAttribute("src", updateProfile.avatar);
-    formInputTypeAvatar.value = '';
-  }).catch((error) => popupError(error))
+  utils.setBtnText(submitAvatarBtn, "Идет сохранение...");
+  api
+    .updateAvatar(avatarLink.value)
+    .then((updateProfile) => {
+      utils.setBtnText(submitAvatarBtn, "Успешно");
+      setTimeout(() => {
+        event.target.reset();
+        profile.setProfile(updateProfile);
+        avatarImage.setAttribute("src", updateProfile.avatar);
+        formInputTypeAvatar.value = "";
+      }, 500);
+    })
+    .catch((error) => popupError(error))
+    .finally(() => {
+      setTimeout(() => utils.setBtnText(submitAvatarBtn, "Сохранить"), 500);
+    });
 }
 
 function openformAddCard() {
   openPopup(popupAddCard);
-  renderBtnInactive(popupAddCard, validationConfig); 
+  renderBtnInactive(popupAddCard, validationConfig);
 }
 
 buttonTypeEdit.addEventListener("click", openformEditProfile);

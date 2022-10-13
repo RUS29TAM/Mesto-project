@@ -1,45 +1,45 @@
-import * as api from './api';
+import * as api from "./api";
 
 import {
-
-    profilTitleFirstname,
-    profilSubtitleProfession,
-    avatarImage,  
-    
-  } from "./variables.js";
+  profilTitleFirstname,
+  profilSubtitleProfession,
+  avatarImage,
+} from "./variables.js";
 
 export let currentVisitor = {
-    name: '',
-    about: '',
-    avatar: '',
-    _id: '',
-    cohort: '',
-}
+  name: "",
+  about: "",
+  avatar: "",
+  _id: "",
+  cohort: "",
+};
 
 export function setProfile(profile) {
-    currentVisitor = {...profile};
+  currentVisitor = { ...profile };
+  renderProfile();
+  return currentVisitor;
 }
 
 export function verifyMe(visitors) {
-    console.log(visitors)
-    return visitors.some(visitor => visitorsIdentical(visitor));
+  return visitors.some((visitor) => visitorsIdentical(visitor));
 }
 
 export function visitorsIdentical(visitor1) {
-    return visitor1._id === currentVisitor._id;
+  return visitor1._id === currentVisitor._id;
 }
 
 export function getProfile() {
-    return api.getProfile()
-        .then(profile => {
-            setProfile(profile);
-            renderProfile();
-        })
-        .catch();
+  return api
+    .getProfile()
+    .then((profile) => {
+      setProfile(profile);
+      renderProfile();
+    })
+    .catch();
 }
 
 export function renderProfile() {
   profilTitleFirstname.textContent = currentVisitor.name;
   profilSubtitleProfession.textContent = currentVisitor.about;
-  avatarImage.setAttribute('src', currentVisitor.avatar);
+  avatarImage.setAttribute("src", currentVisitor.avatar);
 }

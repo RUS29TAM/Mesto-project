@@ -32,6 +32,9 @@ export const cardsContainer = document.querySelector('.elements');
 export const errorPopup = document.querySelector('.popup_error');
 export const errorTextElement = errorPopup.querySelector('.form__title');
 
+export const submitCardBtn = document.querySelector('#submit-card');
+export const submitAvatarBtn = document.querySelector('#submit-avatar');
+
 export const validationConfig = {
     formSelector: '.popup__box',
     inputSelector: '.form__input',
