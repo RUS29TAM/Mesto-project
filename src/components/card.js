@@ -1,6 +1,6 @@
 'use strict';
 
-import {  selectorCardSettings, cardSettingsElement, } from './variables.js';
+import {  selectorCardSettings, cardsContainer } from './variables.js';
 import { showConfirmPopup, closeConfirmPopup, showImage  } from './modal.js';
 
 import * as profile from './profile.js'
@@ -38,18 +38,19 @@ const cardLikesCount = currentCard .querySelector(selectorCardSettings.likesCoun
             .catch((error) => popupError(error));
     });
 
-const cardDeleteButton = currentCard .querySelector(selectorCardSettings.deleteButton);
+const cardDeleteButton = currentCard.querySelector(selectorCardSettings.deleteButton);
     
     if (!profile.visitorsIdentical(card.owner, profile.currentVisitor)) {
         cardDeleteButton.remove();
     } else {
-        const cardNode = currentCard .querySelector(selectorCardSettings.element);
-        cardDeleteButton.addEventListener('click', () => showConfirmPopup(() => {
-            removeCard(card._id, cardNode)
-                .then(() => {
-                    closeConfirmPopup();
-                });
-        }));
+        const cardNode = currentCard.querySelector(selectorCardSettings.element);
+        cardDeleteButton.addEventListener('click', () => deleteCard(card._id, cardNode))
+        // cardDeleteButton.addEventListener('click', () => showConfirmPopup(() => {
+        //   deleteCard(card._id, cardNode)
+        //         .then(() => {
+        //             closeConfirmPopup();
+        //         });
+        // }));
     }
     return currentCard ;
 }
@@ -62,7 +63,7 @@ const deleteCard = (cardID, cardNode) => {
 
 export const renderElement = (currentCard , toBeginning = true) => {
   
-  toBeginning ? cardSettingsElement.container.prepend(currentCard ) : cardSettingsElement.container.append(currentCard );
+  toBeginning ? cardsContainer.prepend(currentCard) : cardsContainer.append(currentCard);
   
 }
 

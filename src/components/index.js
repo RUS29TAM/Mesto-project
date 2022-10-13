@@ -23,7 +23,7 @@ import {
   avatarLink,
   avatarImage,
   validationConfig,
-  formInputTypeAvatar,   
+  formInputTypeAvatar,
 } from "./variables.js";
 import { enableValidation, renderBtnInactive, } from "./validate.js";
 import { renderElements, createCard } from "./card.js";
@@ -36,7 +36,7 @@ Promise.all([api.getProfile(), api.getInitialCards()])
       profile.renderProfile();
         renderElements(cardsData);        
     })
-    .catch(error => console.log(error), popupError(error));
+    .catch(error =>  popupError(error));   /*    console.log(error),    */
 
     export function setProfile(profile) {
       currentVisitor = {...profile};
@@ -81,7 +81,6 @@ function openformAddCard() {
   openPopup(popupAddCard);
   renderBtnInactive(popupAddCard, validationConfig); 
 }
-
 
 buttonTypeEdit.addEventListener("click", openformEditProfile);
 formEditProfile.addEventListener("submit", closeFormEditProfile);

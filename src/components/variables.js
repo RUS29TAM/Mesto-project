@@ -52,9 +52,5 @@ export const selectorCardSettings = {
     likesCount:'.element__like-count',
 }
 
-export const cardSettingsElement = {
-  container: document.querySelector(selectorCardSettings.container)
-}
-
 
 

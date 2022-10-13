@@ -1,8 +1,6 @@
 'use strict';
 
 import { errorPopup, errorTextElement, buttonElement, overviewImage, overviewCaption, popupOverview,} from "./variables.js"; 
-import { deleteCard,} from "./card.js"; 
-
 
 const popupClassOpened = 'popup_opened';
 const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
@@ -42,23 +40,24 @@ buttonElement.addEventListener('click', () => {
     closePopup(errorPopup);
 });
 
-let affirmed = undefined;
-const formConfirm = document.forms.confirm;
-const confirmPopup = document.querySelector('.popup_confirm');
+// let affirmed = undefined;
+// const formConfirm = document.forms.confirm;
+// const confirmPopup = document.querySelector('.popup_confirm');
 
-function makeConfirmed() {
-    if (affirmed && typeof(affirmed) == 'function') affirmed();
-}
+// function makeConfirmed() {
+//     if (affirmed && typeof(affirmed) == 'function') affirmed();
+// }
 
-formConfirm.addEventListener('submit', makeConfirmed);
+// formConfirm.addEventListener('submit', makeConfirmed);
 
-export const showConfirmPopup = () => {
-    openPopup(confirmPopup);
-}
+// export const showConfirmPopup = (after) => {
+//   affirmed = after;
+//     openPopup(confirmPopup);
+// }
 
-export const closeConfirmPopup = () => {
-    closePopup(confirmPopup);
-}
+// export const closeConfirmPopup = () => {
+//     closePopup(confirmPopup);
+// }
 
 
 export function showImage(event) {
