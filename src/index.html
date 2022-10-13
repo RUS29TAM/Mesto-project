@@ -50,10 +50,10 @@
       <p class='footer__copyright'>&copy; 2022 Rustam Nikonchuk</p>
     </footer>
 
-    <!--POPUP EDIT FORM-->
+    <!--POPUP EDIT PROFILE FORM-->
     <div class='popup popup_edit-profile'>
       <div class='popup__box'>
-        <form class='form form_edit-profile' name='profile' method='post' novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method='post'-->
+        <form class='form form_edit-profile' id="userProfile" name='userProfile' novalidate> <!--Fixed a bug in the variable name (author -> profile) + add method='post'-->
           <h3 class='form__title'>Редактировать профиль</h3>
           <!-- <fieldset class='form__set'> -->
           <input
@@ -133,10 +133,53 @@
       </div>
     </div>
 
+    <!--ERROR-->
+    <div class='popup popup_error'>
+      <div class='popup__box'>
+        <form class='form form_error' name='error' id="error"> 
+          <h3 class='form__title'>Error</h3>
+          <button
+            type='button'
+            class='button button_type_close'
+            aria-label='закрыть'
+          ></button>
+          <button
+            type='submit'
+            class='button button_type_save'
+            aria-label='сохранить'
+          >
+            Закрыть
+          </button>
+        </form>
+      </div>
+    </div>
+
+        <!--CONFIRM -->
+        <div class='popup popup_confirm'>
+          <div class='popup__box'>
+            <form class='form form_confirm' action="submit" id="confirm" name="confirm" id="confirm"> 
+              <h3 class='form__title'>Are you sure?</h3>
+              <button
+                type='button'
+                class='button button_type_close'
+                aria-label='закрыть'
+              ></button>
+              <button
+                type='submit'
+                class='button button_type_save'
+                aria-label='сохранить'
+              >
+              Да
+              </button>
+            </form>
+          </div>
+        </div>
+    
+
     <!--POPUP ADD TOWN-->
     <div class='popup popup_add-elements'>
       <div class='popup__box'>
-        <form class='form form_add-elements' name='card' method='post' novalidate> 
+        <form class='form form_add-elements' id="newCard" name='newCard' method='post' novalidate> 
           <h3 class='form__title'>Новое место</h3>
           <label class="form__label">
           <input

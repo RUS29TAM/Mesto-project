@@ -29,6 +29,9 @@ export const buttonTypeAdd = document.querySelector('.button_type_add');
 export const templateCard = document.querySelector('template');
 export const cardsContainer = document.querySelector('.elements');
 
+export const errorPopup = document.querySelector('.popup_error');
+export const errorTextElement = errorPopup.querySelector('.form__title');
+
 export const validationConfig = {
     formSelector: '.popup__box',
     inputSelector: '.form__input',
@@ -37,3 +40,17 @@ export const validationConfig = {
     inputErrorClass: 'form__input-error',
     errorClass: 'form__input-error_active',
   }
+
+export const selectorCardSettings = {
+    template:'#template__element',
+    container: '.elements',
+    element:'.elements__element',
+    image:'.elements__foto',
+    title:'.elements__title',
+    likeButton:'.button_type_like',
+    deleteButton:'.button_type_delete-element',
+    likesCount:'.element__like-count',
+}
+
+
+

@@ -1,5 +1,7 @@
 'use strict';
 
+import { errorPopup, errorTextElement, buttonElement, overviewImage, overviewCaption, popupOverview,} from "./variables.js"; 
+
 const popupClassOpened = 'popup_opened';
 const getActivePopup = () => document.querySelector(`.${popupClassOpened}`);
 
@@ -27,3 +29,44 @@ popups.forEach((popup) =>
     }
   })
 );
+
+export const popupError = (errorText) => {
+    errorTextElement.textContent = errorText;
+    openPopup(errorPopup);
+}
+
+buttonElement.addEventListener('click', () => {
+    errorTextElement.textContent = '';
+    closePopup(errorPopup);
+});
+
+// let affirmed = undefined;
+// const formConfirm = document.forms.confirm;
+// const confirmPopup = document.querySelector('.popup_confirm');
+
+// function makeConfirmed() {
+//     if (affirmed && typeof(affirmed) == 'function') affirmed();
+// }
+
+// formConfirm.addEventListener('submit', makeConfirmed);
+
+// export const showConfirmPopup = (after) => {
+//   affirmed = after;
+//     openPopup(confirmPopup);
+// }
+
+// export const closeConfirmPopup = () => {
+//     closePopup(confirmPopup);
+// }
+
+
+export function showImage(event) {
+  const image = event.target;
+  overviewImage.setAttribute("src", image.src);
+  overviewImage.setAttribute("alt", image.alt);
+  overviewCaption.textContent = image.alt;
+
+  openPopup(popupOverview);
+}
+
+

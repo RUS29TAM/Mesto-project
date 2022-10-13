@@ -1,7 +1,8 @@
 "use strict";
 
 import "../../src/index.css";
-import './api.js';
+import * as api from './api';
+import * as profile from './profile.js'
 import {
   formEditProfile,
   buttonTypeEdit,
@@ -10,9 +11,6 @@ import {
   formAddCard,
   buttonTypeAvatar,
   formEditAvatar,
-  overviewImage,
-  overviewCaption,
-  popupOverview,
   cardsContainer,
   formInputTypeTown,
   formInputTypeTownLink,
@@ -28,9 +26,21 @@ import {
   formInputTypeAvatar,
 } from "./variables.js";
 import { enableValidation, renderBtnInactive, } from "./validate.js";
-import { getElement } from "./card.js";
-import { openPopup, closePopup } from "./modal.js";
+import { renderElements, createCard } from "./card.js";
+import { openPopup, closePopup, popupError } from "./modal.js";
 import "./utils.js";
+
+Promise.all([api.getProfile(), api.getInitialCards()])
+    .then(([profileData, cardsData]) => {
+      profile.setProfile(profileData);
+      profile.renderProfile();
+        renderElements(cardsData);        
+    })
+    .catch(error =>  popupError(error));   /*    console.log(error),    */
+
+    export function setProfile(profile) {
+      currentVisitor = {...profile};
+  }
 
 enableValidation(validationConfig);
 
@@ -49,11 +59,11 @@ function closeFormEditProfile(event) {
 
 function createСard(event) {
   event.preventDefault();
-  cardsContainer.prepend(
-    getElement(formInputTypeTown.value, formInputTypeTownLink.value)
-  );
+  api.addCard(formInputTypeTown.value, formInputTypeTownLink.value).then(createdCardInfo => {
+  cardsContainer.prepend(createCard(createdCardInfo))
   formAddCard.reset();
   closePopup(popupAddCard); 
+  });
 }
 
 function openformEditAvatar() {
@@ -67,20 +77,10 @@ function closeFormEditAvatar(evt) {
   formInputTypeAvatar.value = "";
 }
 
-export function showImage(event) {
-  const image = event.target;
-  overviewImage.setAttribute("src", image.src);
-  overviewImage.setAttribute("alt", image.alt);
-  overviewCaption.textContent = image.alt;
-
-  openPopup(popupOverview);
-}
-
 function openformAddCard() {
   openPopup(popupAddCard);
   renderBtnInactive(popupAddCard, validationConfig); 
 }
-
 
 buttonTypeEdit.addEventListener("click", openformEditProfile);
 formEditProfile.addEventListener("submit", closeFormEditProfile);
