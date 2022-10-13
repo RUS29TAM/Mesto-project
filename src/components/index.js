@@ -63,7 +63,7 @@ function createСard(event) {
   cardsContainer.prepend(createCard(createdCardInfo))
   formAddCard.reset();
   closePopup(popupAddCard); 
-  });
+  }).catch((error) => popupError(error));
 }
 
 function openformEditAvatar() {
@@ -74,7 +74,13 @@ function closeFormEditAvatar(evt) {
   evt.preventDefault();
   closePopup(popupEditAvatar);
   avatarImage.setAttribute("src", avatarLink.value);
-  formInputTypeAvatar.value = "";
+  
+
+  api.updateAvatar(avatarLink.value)
+  .then(updateProfile => { 
+    avatarImage.setAttribute("src", updateProfile.avatar);
+    formInputTypeAvatar.value = '';
+  }).catch((error) => popupError(error))
 }
 
 function openformAddCard() {

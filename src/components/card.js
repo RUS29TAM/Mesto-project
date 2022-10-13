@@ -25,26 +25,17 @@ export const createCard = (card) => {
   }
 
 
-const cardLikesCount = currentCard .querySelector(selectorCardSettings.likesCount);
-    cardLikesCount.textContent = card.likes.length;
-    
-    cardLikeButton.addEventListener('click', () => {
-        const updatedCard = cardLikeButton.classList.contains('button_type_like_on') ? api.removeLike(card._id) : api.addLike(card._id);
-        updatedCard
-            .then(updatedCardData => {
-            cardLikesCount.textContent = updatedCardData.likes.length
-            cardLikeButton.classList.toggle('button_type_like_on')
-            })
-            .catch((error) => popupError(error));
-    });
+  const cardLikesCount = currentCard .querySelector(selectorCardSettings.likesCount);
+  cardLikesCount.textContent = card.likes.length;
+  cardLikeButton.addEventListener('click', (evt) => clickLikeBtn(card._id, evt, cardLikesCount)); 
 
-const cardDeleteButton = currentCard.querySelector(selectorCardSettings.deleteButton);
+  const cardDeleteButton = currentCard.querySelector(selectorCardSettings.deleteButton);
     
     if (!profile.visitorsIdentical(card.owner, profile.currentVisitor)) {
         cardDeleteButton.remove();
     } else {
         const cardNode = currentCard.querySelector(selectorCardSettings.element);
-        cardDeleteButton.addEventListener('click', () => deleteCard(card._id, cardNode))
+        cardDeleteButton.addEventListener('click', () => clickRemoveBtn(card._id, cardNode))
         // cardDeleteButton.addEventListener('click', () => showConfirmPopup(() => {
         //   deleteCard(card._id, cardNode)
         //         .then(() => {
@@ -55,10 +46,27 @@ const cardDeleteButton = currentCard.querySelector(selectorCardSettings.deleteBu
     return currentCard ;
 }
 
-const deleteCard = (cardID, cardNode) => {
-  return api.deleteCard(cardID)
-  .then(()=> cardNode.remove())
+
+const clickRemoveBtn = (cardID, cardNode) => {
+ return api.deleteCard(cardID)
+  .then(()=> deleteCard(cardNode))
   .catch((error) => popupError(error));
+}
+
+const clickLikeBtn = (cardID, evt, cardLikesCountElement) => {
+  const clickElement = evt.target;
+  const updatedCard = clickElement.classList.contains('button_type_like_on') ? api.removeLike(cardID) : api.addLike(cardID);
+  updatedCard
+      .then(updatedCardData => {
+      cardLikesCountElement.textContent = updatedCardData.likes.length
+      clickElement.classList.toggle('button_type_like_on')
+      })
+      .catch((error) => popupError(error));
+}
+
+
+const deleteCard = (cardNode) => {
+  cardNode.remove();
 } 
 
 export const renderElement = (currentCard , toBeginning = true) => {

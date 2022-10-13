@@ -23,7 +23,7 @@ function closePopupClickEscape(event) {
 
 const popups = [...document.querySelectorAll('.popup')];
 popups.forEach((popup) =>
-  popup.addEventListener('click', (evtent) => {
+  popup.addEventListener('mousedown', (evtent) => {
     if (evtent.target.classList.contains('popup')) {
       closePopup(popup);
     }
