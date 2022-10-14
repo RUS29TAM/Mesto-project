@@ -1,7 +1,7 @@
 "use strict";
 
 import { selectorCardSettings, cardsContainer } from "./variables.js";
-import { showImage } from "./modal.js";
+import {popupError, showImage} from "./modal.js";
 import * as profile from "./profile.js";
 import * as api from "./api";
 
