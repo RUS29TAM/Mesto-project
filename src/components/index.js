@@ -62,10 +62,10 @@ function openformEditProfile() {
   openPopup(popupEditProfile);
 }
 
-function closeFormEditProfile(event) {
+function submitProfileForm(event) {
   event.preventDefault();
-  let name = formInputTypeFirstname.value;
-  let about = formInputTypeProfession.value;
+  const name = formInputTypeFirstname.value;
+  const about = formInputTypeProfession.value;
   utils.setBtnText(buttonElement, "Идет сохранение...");
   api
     .updateProfile(name, about)
@@ -109,7 +109,7 @@ function openformEditAvatar() {
   openPopup(popupEditAvatar);
   renderBtnInactive(popupEditAvatar, validationConfig);
 }
-function closeFormEditAvatar(event) {
+function submitFormEditAvatar(event) {
   event.preventDefault();
   closePopup(popupEditAvatar);
   avatarImage.setAttribute("src", avatarLink.value);
@@ -138,8 +138,8 @@ function openformAddCard() {
 }
 
 buttonTypeEdit.addEventListener("click", openformEditProfile);
-formEditProfile.addEventListener("submit", closeFormEditProfile);
+formEditProfile.addEventListener("submit", submitProfileForm);
 buttonTypeAdd.addEventListener("click", () => openformAddCard());
 formAddCard.addEventListener("submit", createСard);
 buttonTypeAvatar.addEventListener("click", openformEditAvatar);
-formEditAvatar.addEventListener("submit", closeFormEditAvatar);
+formEditAvatar.addEventListener("submit", submitFormEditAvatar);
