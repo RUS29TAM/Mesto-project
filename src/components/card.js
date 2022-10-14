@@ -63,6 +63,10 @@ const clickRemoveBtn = (cardID, cardNode) => {
     .catch((error) => popupError(error));
 };
 
+const likeCard = (cardLikesCountElement, likeElement, likeArray) => {
+  cardLikesCountElement.textContent = likeArray.length;
+  likeElement.classList.toggle("button_type_like_on");
+}
 const clickLikeBtn = (cardID, evt, cardLikesCountElement) => {
   const clickElement = evt.target;
   const updatedCard = clickElement.classList.contains("button_type_like_on")
@@ -70,8 +74,7 @@ const clickLikeBtn = (cardID, evt, cardLikesCountElement) => {
     : api.addLike(cardID);
   updatedCard
     .then((updatedCardData) => {
-      cardLikesCountElement.textContent = updatedCardData.likes.length;
-      clickElement.classList.toggle("button_type_like_on");
+      likeCard(cardLikesCountElement, clickElement, updatedCardData.likes)
     })
     .catch((error) => popupError(error));
 };
